@@ -1,0 +1,207 @@
+
+
+#main{  
+  
+ background-color:#202d3a;
+ background-size: cover;
+}
+
+
+a{
+	color:black;
+}
+
+.panel{
+		background-color:rgba(255,255,255,1);
+        
+		border:none;
+	}
+
+
+label.myLabel input[type="file"] {
+    position: fixed;
+    top: -1000px;
+}
+
+
+.myLabel {
+    border: 4px solid #AAA;
+    border-radius: 4px;
+    padding: 2px 5px;
+    margin: 2px;
+   
+	background-color: black;
+    display: inline-block;
+}
+.myLabel:hover {
+     background: #DDD;
+	  cursor:pointer;
+}
+.myLabel:active {
+    background: #CCF;
+	
+}
+.myLabel :invalid + span {
+    color: #A44;
+}
+.myLabel :valid + span {
+    color: #4A4;
+}	  
+	
+	
+
+
+
+			
+			
+		
+.chat
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.chat li
+{
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px dotted #B3A9A9;
+}
+
+.chat li.left .chat-body
+{
+    margin-left: 60px;
+}
+
+.chat li.right .chat-body
+{
+    margin-right: 60px;
+}
+
+
+.chat li .chat-body p
+{
+    margin: 0;
+   
+}
+		
+.comment_slam{
+     background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    
+    
+    
+}	
+		
+blockquote{font-family: ubuntu;
+    font-style: italic;
+           color:#2c3e50;}			
+
+#main .panel-heading {
+    padding:0.01em 0.3em;
+}
+#main .panel-body {
+    padding-bottom: 0.00em;
+    padding-left: 0.15em;
+    padding-right: 0.15em;
+    padding-top:0.3em;
+    
+}
+#main .img-thumbnail {
+   
+    padding-left: 0em;
+    padding-right: 0em;
+    padding-bottom: 0em;
+    
+}
+#main .img-circle{
+    margin: 0.5em;
+    height: 3em;
+    width: 3em;
+}
+
+#main h4{font-size:1em;}
+#main p{padding-left:0.3em;
+padding-right: 0.3em;
+margin: 0 0 0.05em;
+}
+#main .panel-body .input-group p{ 
+    height: inherit;
+}
+
+#main .panel-body .input-group .input-group-btn .btn{
+    padding:0.5em 0.5em;
+    padding-left: 0.5em;
+    font-family: ubuntu;
+    
+font-size:15px;
+
+}
+
+#main .panel-body .btn{
+   
+    padding-left:2px;
+    padding-right: 2px;
+    overflow: hidden;
+    font-size: 0.8em;
+}
+#main #chatdiv .chat .row .col-sm-6.ri{
+    padding-left:0px;
+    padding-right:10px;
+    
+}
+#main #chatdiv .chat .row .col-sm-6 {
+    padding-left:10px;
+    padding-right:0px;
+} 
+
+div#chatdiv.full.col-sm-9{
+    padding-left:0px;
+    padding-right:0px;
+}
+.hrt{
+        background-color: #3a4654!important;
+}
+@media (max-width: 480px){
+
+
+ #main #chatdiv .chat .row .col-sm-6.ri{  
+  
+  padding-left:0px;  
+  
+  padding-right:0px;
+ }
+
+
+ #main #chatdiv .chat .row .col-sm-6{  
+  
+  padding-left:0px;  
+  
+  padding-right:0px;
+ }
+
+
+ div#chatdiv.full.col-sm-9{  
+  
+  padding-left:0px;  
+  
+  padding-right:0px;
+ }
+
+
+ .btn{  
+  
+  border-width:0px;
+ }
+
+
+ #main .panel-body .input-group p{  
+  
+  height:36px;
+ }
+}

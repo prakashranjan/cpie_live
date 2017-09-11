@@ -1,0 +1,251 @@
+#main{
+ background-size: cover;
+}
+	.panel{
+		background-color: rgba(9, 247, 161, 0.6);
+        
+		border:none;
+	}
+	
+	.panel-default>.panel-heading {
+		    background-color: rgba(44, 62, 80, 0.84);
+                        color: #67e587;
+	
+		border:none;
+	}
+	.well{
+            padding-left:0px;
+            padding-right:0px;
+            padding-top:0px;
+		background-color:rgba(10,170,246,0.67);;
+		border:none;
+		color:white;
+                font-family:ubuntu;
+	}
+	
+.list-group-item{
+	    background-color: rgba(172, 234, 206, 0.75);
+	border:none;
+	color:#086552 ;
+}
+
+
+.list-group-item.form-control{
+	 
+	color:#086552 !important;
+}
+	
+.list-group-item.lead{
+	    
+	color:#2c3e50;
+}
+
+.form-control{
+	background-color: rgba(245,245,245,0.51);
+}
+
+div.progress{
+	background-color: rgba(245,245,245,0.51);
+}
+
+#postModal .modal-header,#postModal .modal-footer{
+        background-color: #18bc9c;
+}		
+			
+			
+.panel-marko{
+		background-color:rgba(255,255,255,1);
+        
+		border:none;
+	}
+        .full{
+            padding-left: 0px;
+    padding-right: 0px;
+    overflow:hidden;
+            
+        }
+      
+        #sendrequest{
+            font-size:0.9em;
+        }
+		
+	#grabcap i,#post_poll i,#post_poll span,#grabcap span{color:#2c3e50;}
+        
+        
+        
+label.myLabel input[type="file"] {
+    position: fixed;
+    top: -1000px;
+}
+
+
+.myLabel {
+    border: 4px solid #AAA;
+    border-radius: 4px;
+    padding: 2px 5px;
+    margin: 2px;
+   
+	background-color: black;
+    display: inline-block;
+}
+.myLabel:hover {
+     background: #DDD;
+	  cursor:pointer;
+}
+.myLabel:active {
+    background: #CCF;
+	
+}
+.myLabel :invalid + span {
+    color: #A44;
+}
+.myLabel :valid + span {
+    color: #4A4;
+}	  
+	
+	
+
+
+
+			
+			
+		
+.chat
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.chat li
+{
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px dotted #B3A9A9;
+}
+
+.chat li.left .chat-body
+{
+    margin-left: 60px;
+}
+
+.chat li.right .chat-body
+{
+    margin-right: 60px;
+}
+
+
+.chat li .chat-body p
+{
+    margin: 0;
+   
+}
+		
+.comment_slam{
+     background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    
+    
+    
+}	
+		
+blockquote{font-family: ubuntu;
+    font-style: italic;
+           color:#2c3e50;}			
+
+#main .panel-heading {
+    padding:0.01em 0.3em;
+}
+#main .panel-body {
+    padding-bottom: 0.00em;
+    padding-left: 0.15em;
+    padding-right: 0.15em;
+    padding-top:0.3em;
+    
+}
+#main .img-thumbnail {
+   
+    padding-left: 0em;
+    padding-right: 0em;
+    padding-bottom: 0em;
+    
+}
+#main .img-circle{
+    margin: 0.5em;
+    height: 3em;
+    width: 3em;
+}
+
+#main h4{font-size:1em;
+margin-left:2px;}
+#main p{padding-left:0.3em;
+padding-right: 0.3em;
+margin: 0 0 0.05em;
+}
+#main .panel-body .input-group p{ 
+    height: inherit;
+}
+
+#main .panel-body .input-group .input-group-btn .btn{
+    padding:0.5em 0.5em;
+    padding-left: 0.5em;
+    font-family: ubuntu;
+    
+font-size:15px;
+
+}
+
+#main .panel-body .btn{
+   
+    padding-left:2px;
+    padding-right: 2px;
+    overflow: hidden;
+    font-size: 0.8em;
+}
+#main #wall_desk .chat .row .col-sm-6.ri{
+    padding-left:0px;
+    padding-right:10px;
+    
+}
+#main #wall_desk .chat .row .col-sm-6 {
+    padding-left:10px;
+    padding-right:0px;
+} 
+
+div#wall_desk.full.col-sm-9{
+    padding-left:0px;
+    padding-right:0px;
+} 
+
+@media (max-width: 480px){
+ #desk .col-sm-5{
+  padding-right: 0px;
+  padding-left: 0px;
+ }
+ #desk .col-sm-7{
+  padding-right: 0px;
+  padding-left: 0px;
+ }
+ #main #wall_desk .chat .row .col-sm-6.ri{
+  padding-left: 0px;
+  padding-right: 0px;
+ }
+ #main #wall_desk .chat .row .col-sm-6{
+  padding-left: 0px;
+  padding-right: 0px;
+ }
+ div#wall_desk.full.col-sm-9{
+  padding-left: 0px;
+  padding-right: 0px;
+ }
+ .btn{
+  border-width: 0px;
+ }
+ #main .panel-body .input-group p{
+  height: 36px;
+ }
+}
