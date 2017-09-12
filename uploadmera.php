@@ -61,17 +61,17 @@ $width = $imagedetails[0];
 $height = $imagedetails[1];
    }
    
-mkdir("user_files/$usern");
-mkdir("user_files/$usern/$tid");
+mkdir("user_files/$usern",0760);
+mkdir("user_files/$usern/$tid",0760);
 if($image_check==true){
-mkdir("user_files/$usern/$tid/thumb");}
+mkdir("user_files/$usern/$tid/thumb",0760);}
 $today = date("Y-m-d H:i");
 $today=base64_encode($today);
 $ses_id=  session_id();
 $today=$today.$ses_id;
-mkdir("user_files/$usern/$tid/$today");
+mkdir("user_files/$usern/$tid/$today",0760);
 if($image_check==true){
-mkdir("user_files/$usern/$tid/thumb/$today");}
+mkdir("user_files/$usern/$tid/thumb/$today",0760);}
 $fname="user_files/$usern/$tid/$today/$filename";
 if($image_check==true){
 $thumb_fname="user_files/$usern/$tid/thumb/$today/$filename";}

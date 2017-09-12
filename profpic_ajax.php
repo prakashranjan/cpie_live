@@ -25,8 +25,8 @@ if (!empty($_FILES) && $_FILES['file']['error'] === UPLOAD_ERR_OK) {
   
     
    
-mkdir("profile_pic/$usern");
-mkdir("profile_pic/$usern/thumb");
+mkdir("profile_pic/$usern",0760);
+mkdir("profile_pic/$usern/thumb",0760);
 $today = date("Y-m-d H:i");
 $today=base64_encode($today);
 $ses_id=  session_id();

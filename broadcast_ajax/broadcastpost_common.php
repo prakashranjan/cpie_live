@@ -629,13 +629,13 @@ $width = $imagedetails[0];
 $height = $imagedetails[1];
    }
    
-mkdir("../broadcast_user_files/$usern");
+mkdir("../broadcast_user_files/$usern",0760);
 
 if($image_check==true){
     if($anon==0){
-mkdir("../broadcast_user_files/$usern/thumb");}
+mkdir("../broadcast_user_files/$usern/thumb",0760);}
 else if($anon==1){
-   mkdir("../broadcast_user_files_anony/thumb"); 
+   mkdir("../broadcast_user_files_anony/thumb",0760); 
 }
     }
 
@@ -645,15 +645,15 @@ $ses_id=  session_id();
 $anony_today='a_'.$today;
 $today=$today.$ses_id;
 if($anon==0){
-mkdir("../broadcast_user_files/$usern/$today");}
+mkdir("../broadcast_user_files/$usern/$today",0760);}
 else if($anon==1){
-   mkdir("../broadcast_user_files_anony/$anony_today"); 
+   mkdir("../broadcast_user_files_anony/$anony_today",0760); 
 }
 if($image_check==true){
     if($anon==0){
-    mkdir("../broadcast_user_files/$usern/thumb/$today");}
+    mkdir("../broadcast_user_files/$usern/thumb/$today",0760);}
     else if($anon==1){
-      mkdir("../broadcast_user_files_anony/thumb/$anony_today");  
+      mkdir("../broadcast_user_files_anony/thumb/$anony_today",0760);  
     }
 
 }

@@ -62,18 +62,18 @@ $width = $imagedetails[0];
 $height = $imagedetails[1];
    }
    
-mkdir("../channel_user_files/$usern");
+mkdir("../channel_user_files/$usern",0760);
 if($anon2==0){
-mkdir("../channel_user_files/$usern/$tid");}
+mkdir("../channel_user_files/$usern/$tid",0760);}
 else if($anon2==1){
-mkdir("../channel_user_files_anony/$tid");    
+mkdir("../channel_user_files_anony/$tid",0760);    
 }
 
 if($image_check==true){
     if($anon2==0){
-mkdir("../channel_user_files/$usern/$tid/thumb");}
+mkdir("../channel_user_files/$usern/$tid/thumb",0760);}
 else if($anon2==1){
-   mkdir("../channel_user_files_anony/$tid/thumb"); 
+   mkdir("../channel_user_files_anony/$tid/thumb",0760); 
 }
     }
 
@@ -85,18 +85,18 @@ $today=$today.$ses_id;
 
 
 if($anon2==0){
-mkdir("../channel_user_files/$usern/$tid/$today");}
+mkdir("../channel_user_files/$usern/$tid/$today",0760);}
 else if($anon2==1){
-   mkdir("../channel_user_files_anony/$tid/$anony_today"); 
+   mkdir("../channel_user_files_anony/$tid/$anony_today",0760); 
 }
 
 if($image_check==true){
 
  if($anon2==0){
-    mkdir("../channel_user_files/$usern/$tid/thumb/$today");}
+    mkdir("../channel_user_files/$usern/$tid/thumb/$today",0760);}
     else if($anon2==1){
       
-      mkdir("../channel_user_files_anony/$tid/thumb/$anony_today");
+      mkdir("../channel_user_files_anony/$tid/thumb/$anony_today",0760);
     }
 
 }
