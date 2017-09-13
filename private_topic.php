@@ -169,6 +169,7 @@ echo'<script type="text/javascript" src="js/private_topic_common.js"></script>';
 
 	</head>
 	<body style="filter: blur(30px);-webkit-filter: blur(30px);">
+            <?php include_once("analyticstracking.php") ?>
 	<input type="hidden" value="<?php print $tid;?>" id="tid">	
 
 		

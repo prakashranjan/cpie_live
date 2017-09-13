@@ -116,6 +116,7 @@ $sql89="UPDATE user_online SET topic_id='$tid' WHERE mem_id='$member_id' and ses
 
 	</head>
 	<body style="filter: blur(30px);-webkit-filter: blur(30px);">
+            <?php include_once("analyticstracking.php") ?>
 	<input type="hidden" value="<?php print $tid;?>" id="tid">	
 
 		

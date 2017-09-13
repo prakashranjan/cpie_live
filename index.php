@@ -230,7 +230,7 @@ function showcam2(){
 	</head>
 	
 <body id="page-top" class="index" style="filter: blur(30px);-webkit-filter: blur(30px);">
-	
+	<?php include_once("analyticstracking.php") ?>
 	
 	
 

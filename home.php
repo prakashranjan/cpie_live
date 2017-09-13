@@ -289,6 +289,7 @@ setTimeout(function(){
 		
 	</head>
 	<body style="filter: blur(30px);-webkit-filter: blur(30px);">
+            <?php include_once("analyticstracking.php") ?>
 	
 	<div class="wrapper">
     <div class="box">

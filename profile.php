@@ -131,6 +131,7 @@ $qry05="Update member set views=views+1 WHERE mem_id='$uid'";
 		
 	</head>
 	<body style="filter: blur(30px);-webkit-filter: blur(30px);">
+            <?php include_once("analyticstracking.php") ?>
 	
 	
 
