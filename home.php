@@ -406,11 +406,11 @@ setTimeout(function(){
                      <div id="navswitch1" style="display:none;">
                          
                          <div class="btn-group" role="group">
-       <button type="button" class="btn btn-default" style="padding:0px;padding-left:10px; padding-right:10px;width:100%;"  onclick="removeinputbox();" role="button" ><i class="fa fa-angle-up " aria-hidden="true"></i></button>
+       <button type="button" class="btn btn-success" style="padding:0px;padding-left:10px; padding-right:10px;width:100%;"  onclick="removeinputbox();" role="button" ><i class="fa fa-angle-up " aria-hidden="true"></i></button>
                              <br>
       <form class="navbar-form" style="padding:0px;padding-left:0px;padding-right:0px;margin:0px 0px 0px 0px;">
                         <div class="input-group input-group-sm" style="width:100%;">
-                          <input type="text" class="form-control ubuntu " onkeyup="search(this.id);"  placeholder="like $abc(user) | abc(channel)"  id="termmob" >
+                          <input type="text" class="form-control ubuntu inputmob " onkeyup="search(this.id);"  placeholder="like $abc(user) | abc(channel)"  id="termmob" >
                           <div class="input-group-btn">
                             <button class="btn btn-primary" onclick="search('termmob');" type="button"><i class="glyphicon glyphicon-search"></i></button>
                           </div>
@@ -420,7 +420,7 @@ setTimeout(function(){
                      <div id="navswitch2" style="display: none;"></div>
                      
                         <div class="btn-group btn-group-justified visible-xs" id="navjustify" role="group" aria-label="...">
-                            <div class="btn-group" role="group" style="width:0.5%;" onclick="openNav()">
+                            <div class="btn-group" role="group" style="width:3%;" onclick="openNav()">
     <button type="button" class="btn btn-success" style="padding:0px;"><span  class="visible-xs " ><i class="fa fa-bars text-primary getora" aria-hidden="true"></i></span></button>
   </div>
          <div class="btn-group" role="group">
@@ -458,9 +458,9 @@ setTimeout(function(){
                   	<nav class="collapse navbar-collapse" role="navigation">
                     <form class="navbar-form navbar-left">
                         <div class="input-group input-group-sm" style="max-width:200px;">
-                          <input type="text" class="form-control ubuntu" width="50"placeholder="like $abc(user) | abc(channel)"  id="term1" onkeyup="search(this.id);">
+                          <input type="text" class="form-control ubuntu inputpc" width="50"placeholder="like $abc(user) | abc(channel)"  id="term1" onkeyup="search(this.id);">
                           <div class="input-group-btn">
-                            <button class="btn btn-default" onclick="search('term1');"type="button"><i class="glyphicon glyphicon-search"></i></button>
+                            <button class="btn btn-primary" onclick="search('term1');"type="button"><i class="glyphicon glyphicon-search"></i></button>
                           </div>
                         </div>
                     </form>
@@ -518,7 +518,7 @@ setTimeout(function(){
   
     <br>
  
-<p >';
+<p style="line-height:120%;">';
 
                  $kqry="SELECT * FROM type ORDER BY views DESC";
 
@@ -526,9 +526,9 @@ setTimeout(function(){
                $kresult=mysql_query($kqry);
 				
                 while($krow = mysql_fetch_row($kresult))
-                {$n = rand(15,30 )/10;
+                {$n = rand(18,32 )/10;
                 
-			echo'<a id="'.$krow[0].'" href="#"  onclick="type_match(this.id)" class=" btn btn-link text-primary" style="border-radius:0.3em;background-color:rgba(224,226,128,0.95);padding:7px; font-size:'.$n.'vmax;  ">'.$krow[1].'</a>&nbsp;&nbsp;';     }
+			echo'<a id="'.$krow[0].'" href="#"  onclick="type_match(this.id)" class=" homeo btn btn-link text-primary" style=" font-size:'.$n.'vmax;  ">'.$krow[1].'</a>&nbsp;&nbsp;';     }
 
 echo'</p>
 </br>';?>
@@ -609,17 +609,24 @@ echo'</p>
   <div class="modal-dialog">
   <div class="modal-content">
 	  
-      <div class="modal-header" style="font-size:1.2em;">
+      <div class="modal-header baksuccess" style="font-size:1.2em;">
           <button type="button" class="close" onclick="clean();"data-dismiss="modal" aria-hidden="true">×</button>
-			<i class=" glyphicon glyphicon-plus"></i> New Channel
+			
       </div>
       <div class="modal-body">
           <form class="form ">
             <div class="form-group">
-			<input type="hidden" id="username" value="<?php echo $usern;?>"/>
-              <input type="text" class="form-control input-lg" autofocus="" id="ntopic" maxlength="20" placeholder="name it within 3 words"required/>
-              <hr style="border:1px solid;width:100%;margin:0;" class="text-muted">
-              
+		
+                <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label> Channel Name </label>
+                               
+                                 <input type="text" class="form-control" autofocus="" id="ntopic" maxlength="20" placeholder="name it within 3 words"required/>
+                        
+                            </div>
+                
+            
+              <div class="form-group col-xs-12 floating-label-form-group controls">
+             <label> Select Category </label>
   <select class="form-control" id="type" >
     <option value=""> Select Category </option>
 <?php
@@ -631,11 +638,11 @@ echo'</p>
             
               <div class="text-center"><span class="text-center text-muted ">-------- OR --------</span></div>
 
-            <input type="hidden" id="username" value="<?php echo $usern;?>"/>
-              <input type="text" class="form-control input-lg" autofocus="" id="newcat" maxlength="20" placeholder="create new category..."required/>
-             
+            <label> Create Category </label>
+              <input type="text" class="form-control " autofocus="" id="newcat" maxlength="20" placeholder="create new category..."required/>
+      
+              </div>  
               
-               <hr style="border:1px solid;width:100%;margin:0;" class="text-muted">
            
       
       <select class="form-control" id="topic_visi">
@@ -647,27 +654,27 @@ echo'</p>
       </select></div>
               
             <div class="pull-right btn-group " data-toggle="buttons">
-  <label class="btn btn-primary active">
+  <label class="btn btn-primary active ">
     <input type="radio" name="private" id="private0" value="0" autocomplete="off" checked required> <i class="fa fa-globe" aria-hidden="true" ></i> Public
   </label>
-  <label class="btn btn-primary">
+  <label class="btn btn-primary ">
     <input type="radio" name="private" id="private1" value="1" autocomplete="off" required> <i class="fa fa-lock" aria-hidden="true"></i> Private
   </label>&nbsp;&nbsp;&nbsp;&nbsp;
 </div>
               
               
 			   <div class="form-group">
-              <textarea rows="4" cols="100%"class="form-control input-lg" name="cdesc" id="cdesc" placeholder="Write the channel discription in detail..."></textarea>
+              <textarea rows="4" cols="100%"class="form-control input-lg textareabak" name="cdesc" id="cdesc" placeholder="Write the channel discription in detail..."></textarea>
 			 
             </div>
               <label for="tagy" class="text-danger postmf">&nbsp;&nbsp; <i class="fa fa-tags fa-2x" aria-hidden="true"></i> tags </label> 
         <input id="ttagy" class="tags-input"  value="" data-max-tags="8">
           </form>
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer baksuccess">
           <div>
 		  <div style="color:red;font-size:1.3em;" id="report"></div>
-          <button class="btn btn-primary btn-sm" onclick="both();" >Add</button>
+          <button class="btn btn-primary btn-block btn-xs fa-2x" style="font-weight:bold;color:white;"onclick="both();" > <i class="fa fa-plus" style="color:white;"aria-hidden="true"></i> Add </button>
             
 		  </div>	
       </div>

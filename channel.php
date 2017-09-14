@@ -193,10 +193,10 @@ if(hideprivate()==0 && $_SESSION['SESS_MODE']==1 ){echo'
                     .sidenav {
     
     background: #617182; /* For browsers that do not support gradients */    
-    background: -webkit-linear-gradient(left top, #8784ff,#2c3e50  ); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(bottom right, #8784ff,#2c3e50  ); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(bottom right,#8784ff,#2c3e50  ); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to bottom right, #8784ff,#2c3e50  ); /* Standard syntax (must be last) */
+    background: -webkit-linear-gradient(left top, rgba(135, 132, 255, 0.92),rgba(44, 62, 80, 0.77)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(bottom right,rgba(135, 132, 255, 0.92),rgba(44, 62, 80, 0.77) ); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(bottom right,rgba(135, 132, 255, 0.92),rgba(44, 62, 80, 0.77)  ); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to bottom right, rgba(135, 132, 255, 0.92),rgba(44, 62, 80, 0.77) ); /* Standard syntax (must be last) */
 
 }
 
@@ -363,7 +363,7 @@ $hrt=false;
                      <div class="navbar-header ">
                      <!-- <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">&#9776;</button>-->
                         <div class="btn-group btn-group-justified visible-xs" role="group" aria-label="...">
-  <div class="btn-group" role="group" style="width:10%;" onclick="openNav()">
+  <div class="btn-group" role="group" style="width:13%;" onclick="openNav()">
     <button type="button" class="btn " style="padding:0;background-color:#8784ff;"><span  class="visible-xs " ><i class="fa fa-bars text-primary getora" aria-hidden="true"></i></span></button>
   </div>
                             <div class="btn-group" role="group" style="width:60px;background-color: black;">

@@ -323,7 +323,7 @@ $hrt=false;
                     <div class="navbar-header ">
                      <!-- <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">&#9776;</button>-->
                         <div class="btn-group btn-group-justified visible-xs" role="group" aria-label="...">
-  <div class="btn-group" role="group" style="width:10%;" onclick="openNav()">
+  <div class="btn-group" role="group" style="width:13%;" onclick="openNav()">
     <button type="button" class="btn btn-success" style="padding:0;"><span  class="visible-xs " ><i class="fa fa-bars text-primary getora" aria-hidden="true"></i></span></button>
   </div>
                             <div class="btn-group" role="group" style="width:60px;background-color: black;">

@@ -269,7 +269,7 @@ $shouts=$metro[0];
               	<div class="navbar navbar-blue navbar-static-top">  
                     <div class="navbar-header">
                        <div class="btn-group btn-group-justified visible-xs" role="group" aria-label="...">
-  <div class="btn-group" role="group" style="width:0.5%;"onclick="openNav()">
+  <div class="btn-group" role="group" style="width:2%;"onclick="openNav()">
     <button type="button" class="btn btn-success" style="padding:0px;"><span  class="visible-xs " ><i class="fa fa-bars text-primary getora" aria-hidden="true"></i></span></button>
   </div>
              <div class="btn-group" role="group">

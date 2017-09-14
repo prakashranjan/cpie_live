@@ -195,20 +195,33 @@ margin-left:35%;}
     max-height: 300px;
     overflow-y: scroll;
 }
+.textareabak{
+        background-color: antiquewhite !important;
+}
+.inputbak {
+    
+        background-color: antiquewhite !important;
 
+}
+.inputpc{
+    border-color: #2C3E50;
+}
+.baksuccess{
+    background-color: #18bc9c;
+}
 @media (max-width: 480px){
 ::-webkit-scrollbar{width:0px;}
 .navbar-blue{background-color:rgba(24,188,156,1.0);}
 .navbar{min-height:40px;}
 .sidenav{height:100%;width:0;position:fixed;z-index:1001;top:0;left:0;box-shadow:0px 0px 10px #000;background:#617182;
 
-/* For browsers that do not support gradients */background:-webkit-linear-gradient(left top, #18bc9c,#2c3e50);
+/* For browsers that do not support gradients */background:-webkit-linear-gradient(left top, rgb(24, 188, 156),rgba(44, 62, 80, 0.74));
 
 /* For Safari 5.1 to 6.0 */
 
 /* For Opera 11.1 to 12.0 */
 
-/* For Firefox 3.6 to 15 */background:-webkit-gradient(linear, left top, right bottom, from(#18bc9c),to(#2c3e50) );background:-webkit-linear-gradient(top left, #18bc9c,#2c3e50 );background:linear-gradient(to bottom right, #18bc9c,#2c3e50 );
+/* For Firefox 3.6 to 15 */background:-webkit-gradient(linear, left top, right bottom, from(rgb(24, 188, 156)),to(rgba(44, 62, 80, 0.74)) );background:-webkit-linear-gradient(top left, rgb(24, 188, 156),rgba(44, 62, 80, 0.74) );background:linear-gradient(to bottom right,rgb(24, 188, 156),rgba(44, 62, 80, 0.74) );
 
 /* Standard syntax (must be last) */overflow-x:hidden;-webkit-transition:0.5s;transition:0.5s;padding-top:20px;color:white;}
 .sidenav .closebtn{position:absolute;top:0;right:25px;font-size:36px;margin-left:50px;}
@@ -221,6 +234,24 @@ margin-left:35%;}
     margin: 0 !important;
     width: 100% !important;}
 
+
+.khatoono {
+    font-family: ubuntu;
+    font-size: 5.0vw;
+    color: #ffffff;
+    background-color: rgba(135,132,255,0.88);
+    border-radius: 0;
+    width: 100%;
+    margin-left: 0;
+    box-shadow: 2px 2px 15px #ffffff !important;
+}
+
+#lg-menu{
+      background-color: rgba(255, 255, 255, 0.52) !important;
+}
+.inputmob{
+    border-color: #2C3E50;
+}
 }
 
 @media screen and (max-height: 450px){

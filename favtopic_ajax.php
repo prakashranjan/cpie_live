@@ -92,7 +92,7 @@ $j=0;
           
             <blockquote class="img-rounded "style="background-color:'.$blockn.'; padding-left:2px;padding-right:2px; border:none; margin:0 0 0; height:100px; max-height:100px;overflow:hidden;">';
               if($fav_top_no[0]>0){    echo '<span class="badge pull-left" style="background-color:#2c3e50;color:#ff0;"><span class="badge" style="background-color:#2c3e50;"><div id="fav_top_led"  class="led-yellow'.$fav_top_led.'"></div></span><span>'.$fav_top_no2.'</span></span></span>';}
-                  echo '<p style="margin: 0 0 0;font-size:0.69em;background-color:rgba(255,255,255,1.0);color:'.$colpr.'; font-weight:bolder;"class="ubuntu">@'.$krow[1].''.$lock.'</p>
+                  echo '<p style="margin: 0 0 0;font-size:0.69em;background-color:rgba(255,255,255,1.0);color:'.$colpr.'; font-weight:bolder;   box-shadow: 2px 2px 15px #fff !important;"class="ubuntu">@'.$krow[1].''.$lock.'</p>
             <footer class="'.$privfoot.'"style="font-style:italic;font-size:0.64em;" >'.$info.'</footer></blockquote>
             </div>
         </div>
