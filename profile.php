@@ -851,16 +851,22 @@ echo'<div class="panel panel-default">
     $("body").css("filter","none");
 });
         </script>
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDp1uqNm1mSub8dNKGgTAYRQu0pgX1AhxY&libraries=places"></script>
+        <?php 
+       if(edit()){echo'<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXbGW1zlIYVp84QbxHUL_V5md0cqlSmpk&libraries=places"></script>
 <script type="text/javascript">
     function initialize() {
 
-var input = document.getElementById('lives_at');
+var input = document.getElementById(\'lives_at\');
 var autocomplete = new google.maps.places.Autocomplete(input);
+
+var inputfrom = document.getElementById(\'from_place\');
+var autocomplete2 = new google.maps.places.Autocomplete(inputfrom);
+
 }
 
-google.maps.event.addDomListener(window, 'load', initialize);
+google.maps.event.addDomListener(window, \'load\', initialize);
 </script>
+';}?>
 	</body>
 </html>
 
