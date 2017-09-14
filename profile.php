@@ -535,7 +535,7 @@ $uid=$query[0];
                                     <ul class="list-group">
 										<li class="list-group-item"><span class="text-primary"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i> Skills :</span> <input  value="'.$skillsw.'" id="skills" name="skills" onblur="validate(this.name,this.value);"class="form-control " placeholder="skill1,skill2....."></input></li>
 										<li class="list-group-item"><span class="text-primary"><i class="fa fa-home fa-2x" aria-hidden="true"></i> from :</span> <input    value="'.$from_placew.'" id="from_place" name="from_place" onblur="validate(this.name,this.value);"class="form-control " placeholder="Kanpur,UP...."></input></li>
-										<li class="list-group-item"><span class="text-primary"><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i> lives at :</span> <input  value="'.$lives_atw.'"  id="lives_at" name="lives_at" onblur="validate(this.name,this.value);"class="form-control" placeholder="Karol Bagh,New delhi...."></input></li>
+										<li class="list-group-item"><span class="text-primary"><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i> lives at :</span> <input  value="'.$lives_atw.'"  id="lives_at" name="lives_at" onblur="validate(this.name,this.value);"class="form-control " placeholder="Karol Bagh,New delhi...."></input></li>
                                    
                                     </ul>
                                   </div>
@@ -851,6 +851,16 @@ echo'<div class="panel panel-default">
     $("body").css("filter","none");
 });
         </script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDp1uqNm1mSub8dNKGgTAYRQu0pgX1AhxY&libraries=places"></script>
+<script type="text/javascript">
+    function initialize() {
+
+var input = document.getElementById('lives_at');
+var autocomplete = new google.maps.places.Autocomplete(input);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
 	</body>
 </html>
 
