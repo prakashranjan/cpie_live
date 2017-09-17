@@ -180,6 +180,18 @@ $usernw=$n2row[1];
 $skillsw=$n2row[10];
 $from_placew=$n2row[11];
 $lives_atw=$n2row[12];
+
+$sql78=mysql_query("select val_str,loc_id from member_loc where loc_id in ('$from_placew','$lives_atw')");
+while($re234= mysql_fetch_row($sql78))
+{if($re234[1]==$from_placew){
+    $from_placew=$re234[0];
+}
+else if($re234[1]==$lives_atw){
+$lives_atw=$re234[0];
+     
+}
+    
+}
 $long_discw=$n2row[13];
 $emailw=$n2row[14];
 $mem_mobile=$n2row[15];
@@ -420,7 +432,7 @@ $uid=$query[0];
                              echo'<div class="well"> 
                                    <form class="form-horizontal" role="form">
                                     <span class="btn-block ubuntu"style="font-size:1.2em;padding:3px;background-color:black;" > &nbsp; <i class="fa fa-meh-o"style="font-weight:bold;" aria-hidden="true"></i> My Status </span>
-                                     <div class="form-group" style="padding:14px;">
+                                     <div class="form-group" style="padding:0;margin:0;">
                                       <textarea  id="status"  maxlength="140" name="status" onblur="validate(this.name,this.value);" class="form-control" placeholder="Update your status...."> '.$statusw.' </textarea>
                                     </div>
                                     
@@ -488,7 +500,7 @@ $uid=$query[0];
 						</div>
                       
                                <div class="panel panel-default">
-                                 <div class="panel-heading"><a href="#" class="pull-right"></a> <h4> Status </h4></div>
+                                   <div class="panel-heading"><a href="#" class="pull-right"></a> <h4 class="heavyt"> Status </h4></div>
                                   <div class="panel-body">
                                     <p> <code><?php echo $statusw ;?></code></p>
                                     <div class="clearfix"></div>
@@ -496,7 +508,7 @@ $uid=$query[0];
                                </div>
                              <?php if(edit())
                                echo'<div class="panel panel-default">
-                                 <div class="panel-heading"><a href="#" class="pull-right"></a> <h4 >About '.$firstnw.'</h4></div>
+                                 <div class="panel-heading"><a href="#" class="pull-right"></a> <h4 class="heavyt">About '.$firstnw.'</h4></div>
                                   <div class="panel-body">
                                     
                                     <div class="clearfix"></div>
@@ -533,9 +545,10 @@ $uid=$query[0];
                                 
                                   <div class="panel-body">
                                     <ul class="list-group">
-										<li class="list-group-item"><span class="text-primary"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i> Skills :</span> <input  value="'.$skillsw.'" id="skills" name="skills" onblur="validate(this.name,this.value);"class="form-control " placeholder="skill1,skill2....."></input></li>
-										<li class="list-group-item"><span class="text-primary"><i class="fa fa-home fa-2x" aria-hidden="true"></i> from :</span> <input    value="'.$from_placew.'" id="from_place" name="from_place" onblur="validate(this.name,this.value);"class="form-control " placeholder="Kanpur,UP...."></input></li>
-										<li class="list-group-item"><span class="text-primary"><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i> lives at :</span> <input  value="'.$lives_atw.'"  id="lives_at" name="lives_at" onblur="validate(this.name,this.value);"class="form-control " placeholder="Karol Bagh,New delhi...."></input></li>
+										<li class="list-group-item"><i class="fa fa-pencil-square-o text-primary fa-2x" aria-hidden="true"></i> <span class="text-primary heavyt"> Interested in :</span> <input  value="'.$skillsw.'" id="skills" name="skills" onblur="validate(this.name,this.value);"class="form-control text-primary ubuntu  " placeholder="skill1,skill2....."></input></li>
+										<li class="list-group-item"><i class="fa fa-home text-primary fa-2x" aria-hidden="true"></i> <span class="text-primary heavyt" > From :</span> (approximate)<input    value="'.$from_placew.'" id="from_place" name="from_place" class="form-control " placeholder="Kanpur,UP...."></input></li>
+										<li class="list-group-item"><i class="fa fa-map-marker fa-2x text-primary" aria-hidden="true"></i> <span class="text-primary heavyt"> Currently living at :</span> (approximate)<input  value="'.$lives_atw.'"  id="lives_at" name="lives_at" class="form-control " placeholder="Karol Bagh,New delhi...."></input></li>
+                                                                                  
                                    
                                     </ul>
                                   </div>
@@ -546,9 +559,9 @@ else{
 echo'<div class="panel panel-default">
                                   <div class="panel-body">
                                     <ul class="list-group">
-										<li class="list-group-item ubuntu"><span class="text-primary"> <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i> Skills : </span> '.$skillsw.' </li>
-										<li class="list-group-item  ubuntu"><span class="text-primary"> <i class="fa fa-home fa-2x" aria-hidden="true"></i> from : </span> '.$from_placew.' </li>
-										<li class="list-group-item  ubuntu"><span class="text-primary"> <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i> lives at : </span> '.$lives_atw.' </li>
+										<li class="list-group-item ubuntu"><i class="fa fa-pencil-square-o text-primary fa-2x" aria-hidden="true"></i> <span class="text-primary heavyt">  Interest : </span> '.$skillsw.' </li>
+										<li class="list-group-item  ubuntu"><i class="fa fa-home fa-2x text-primary" aria-hidden="true"></i> <span class="text-primary heavyt">  From : </span> '.$from_placew.' </li>
+										<li class="list-group-item  ubuntu"><i class="fa fa-map-marker fa-2x text-primary" aria-hidden="true"></i> <span class="text-primary heavyt">  Currently living at : </span> '.$lives_atw.' </li>
                                    
                                     </ul>
                                   </div>
@@ -698,7 +711,7 @@ echo'<div class="panel panel-default">
         
   <form class="navbar-form" >
                         <div class="input-group input-group-sm " >
-                          <input type="text" class="form-control ubuntu " onkeyup="searchuser(this.id);" size="100" placeholder="$username or name"  id="termmob" >
+                          <input type="text" class="form-control ubuntu inputpc" onkeyup="searchuser(this.id);" size="100" placeholder="$username or name"  id="termmob" >
                           <div class="input-group-btn">
                             <button class="btn btn-primary" onclick="searchuser(\'termmob\');" type="button"><i class="glyphicon glyphicon-search"></i></button>
                           </div>
@@ -851,22 +864,46 @@ echo'<div class="panel panel-default">
     $("body").css("filter","none");
 });
         </script>
-        <?php 
-       if(edit()){echo'<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXbGW1zlIYVp84QbxHUL_V5md0cqlSmpk&libraries=places"></script>
+       
+       <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXbGW1zlIYVp84QbxHUL_V5md0cqlSmpk&libraries=places"></script>
 <script type="text/javascript">
+    var autocomplete,autocomplete2;
+    var place_id1,place_id2;
     function initialize() {
 
-var input = document.getElementById(\'lives_at\');
-var autocomplete = new google.maps.places.Autocomplete(input);
+var input = document.getElementById('lives_at');
+var options = {
+  
+  componentRestrictions: {country: 'In'}
+};
+autocomplete = new google.maps.places.Autocomplete(input,options);
+ autocomplete.addListener('place_changed', pop_place_info);
+ 
 
-var inputfrom = document.getElementById(\'from_place\');
-var autocomplete2 = new google.maps.places.Autocomplete(inputfrom);
-
+var options2 = {
+  
+  componentRestrictions: {country: 'In'}
+};
+var inputfrom = document.getElementById('from_place');
+ autocomplete2 = new google.maps.places.Autocomplete(inputfrom,options2);
+autocomplete2.addListener('place_changed', pop_place_info2);
 }
+  function pop_place_info(){
+      var place=autocomplete.getPlace();
+      place_id1=place.place_id;
+      console.log(place_id1);
+      validate("lives_at",$("#lives_at").val(),place_id1);
+  }
+function pop_place_info2(){
+      var place=autocomplete2.getPlace();
+      place_id2=place.place_id;
+      console.log(place_id2);
+      validate("from_place",$("#from_place").val(),place_id2);
+  }
 
-google.maps.event.addDomListener(window, \'load\', initialize);
+
+google.maps.event.addDomListener(window, 'load', initialize);
 </script>
-';}?>
 	</body>
 </html>
 
