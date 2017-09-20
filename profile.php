@@ -541,11 +541,29 @@ $uid=$query[0];
 							  ?>
 							  
 							<?php if(edit())
-								echo'<div class="panel panel-default">
+                                                        {echo'<div class="panel panel-default">
                                 
                                   <div class="panel-body">
+                                  <label for="skill_tagy" class="text-info postmf">&nbsp;&nbsp;<i class="fa fa-pencil-square-o text-primary fa-2x" aria-hidden="true"></i> <span class="text-primary heavyt"> Interested in :</span></label><button type="button"  id="tagy_show_but" onclick="skilltags();" class="btn-info pull-right ubuntu    btn-sm" style="padding:3px;">Update Tags</button> 
+        <input id="skill_tagy" class="tags-input"  value="'; 
+          $show_tags=array();
+          $mes=mysql_query("SELECT tag_list.tag_name
+FROM tag_list
+INNER JOIN skill_tag  where tag_list.tagl_id=skill_tag.tagl_id
+and skill_tag.mem_id='$mem_id'");
+                   if($mes){ while($reso=mysql_fetch_row($mes)){
+                        array_push($show_tags,$reso[0]); 
+                   }
+                   echo implode(',',$show_tags);
+                   }
+          
+          
+                   echo'"  data-max-tags="8">
+                       <div id="tagy_show_res"></div>
+        
+        
                                     <ul class="list-group">
-										<li class="list-group-item"><i class="fa fa-pencil-square-o text-primary fa-2x" aria-hidden="true"></i> <span class="text-primary heavyt"> Interested in :</span> <input  value="'.$skillsw.'" id="skills" name="skills" onblur="validate(this.name,this.value);"class="form-control text-primary ubuntu  " placeholder="skill1,skill2....."></input></li>
+										
 										<li class="list-group-item"><i class="fa fa-home text-primary fa-2x" aria-hidden="true"></i> <span class="text-primary heavyt" > From :</span> (approximate)<input    value="'.$from_placew.'" id="from_place" name="from_place" class="form-control " placeholder="Kanpur,UP...."></input></li>
 										<li class="list-group-item"><i class="fa fa-map-marker fa-2x text-primary" aria-hidden="true"></i> <span class="text-primary heavyt"> Currently living at :</span> (approximate)<input  value="'.$lives_atw.'"  id="lives_at" name="lives_at" class="form-control " placeholder="Karol Bagh,New delhi...."></input></li>
                                                                                   
@@ -554,14 +572,35 @@ $uid=$query[0];
                                   </div>
                                </div>
                              ';
+                                                        
+                                                        }
 
 else{
 echo'<div class="panel panel-default">
                                   <div class="panel-body">
+       <div id="focut" ><div class="chipa_do" style="pointer-events: none;">                          
+ <label for="skill_tagy" class="text-info postmf">&nbsp;&nbsp;<i class="fa fa-pencil-square-o text-primary fa-2x" aria-hidden="true"></i> <span class="text-primary heavyt"> Interested in :</span></label> 
+       <input id="skill_tagy" class="tags-input"  value="'; 
+          $show_tags=array();
+          $mes=mysql_query("SELECT tag_list.tag_name
+FROM tag_list
+INNER JOIN skill_tag  where tag_list.tagl_id=skill_tag.tagl_id
+and skill_tag.mem_id='$uid'");
+                   if($mes){ while($reso=mysql_fetch_row($mes)){
+                        array_push($show_tags,$reso[0]); 
+                   }
+                   echo implode(',',$show_tags);
+                   }
+          
+          
+                  echo' " data-max-tags="8" readonly="true">
+                      </div>
+                                                                
+
                                     <ul class="list-group">
-										<li class="list-group-item ubuntu"><i class="fa fa-pencil-square-o text-primary fa-2x" aria-hidden="true"></i> <span class="text-primary heavyt">  Interest : </span> '.$skillsw.' </li>
-										<li class="list-group-item  ubuntu"><i class="fa fa-home fa-2x text-primary" aria-hidden="true"></i> <span class="text-primary heavyt">  From : </span> '.$from_placew.' </li>
-										<li class="list-group-item  ubuntu"><i class="fa fa-map-marker fa-2x text-primary" aria-hidden="true"></i> <span class="text-primary heavyt">  Currently living at : </span> '.$lives_atw.' </li>
+
+										<li class="list-group-item  ubuntu "><i class="fa fa-home fa-2x text-primary" aria-hidden="true"></i> <span class="text-primary heavyt">  From :<br> </span> '.$from_placew.' </li>
+										<li class="list-group-item  ubuntu "><i class="fa fa-map-marker fa-2x text-primary" aria-hidden="true"></i> <span class="text-primary heavyt">  Currently living at : <br></span> '.$lives_atw.' </li>
                                    
                                     </ul>
                                   </div>
@@ -569,8 +608,8 @@ echo'<div class="panel panel-default">
 }
 
 
-?>
 
+?>
                               
                             
                              
@@ -857,36 +896,42 @@ echo'<div class="panel panel-default">
         
         ?>
 
+       var skill_tagsource="";
        
-       $('#tagy').tagging(tagsource); 
-                  $( window ).load(function() {
+       
+       $('#tagy').tagging(tagsource);
+  
+    $('#skill_tagy').tagging(tagsource);
+   
+              $( window ).load(function() {
     console.log( "ready!" );
     $("body").css("filter","none");
 });
         </script>
        
-       <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXbGW1zlIYVp84QbxHUL_V5md0cqlSmpk&libraries=places"></script>
+       <?php if(edit()){echo'
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXbGW1zlIYVp84QbxHUL_V5md0cqlSmpk&libraries=places"></script>
 <script type="text/javascript">
     var autocomplete,autocomplete2;
     var place_id1,place_id2;
     function initialize() {
 
-var input = document.getElementById('lives_at');
+var input = document.getElementById(\'lives_at\');
 var options = {
   
-  componentRestrictions: {country: 'In'}
+  componentRestrictions: {country: \'In\'}
 };
 autocomplete = new google.maps.places.Autocomplete(input,options);
- autocomplete.addListener('place_changed', pop_place_info);
+ autocomplete.addListener(\'place_changed\', pop_place_info);
  
 
 var options2 = {
   
-  componentRestrictions: {country: 'In'}
+  componentRestrictions: {country: \'In\'}
 };
-var inputfrom = document.getElementById('from_place');
+var inputfrom = document.getElementById(\'from_place\');
  autocomplete2 = new google.maps.places.Autocomplete(inputfrom,options2);
-autocomplete2.addListener('place_changed', pop_place_info2);
+autocomplete2.addListener(\'place_changed\', pop_place_info2);
 }
   function pop_place_info(){
       var place=autocomplete.getPlace();
@@ -902,9 +947,10 @@ function pop_place_info2(){
   }
 
 
-google.maps.event.addDomListener(window, 'load', initialize);
-</script>
-	</body>
+google.maps.event.addDomListener(window, \'load\', initialize);
+</script>';}
+	
+        ?></body>
 </html>
 
 

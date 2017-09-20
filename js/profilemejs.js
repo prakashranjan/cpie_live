@@ -291,7 +291,7 @@ function slam_comment(comm_id){
 		if(val==="" ||name===""){
                     return;
                 }
-	if(name==="status"||name==="long_disc"||name==="skills"||name==="from_place"||name==="lives_at"){
+	if(name==="status"||name==="long_disc"||name==="from_place"||name==="lives_at"){
 if(name==="from_place" || name==="lives_at"){
     if(place_id===""){return;}
     
@@ -613,4 +613,24 @@ function memberdojs(membermark){
      }
 	
         	
+};
+
+function skilltags(){
+	$( "#tagy_show_but" ).hide();
+	$.ajax({
+         type:"post",
+   url: "skilltags_ajax.php",
+    beforeSend: function() {
+    $('#tagy_show_res').html("<div style='text-align:center;'><img src='images/copy.gif'/></div>");
+  },
+   data: {newtag:$("#skill_tagy").val()},
+   success: function( data ) {
+		   $( "#tagy_show_res" ).html(data);
+                   $( "#tagy_show_but" ).show();
+   },
+   async:true,
+   cache: false 
+})
+	
+	
 };

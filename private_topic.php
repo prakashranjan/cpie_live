@@ -751,7 +751,7 @@ and topic_tag.topic_id='$tid'");
                   <?php 
                   $y=-1;
 
-                 $kqry="SELECT mem_id,username,thumbnail,fname,lname FROM member where username IN( select username from private_member where category ='$tn') ORDER BY views DESC ";
+                 $kqry="SELECT mem_id,username,thumbnail,fname,lname FROM member where username IN( select username from private_member where category ='$tn' and allow=1) ORDER BY views DESC ";
 
                 $kresult=mysql_query($kqry);
 				

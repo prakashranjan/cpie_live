@@ -210,9 +210,15 @@ echo '<div class="row">
                                 <p id="error"class="help-block text-danger"></p>
                             </div>
                         </div>
-
+                        
+                         <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                        <div class="g-recaptcha" data-sitekey="6Le6ZjEUAAAAAIaIelVwfmosh43jWyE8_6tGWb6e"></div>          
+                            </div>
+                        </div>
                         <br>
                         <div id="success"></div>
+                        
                         <div class="row">
                             <div class="form-group col-xs-12" style="text-align:center;">
                                 <button   type="submit" name="newregister"  class="btn btn-success btn-lg">Sign me Up</button>

@@ -117,109 +117,7 @@ canvas{display:none !important;}
 
 	<script src="js/register.js"></script>
         
-        
-      <!--  <script>
-            
-        function showcam(){
-     var ht='<div class="controls header" style="display:none;"> \
-            <fieldset class="reader-config-group"> \
-                <label class="hid"> \
-                    <span>Barcode-Type</span> \
-                    <select name="decoder_readers" > \
-                        <option value="code_39" selected="selected">Code 39</option> \
-                       </select> \
-                </label> \
-                <label class="hid"> \
-                    <span>Resolution (long side)</span> \
-                    <select name="input-stream_constraints"> \
-                    <option selected="selected" value="640x480">640px</option> \
-                    </select> \
-                </label> \
-                <label class="hid"> \
-                    <span>Patch-Size</span> \
-                     <select name="locator_patch-size"> \
-                        <option selected="selected" value="medium">medium</option> \
-                         </select> \
-                </label> \
-                <label class="hid"> \
-                    <span>Half-Sample</span> \
-                    <input type="checkbox" checked="checked" name="locator_half-sample" /> \
-                </label> \
-                <label class="hid"> \
-                    <span>Workers</span> \
-                    <select name="numOfWorkers"> \
-                        <option selected="selected" value="2">2</option> \
-                       </select> \
-                </label> \
-            </fieldset> \
-        </div> \
-      <div id="interactive" class="viewport"></div>\
-    </section>';
-    
-    
-     $("#container").html(ht);
-     preview();
      
-    
-    uplo=undefined;
-      $("#headody").remove(); 
-     
-}
-
-
-
-
-function showcam2(){
-    var mt='<div class="controls"style="max-width:100%;overflow:hidden;"> \
-        <fieldset class="input-group"  > \
-               <input type="file" class=" btn btn-lg btn-success  "style="font-size:1.2em;" accept="image/*" capture="camera"/><span class="pull-right text-muted">**upload id card barcode photo</span> \
-        </fieldset>  \
-        <fieldset class="reader-config-group hid"> \
-            <label> \
-                <span>Barcode-Type</span> \
-                <select name="decoder_readers"> \
-                    <option value="code_39">Code 39</option> \
-                </select> \
-            </label> \
-            <label> \
-                <span>Resolution (long side)</span> \
-                <select name="input-stream_size"> \
-                    <option selected="selected" value="800">800px</option> \
-                    </select> \
-            </label> \
-            <label> \
-                <span>Patch-Size</span> \
-                <select name="locator_patch-size"> \
-                    <option selected="selected" value="large">large</option> \
-                    </select> \
-            </label> \
-            <label> \
-                <span>Half-Sample</span> \
-                <input type="checkbox" name="locator_half-sample" /> \
-            </label> \
-            <label> \
-                <span>Single Channel</span> \
-                <input type="checkbox" checked="checked" name="input-stream_single-channel" /> \
-            </label> \
-            <label> \
-                <span>Workers</span> \
-                <select name="numOfWorkers"> \
-                    <option selected="selected" value="1">1</option> \
-                </select> \
-            </label> \
-        </fieldset> \
-    </div>';
-    
-    
-     $("#container").html(mt);
-     uplo();
-     preview=undefined;
-      $("#headody").remove(); 
-    
-    
-}
-        
-        </script>-->
         <style type="text/css">
             .row{
                 margin-left: 0px;
@@ -227,6 +125,7 @@ function showcam2(){
             }
         
         </style>
+        <script src='https://www.google.com/recaptcha/api.js'></script>
 	</head>
 	
 <body id="page-top" class="index" style="filter: blur(30px);-webkit-filter: blur(30px);">

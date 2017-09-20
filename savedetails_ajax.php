@@ -8,9 +8,9 @@ require_once('auth.php');
 // echo $place_id."<br>";
 $name=addslashes($_POST['name']);
 //echo $name."<br>";
-if($name=="status"||$name=="long_disc"||$name=="skills"||$name=="from_place"||$name=="lives_at"){
+if($name=="status"||$name=="long_disc"||$name=="from_place"||$name=="lives_at"){
   //  echo "pehla<br>";
-if($name=="status" || $name=="long_disc"|| $name=="skills"){
+if($name=="status" || $name=="long_disc"){
     // echo "pehla 2 ".$name."<br>";
 $sql="UPDATE member SET $name='$val' WHERE username='$usern'";
 				$tnme=mysql_query($sql);
