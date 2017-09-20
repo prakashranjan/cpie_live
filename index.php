@@ -125,7 +125,7 @@ canvas{display:none !important;}
             }
         
         </style>
-        <script src='https://www.google.com/recaptcha/api.js'></script>
+
 	</head>
 	
 <body id="page-top" class="index" style="filter: blur(30px);-webkit-filter: blur(30px);">

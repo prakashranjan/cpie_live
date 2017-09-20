@@ -211,11 +211,7 @@ echo '<div class="row">
                             </div>
                         </div>
                         
-                         <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                        <div class="g-recaptcha" data-sitekey="6Le6ZjEUAAAAAIaIelVwfmosh43jWyE8_6tGWb6e"></div>          
-                            </div>
-                        </div>
+                         
                         <br>
                         <div id="success"></div>
                         
