@@ -169,7 +169,7 @@ echo '<div class="row">
                                 <select class="selectpicker form-control "  id="classpik" name="section" required>
 
                                       
-                               </select>
+                               </select> 
                                 
                                 <p id="msection"class="help-block text-danger"></p>
                             </div>
@@ -214,13 +214,13 @@ echo '<div class="row">
                          
                         <br>
                         <div id="success"></div>
-                        
+                         <input type="hidden" name="telco_man" value="ha">
                         <div class="row">
                             <div class="form-group col-xs-12" style="text-align:center;">
                        
-<button   class="g-recaptcha btn btn-success btn-lg"
+<button   class="g-recaptcha"
 data-sitekey="6Le-czEUAAAAADXsIx2IhkZm3D-dW8x5FfQ5-ki3"
-data-callback="YourOnSubmitFn" name="newregister" >Sign me Up</button>
+data-callback="onSubmit"  >Sign me Up</button>
                             </div>
                         </div>
                     </form>

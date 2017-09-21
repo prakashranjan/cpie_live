@@ -168,9 +168,26 @@ function delayer(){
 <body onLoad="setTimeout('delayer()', 3000)">
     <?php
     
-    if(isset($_POST['newregister'])) 
-     { echo $_POST['g-recaptcha-response']."<br>";
+    if(isset($_POST['telco_man']) && addslashes($_POST['telco_man']) == 'ha') 
+     { 
+     echo $_POST['g-recaptcha-response']."----------<br>";
+          $result = file_get_contents( 'https://www.google.com/recaptcha/api/siteverify', false, stream_context_create( array(
+                'http' => array(
+                    'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+                    'method'  => 'POST',
+                    'content' => http_build_query( array(
+                        'response' => $_POST['g-recaptcha-response'],
+                        'secret' => '6Le-czEUAAAAAL9lf5PcH4GCnIIX88GaGX1uR_S0',
+                        'remoteip' => $_SERVER['REMOTE_ADDR']
+                    ) ),
+                ),
+            ) ) );
+            $result = json_decode($result);
+        
+            var_dump( $result->success );
+        
      
+        
               $masking=mysql_query("SELECT @@sql_mode;");
           $runmask=mysql_fetch_row($masking);
           echo $runmask[0]."<br>";

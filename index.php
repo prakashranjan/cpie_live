@@ -46,10 +46,7 @@ function checkPasswordMatch() {
         $("#error").html("**matched").css('color', 'green');
 }
 
-function onSubmit(token) {
-    console.log("faltu captcha");
-         document.getElementById("signupform").submit();
-       }
+
 </script>
 	<style  type="text/css" >
 		 
@@ -130,7 +127,16 @@ canvas{display:none !important;}
             }
         
         </style>
-<script src='https://www.google.com/recaptcha/api.js'></script>
+<script src='https://www.google.com/recaptcha/api.js' async defer></script>
+<script>
+function onSubmit(token) {
+    
+   
+            document.getElementById("signupform").submit();
+     
+      }
+
+</script>
 	</head>
 	
 <body id="page-top" class="index" style="filter: blur(30px);-webkit-filter: blur(30px);">
