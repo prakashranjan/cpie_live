@@ -169,7 +169,8 @@ function delayer(){
     <?php
     
     if(isset($_POST['newregister'])) 
-     { 
+     { echo $_POST['g-recaptcha-response']."<br>";
+     
               $masking=mysql_query("SELECT @@sql_mode;");
           $runmask=mysql_fetch_row($masking);
           echo $runmask[0]."<br>";
@@ -181,7 +182,7 @@ function delayer(){
         
         if($_SESSION['GIFTY']){
          echo'<h4><strong>Hey!</strong>0th step cross</h4><br>';
-     SignUp();
+     //SignUp();
      echo'<h4><strong>Hey!</strong>i think all done</h4><br>';
      }
      else{
