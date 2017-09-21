@@ -86,7 +86,7 @@ echo '<div class="row">
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <form  role="form" id="signupform" name="signupform" method="POST" action="signmeup.php"  >
+                    <form  role="form" id="i-recaptcha" name="signupform" method="POST" action="signmeup.php"  >
                     
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
@@ -214,13 +214,13 @@ echo '<div class="row">
                          
                         <br>
                         <div id="success"></div>
-                         <input type="hidden" name="telco_man" value="ha">
+                         
                         <div class="row">
                             <div class="form-group col-xs-12" style="text-align:center;">
-                       
-<button   class="g-recaptcha"
-data-sitekey="6Le-czEUAAAAADXsIx2IhkZm3D-dW8x5FfQ5-ki3"
-data-callback="onSubmit"  >Sign me Up</button>
+                       <button class="g-recaptcha" data-sitekey="6Le-czEUAAAAADXsIx2IhkZm3D-dW8x5FfQ5-ki3" data-callback="onSubmit">
+    Submit
+</button>
+
                             </div>
                         </div>
                     </form>
