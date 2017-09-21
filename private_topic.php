@@ -917,7 +917,7 @@ and topic_tag.topic_id='$tid'");
               <?php if(hideprivate()==0){
                   
               echo'
-                  <script src="http://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.4/typeahead.bundle.min.js"></script>
+                  <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.4/typeahead.bundle.min.js"></script>
 <script src="js/typeahead.tagging.js"></script>	
 
 <script>';

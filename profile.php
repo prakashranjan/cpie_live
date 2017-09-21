@@ -409,7 +409,7 @@ $uid=$query[0];
                                                                                 ';}
                                                          if(($mem_mode==1 && $_SESSION['SESS_MODE']==2) || ($mem_id==$n2row[2]&& $mem_mode!=2)){echo'<li class="list-group-item  ubuntu" style="font-size:1.2em;"><span class="text-primary"> <i class="fa fa-qrcode fa-2x" aria-hidden="true"></i>  </span> <span class="pull-right" style="font-size:0.9em;">'.$mem_ad_no.'</span></li>';}
 										echo'<a class="list-group-item  ubuntu " role="link" href="mailto:'.$emailw.'?subject=cpie%20chat&amp;body=Hey%20'.$fullnw.'($'.$ui.')" style="background-color:rgba(0,0,0,0.75);color:#9aea21;"><span > <i class="fa fa-envelope fa-2x" style="color:#9aea21;"aria-hidden="true"></i> <sup><i class="fa fa-share fa-2x" aria-hidden="true"></i></sup>  </span> <span id="mail_to" class="pull-right" style="font-size:1.0em;">'.$emailw.' </span></a>
-                                                                                <a onclick="copyToClipboard(\'#mail_to\')" target="_blank" href="https://hangouts.google.com/chat"class=" btn  btn-primary btn-block ubuntu " style="background-color:rgba(0,0,0,0.95);color:#9aea21;font-size:1.2em;"><img  src="http://ssl.gstatic.com/images/icons/material/product/1x/hangouts_32dp.png"/> Google hangout chat</a>
+                                                                                <a onclick="copyToClipboard(\'#mail_to\')" target="_blank" href="https://hangouts.google.com/chat"class=" btn  btn-primary btn-block ubuntu " style="background-color:rgba(0,0,0,0.95);color:#9aea21;font-size:1.2em;"><img  src="https://ssl.gstatic.com/images/icons/material/product/1x/hangouts_32dp.png"/> Google hangout chat</a>
                                     </ul>
                                   </div>
                                </div>';?>
@@ -874,7 +874,7 @@ and skill_tag.mem_id='$uid'");
 		<script src="js/scripts.js"></script>
                
 
-                <script src="http://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.4/typeahead.bundle.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.4/typeahead.bundle.min.js"></script>
 <script src="js/typeahead.tagging.js"></script>	
 
 <script>

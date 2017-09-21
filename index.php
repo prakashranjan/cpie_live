@@ -45,6 +45,11 @@ function checkPasswordMatch() {
     else
         $("#error").html("**matched").css('color', 'green');
 }
+
+function onSubmit(token) {
+    console.log("faltu captcha");
+         document.getElementById("signupform").submit();
+       }
 </script>
 	<style  type="text/css" >
 		 
@@ -108,8 +113,8 @@ canvas{display:none !important;}
 <link href="css/freelancer.css" rel="stylesheet">
     <!-- Custom Fonts -->
    
-    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
     
 
@@ -125,7 +130,7 @@ canvas{display:none !important;}
             }
         
         </style>
-
+<script src='https://www.google.com/recaptcha/api.js'></script>
 	</head>
 	
 <body id="page-top" class="index" style="filter: blur(30px);-webkit-filter: blur(30px);">
@@ -228,7 +233,7 @@ echo ' <div class="alert alert-danger">
         ?>
                 </div>
                 
-                        <div class="panel-footer page-scroll row" ><a href="#contact" class=" page-scroll btn btn-primary "><i class="fa fa-barcode fa-2x" aria-hidden="true"></i><i class="fa fa-user-plus fa-2x"></i> New User</a> &nbsp; <span class="text-success pull-right" style="font-size:1em;">Best view on <i class="fa fa-2x fa-chrome" aria-hidden="true"></i> Chrome  </span>
+                        <div class="panel-footer page-scroll row" ><a href="#contact" class=" page-scroll btn btn-primary "><i class="fa fa-barcode fa-2x" aria-hidden="true"></i><i class="fa fa-user-plus fa-2x"></i> New User</a> &nbsp; <span class="text-success pull-right" style="font-size:1em;">Best view on <i class="fa fa-2x fa-chrome" aria-hidden="true"></i> Chrome </span>
                 </div>
                 
             </div>
@@ -339,16 +344,17 @@ for the 21st century Colleges.</h2>
                     </div>
                     <div class="footer-col col-md-4">
                         <h3>About Carbon Pie</h3>
-                        <p>Carbon Pie | CARBON PIE is a licensed subscription of Carbon Pie software which is maintained by Carbon Pie reprentatives.<a href="http://shoutchat.16mb.com"> Carbon Pie </a>.</p>
-                    </div>
+                        <p>Carbon Pie | CARBON PIE is a licensed subscription of Carbon Pie software which is maintained by Carbon Pie representatives.<a href="#"> Carbon Pie </a>.</p>
+                    
+                      <div ><img src="images/comodo_secure_seal_100x85_transp.png" ></div></div>
                 </div>
             </div>
         </div>
         <div class="footer-below">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-12">
-                        Copyright &copy; Carbon Pie | CARBON PIE 2016
+                  <div class="col-lg-12">
+                        Copyright &copy; Carbon Pie | CARBON PIE 2016 
                     </div>
                 </div>
             </div>

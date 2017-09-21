@@ -132,7 +132,7 @@ return $date;
               $wwwUrl="/(((http|https|ftp|ftps)\:\/\/))[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/?\S*)?/";
               if(!(preg_match_all($wwwUrl, $pattern, $pmatches)))
                 {$mypattern=truncate($pattern,30);
-                  $text = str_replace( "$pattern " , '<a target="_blank" href="http://'.$pattern.'">'.$mypattern.' </a>', $text);}
+                  $text = str_replace( "$pattern " , '<a target="_blank" href="https://'.$pattern.'">'.$mypattern.' </a>', $text);}
 
                 else{$mypattern=truncate($pattern,30);
                 $text = str_replace("$pattern ", '<a target="_blank" href="'.$pattern.'">'.$mypattern.' </a>', $text);}
@@ -174,7 +174,7 @@ function findinstring($str)
           $sql=mysql_query("select category from topic where category='$npattern'");
           $run=mysql_fetch_row($sql);
             if(!$run[0]){
-                $text =str_replace("$pattern ", '<a class="atrate ubuntu" href="http://twitter.com/'.$npattern.'" target="_blank">@'.$npattern.' </a>', $text);    
+                $text =str_replace("$pattern ", '<a class="atrate ubuntu" href="https://twitter.com/'.$npattern.'" target="_blank">@'.$npattern.' </a>', $text);    
             } else {
               
                 $text = str_replace("$pattern ", '<a class="atrate ubuntu" href="topic?tn='.$npattern.'" target="_blank">@'.$npattern.' </a>', $text);
@@ -201,7 +201,7 @@ function findinstring($str)
           $sql=mysql_query("select username from member where username='$npattern'");
           $run=mysql_fetch_row($sql);
             if(!$run[0]){
-                $text =str_replace("$pattern ", '<a class="dollar ubuntu" href="http://facebook.com/'.$npattern.'" target="_blank">$'.$npattern.' </a>', $text);    
+                $text =str_replace("$pattern ", '<a class="dollar ubuntu" href="https://facebook.com/'.$npattern.'" target="_blank">$'.$npattern.' </a>', $text);    
             } else {
               
                 $text = str_replace("$pattern ", '<a class="dollar ubuntu" href="profile?un='.$npattern.'" target="_blank">$'.$npattern.' </a>', $text);

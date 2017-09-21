@@ -242,8 +242,8 @@ if($class_no[0]==0){
 		</style>
                 
 		<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-                <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet">
-                     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+                <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet">
+                     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
                 
 		<link href="css/commoncss.css" rel="stylesheet">
 		<link href="css/homecss.css" rel="stylesheet">
@@ -719,7 +719,7 @@ echo'</p>
 				<script src="js/bootstrap.min.js"></script>
 		<script src="js/scripts.js"></script>
                 
-                 <script src="http://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.4/typeahead.bundle.min.js"></script>
+                 <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.4/typeahead.bundle.min.js"></script>
 <script src="js/typeahead.tagging.js"></script>	
 
 <script>

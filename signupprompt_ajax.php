@@ -217,7 +217,10 @@ echo '<div class="row">
                         
                         <div class="row">
                             <div class="form-group col-xs-12" style="text-align:center;">
-                                <button   type="submit" name="newregister"  class="btn btn-success btn-lg">Sign me Up</button>
+                       
+<button   class="g-recaptcha btn btn-success btn-lg"
+data-sitekey="6Le-czEUAAAAADXsIx2IhkZm3D-dW8x5FfQ5-ki3"
+data-callback="YourOnSubmitFn" name="newregister" >Sign me Up</button>
                             </div>
                         </div>
                     </form>
