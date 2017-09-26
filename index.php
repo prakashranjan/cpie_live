@@ -18,36 +18,14 @@ include_once"connection.php";
 ?>
 
 <script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript"><!--
-function checkPasswordMatch() {
-    var password = $("#password1").val();
-    var confirmPassword = $("#cpassword1").val();
 
-    if (password !== confirmPassword)
-        $("#cpassword").html("*not matching..").css('color', 'red');
-    else
-        $("#cpassword").html("matched").css('color', 'green');
-}
-//--></script>
 
 <link href="css/font-awesome.min.css" rel="stylesheet">
 
 
 
 
-<script type="text/javascript">
-function checkPasswordMatch() {
-    var password = $("#pword").val();
-    var confirmPassword = $("#cpword").val();
 
-    if (password != confirmPassword)
-        $("#error").html("**not matching..").css('color', 'red');
-    else
-        $("#error").html("**matched").css('color', 'green');
-}
-
-
-</script>
 	<style  type="text/css" >
 		 
 
@@ -127,12 +105,7 @@ canvas{display:none !important;}
             }
         
         </style>
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-<script>
-    function onSubmit(token) {
-        document.getElementById("i-recaptcha").submit();
-    }
-</script>
+
 	</head>
 	
 <body id="page-top" class="index" style="filter: blur(30px);-webkit-filter: blur(30px);">

@@ -76,7 +76,40 @@ else{
 function showsign(){
    
 
-echo '<div class="row">
+echo '<script src="https://www.google.com/recaptcha/api.js"></script>
+    
+    
+<script>
+var errory= new Array();
+$("#signupform").submit(function (event) {
+console.log("capthca wala chala");
+ event.preventDefault();
+// submit the form which now includes a g-recaptcha-response input
+  //add custom validations...
+  var allWell=signup_cus_val();
+  
+  if(allWell==true){
+  console.log("1 validation");
+    grecaptcha.reset();
+    grecaptcha.execute();    }
+        else{return;}
+   
+    
+  });
+
+function formSubmit() {
+console.log("submit wala chala");
+  // submit the form which now includes a g-recaptcha-response input
+  //add custom validations...
+  var allWell2=signup_cus_val();
+  if(allWell2==true){
+  console.log("2 validation");
+        document.getElementById("signupform").submit();
+        $("#signMeUp").hide();}
+        else{return;}
+    }
+</script>
+    <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2>Sign Up</h2>
                     <hr class="star-primary">
@@ -86,33 +119,33 @@ echo '<div class="row">
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <form  role="form" id="i-recaptcha" name="signupform" method="POST" action="signmeup.php"  >
+                    <form  role="form" id="signupform" name="signupform" method="POST" action="signmeup.php"  >
                     
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label> First Name </label>
-                                <input class="form-control"  type="text" name="first_name" id="first_name" maxlength="15" placeholder=" First Name" required data-validation-required-message="Please enter your first name.">
+                                <input class="form-control"  type="text" name="first_name" pattern=".{2,}" onkeyup="cutter(this.id,\'a\');" id="first_name" maxlength="15" title="be honest" placeholder=" First Name" required data-validation-required-message="Please enter your first name.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label> Last Name </label>
-                                <input class="form-control" type="text" name="last_name" id="last_name" maxlength="15" placeholder=" Last Name" >
+                                <input class="form-control" type="text" name="last_name" id="last_name" maxlength="15"  pattern=".{2,}" onkeyup="cutter(this.id,\'a\');" title="be honest" placeholder=" Last Name" >
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Email Address(GMail)</label>
-                                <input type="email" class="form-control"  name="email" id="email" onblur="validate(this.name,this.value);" placeholder="Email Address"  required data-validation-required-message="Please enter your email address.">
+                                <input type="email" class="form-control"  name="email" id="email" onchange="validate(this.name,this.value);" placeholder="Email Address"  required data-validation-required-message="Please enter your email address.">
                                 <p class="help-block text-danger" id="emailerror"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Phone Number</label>
-                                <input type="tel" pattern="[0-9]{10}" class="form-control"  maxlength="10" name="phone" id="phone"onblur="validate(this.name,this.value);" placeholder="Phone Number"  required data-validation-required-message="Please enter your phone number.">
+                                <input type="tel" pattern="[0-9]{10}" class="form-control"  maxlength="10" name="phone" id="phone"onchange="validate(this.name,this.value);" onkeyup="cutter(this.id);" placeholder="Phone Number"  required data-validation-required-message="Please enter your phone number.">
                                 <p  id="phoneerror" class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -182,7 +215,7 @@ echo '<div class="row">
                          <div class="row control-group">
                             <div class="form-group col-xs-12 label-form-group controls">
                                 <label> Date of Birth </label>
-                                <input type="date" class="form-control" name="dob" id="dob" placeholder="Date of Birth dd/mm/yyyy" required data-validation-required-message="Please select your DOB">
+                                <input type="date" class="form-control" name="dob" id="dob" placeholder="Date of Birth dd/mm/yyyy" max="2003-01-01"  required data-validation-required-message="Please select your DOB">
                                
                                 <p id=""class="help-block text-danger"></p>
                             </div>
@@ -191,7 +224,7 @@ echo '<div class="row">
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label> User Name </label>
-                                <input class="form-control" type="text" name="user" id="user" maxlength="20" onblur="validate(this.name,this.value);" onkeyup="cutter(this.id);" placeholder="Username" required data-validation-required-message="Please enter your username name.">
+                                <input class="form-control" type="text" name="user" id="user" maxlength="20" pattern=".{3,}" onchange="validate(this.name,this.value);" onkeyup="cutter(this.id,\'an\');" placeholder="Username" required data-validation-required-message="Please enter your username name.">
                                 <p id="usernameerror"class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -199,14 +232,14 @@ echo '<div class="row">
                          <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label> Password </label>
-                                <input class="form-control" type="password" name="password" id="pword" onblur=""maxlength="20" placeholder="Password" required data-validation-required-message="Please enter your password ">
+                                <input class="form-control" type="password" name="password" id="pword" onchange=""maxlength="20" pattern=".{4,}" placeholder="Password" required data-validation-required-message="Please enter your password ">
                                 <p id=""class="help-block text-danger"></p>
                             </div>
                         </div>
                          <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label> Confirm Password </label>
-                                <input class="form-control" type="password" name="cpassword" id="cpword" onkeyup="checkPasswordMatch();" maxlength="20" placeholder="Confirm Password" required data-validation-required-message="Please confirm password">
+                                <input class="form-control" type="password" name="cpassword" id="cpword"  pattern=".{4,}" onkeyup="checkPasswordMatch();" maxlength="20" placeholder="Confirm Password" required data-validation-required-message="Please confirm password">
                                 <p id="error"class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -216,13 +249,20 @@ echo '<div class="row">
                         <div id="success"></div>
                          
                         <div class="row">
+                            
                             <div class="form-group col-xs-12" style="text-align:center;">
-                       <button class="g-recaptcha" data-sitekey="6Le-czEUAAAAADXsIx2IhkZm3D-dW8x5FfQ5-ki3" data-callback="onSubmit">
-    Submit
+                          <div class="g-recaptcha" 
+       data-sitekey="6Le-czEUAAAAADXsIx2IhkZm3D-dW8x5FfQ5-ki3"
+       data-size="invisible"
+       data-callback="formSubmit">
+  </div>
+                                <button class=" btn btn-lg btn-success " id="signMeUp" type="submit">
+    Sign me Up
 </button>
 
                             </div>
                         </div>
+                        <br><br>
                     </form>
                 </div>
 </div>';

@@ -1,3 +1,7 @@
+//for intializing vlaidation array
+var chal = { "email": 1, "phone": 1, "username": 1 , "password":1 };
+
+
 function keyadno(mask){
     var kat=mask;
     kat =kat.toUpperCase();
@@ -41,14 +45,18 @@ function keyadno(mask){
     else
     { kat =kat.toUpperCase();}
     
-}   
-function cutter(usernamew){
+}
+
+function cutter(usernamew,par=null){
     var cut=$('#'+usernamew).val();
-            cut=cut.replace(/[^a-zA-Z0-9]/g, '');
+            if(par=="an"){cut=cut.replace(/[^a-zA-Z0-9]/g, '');}
+            else if(par=="a"){cut=cut.replace(/[^a-zA-Z]/g, '');}
+            else {cut=cut.replace(/[^0-9]/g, '');}
+            
             $('#'+usernamew).val(cut);
             
     
-}
+};
 
 function adno_getform(){
     var tempori=$("#adno").val();
@@ -153,10 +161,19 @@ else{
 	{ $.ajax({
          type:"post",
    url: "register_ajax.php",
-     
+      beforeSend: function() {
+    $('#' + id ).html("<div style='text-align:center;'><img src='images/copy.gif'/></div>");
+  },
    data: {val:val,name:name},
    success: function( data ) {
-   $('#' + id ).html(data);
+       if(data ==1){
+         $('#' + id ).html("<span class=\"pull-right\" style=\"color:green;\">correct <i class=\"fa fa-check\" aria-hidden=\"true\"></i></span>"); 
+       chal['phone']=0;
+       }else{
+          $('#' + id ).html("Sorry! already exist"); 
+       chal['phone']=1;}
+   
+      
    },
    async:true,
    cache: false
@@ -165,7 +182,7 @@ else{
 		
 		else{
 		$('#' + id ).html("<span class='pull-right'>invalid </span>");
-		
+		chal['phone']=1;
 		}
 	
 	}
@@ -176,10 +193,19 @@ else{
        $.ajax({
          type:"post",
    url: "register_ajax.php",
-     
+     beforeSend: function() {
+    $('#' + id ).html("<div style='text-align:center;'><img src='images/copy.gif'/></div>");
+  }, 
    data: {val:val,name:name},
    success: function( data ) {
-   $('#' + id ).html(data);
+       if(data ==1){
+         $('#' + id ).html("<span class=\"pull-right\" style=\"color:green;\">correct <i class=\"fa fa-check\" aria-hidden=\"true\"></i></span>"); 
+       chal['email']=0;
+       }else{
+          $('#' + id ).html("Sorry! already exist"); 
+       chal['email']=1;}
+   
+  
    },
    async:true,
    cache: false
@@ -189,7 +215,7 @@ else{
     else{
     
     $('#' + id ).html("<span class='pull-right'>invalid </span>");
-    
+    chal['email']=1;
     }
     
     
@@ -199,10 +225,19 @@ else{
    $.ajax({
          type:"post",
    url: "register_ajax.php",
-     
+     beforeSend: function() {
+    $('#' + id ).html("<div style='text-align:center;'><img src='images/copy.gif'/></div>");
+  }, 
    data: {val:val,name:name},
    success: function( data ) {
-   $('#' + id ).html(data);
+       if(data ==1){
+         $('#' + id ).html("<span class=\"pull-right\" style=\"color:green;\">correct <i class=\"fa fa-check\" aria-hidden=\"true\"></i></span>"); 
+       chal['username']=0;
+       }else{
+          $('#' + id ).html("Sorry! already exist"); 
+      chal['username']=1; }
+   
+   
    },
    async:true,
    cache: false
@@ -246,5 +281,32 @@ function sections(mat){
 }
 }
 
+function signup_cus_val(){
+    
+    for (var x in chal){
+        if(chal[x]==1){
+            return false;
+        }
+       
+    }
+    return true;
+    
+}
 
-
+function checkPasswordMatch() {
+   
+    var password = $("#pword").val();
+    var confirmPassword = $("#cpword").val();
+    console.log(password.length);
+ if(password.length <= 3){
+     console.log("ye kaise chala");
+     $("#error").html("**too short..").css('color', 'red');
+     chal['password']=1;
+     return;}
+    if (password != confirmPassword)
+    { $("#error").html("**not matching..").css('color', 'red');
+          chal['password']=1;}
+    else
+    {$("#error").html("**matched").css('color', 'green');
+          chal['password']=0;}
+}
