@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+    <meta property="og:url"                content="https://cpie.me" />
+
+<meta property="og:title"              content="Carbon Pie" />
+<meta property="og:description"        content="Exclusively for the students of JSSATE NOIDA.Organize your College conversations in open channels classified under categories. Make a channel for your class, a topic, a team, or anything—everyone has a transparent view of all that’s going on. Private channels are also available ." />
+<meta property="og:image"              content="https://cpie.me/images/rectlogo.png" />
     <head>  
 <?php
 include_once"connection.php";
@@ -167,23 +172,23 @@ canvas{display:none !important;}
                     <form class="form-horizontal" role="form" enctype="multipart/form-data" action="login_exec.php" method="post">
                         <div class="form-group">
                             
-                            <div class="">
-                                <input type="username"  class="form-control" name="username"id="inputEmail3" placeholder="Username" required="">
+                            
+                                <input type="username"  class="form-control " name="username"id="inputEmail3" placeholder="Username" required="">
                                 
-                            </div>
+                            
                         </div>
                         <div class="form-group">
                             
-                            <div class="">
-                                <input type="password"name="password" class="form-control" id="inputPassword3" placeholder="Password" required="">
-                            </div>
+                            
+                                <input type="password"name="password" class="form-control " id="inputPassword3" placeholder="Password" required="">
+                            
                         </div>
                      
                         <div class="form-group last">
-                            <div class="">
-                                <button name="submit" type="submit"id="submit" class="btn btn-success " style="font-size:1.2em;"><i class="fa fa-unlock fa-2x"></i> Login </button>
+                            
+                               <button name="submit" type="submit"id="submit" class="btn btn-success " style="font-size:1.2em;"><i class="fa fa-unlock fa-2x"></i> Login </button>
                                 
-                            </div>
+                            
                         </div>
                     </form>
                     <!--the code bellow is used to display the message of the input validation-->

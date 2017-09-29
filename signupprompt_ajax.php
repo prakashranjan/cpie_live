@@ -137,7 +137,7 @@ console.log("submit wala chala");
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Email Address(GMail)</label>
+                                
                                 <input type="email" class="form-control"  name="email" id="email" onchange="validate(this.name,this.value);" placeholder="Email Address"  required data-validation-required-message="Please enter your email address.">
                                 <p class="help-block text-danger" id="emailerror"></p>
                             </div>
