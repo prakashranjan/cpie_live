@@ -649,16 +649,16 @@ echo'
           <div class="form-group " id="chandis">
       
                 <?php if(hideprivate()==0){
-        echo'<p class="text-primary lead ubuntu "style="color:black;font-size:15px;" ><blockquote style="font-size:15px;"name="channeldiscrip" id="channeldiscrip" onclick="editchandis();"> '.$category[2].' </blockquote></p>';
+        echo'<p class="text-primary lead ubuntu "style="color:black;font-size:15px;" ><blockquote class="blockbg" style="font-size:15px;"name="channeldiscrip" id="channeldiscrip" onclick="editchandis();"> '.$category[2].' </blockquote></p>';
 
       }
       else{
-         echo'<p class="text-primary lead ubuntu "style="color:black;font-size:15px;" ><blockquote style="font-size:15px;"name="channeldiscrip" id="channeldiscrip" > '.$category[2].' </blockquote></p>';
+         echo'<p class="text-primary lead ubuntu "style="color:black;font-size:15px;" ><blockquote  class="blockbg" style="font-size:15px;"name="channeldiscrip" id="channeldiscrip" > '.$category[2].' </blockquote></p>';
       }
         ?>
 
             </div>
-          <?php if(hideprivate()==0){ echo'<hr />
+          <?php if(hideprivate()==0){ echo'
           <label for="tagy" class="text-danger postmf">&nbsp;&nbsp; <i class="fa fa-tags " aria-hidden="true"></i> tags </label>
         <input  id="tagy_show" class="tags-input" value="'; 
           $show_tags=array();
@@ -695,10 +695,10 @@ and topic_tag.topic_id='$tid'");
           <div class="whatsapp_g_form"><form >
   <div class="input-group">
       
-       <input type="text"  style="font-size:0.9em;color:#0b7964;height: 2.9em;"class=" whatsapp_g_link form-control" placeholder="https://chat.whatsapp.com/........" title="paste whatsapp group invite link">
+       <input type="text"  style="font-size:0.9em;color:#0b7964;height: 2.9em;"class=" inputbak whatsapp_g_link form-control inputmob" placeholder="https://chat.whatsapp.com/........" title="paste whatsapp group invite link">
     <div class="input-group-btn">
       <button class="btn btn-muted whatsapp_g_button" style="padding:0.2em;" onclick="topic_whatsapp();" type="button">
-      <i class="fa fa-arrow-circle-o-right fa-2x" aria-hidden="true"></i>
+      <i class="fa fa-arrow-circle-o-right fa-2x inputmob" aria-hidden="true"></i>
 
       </button>
     </div>
@@ -745,28 +745,30 @@ and topic_tag.topic_id='$tid'");
                         </div>
       </form>
           <div class="row">
-              <div id="search_members"></div></div><hr />
-              <div class="row">
-              <div id="members_all">
+              <div id="search_members"></div></div>
+              <div class="row inputbak">
+                  <h4 class=" bg-primary text-success text-center ubuntu " style="padding:3px;">Members</h4>
+              <div id="members_all" >
                   <?php 
                   $y=-1;
 
                  $kqry="SELECT mem_id,username,thumbnail,fname,lname FROM member where username IN( select username from private_member where category ='$tn' and allow=1) ORDER BY views DESC ";
 
                 $kresult=mysql_query($kqry);
-				
+		$id_filler=array();		
                 while($krow = mysql_fetch_row($kresult))
                 {$full=$krow[3]." ".$krow[4];
 				 
-					echo'<div class=" col-lg-3 col-sm-6 panel  " style="padding-bottom:3px;"><div class="panel-heading" style="padding:3px;background-color:#663ce7;border-color:#663ce7;"><a href="profile?un='.$krow[1].'" >
+					echo'<div class=" col-lg-3 col-sm-6 panel  "  id="'.$krow[0].'usercard" style="padding-bottom:3px;"><div class="panel-heading" style="padding:3px;background-color:#663ce7;border-color:#663ce7;"><a href="profile?un='.$krow[1].'" >
 									      <img class="img-circle pull-left" style="height:45px;" src="'.$krow[2].'">
 									</a> <a style="color:white;"href="profile?un='.$krow[1].'"><h6 class="ubuntu"> &nbsp;$'.$krow[1].'</h6><a role="button" onclick="memberdo(this.id);" id="'.$krow[0].'todomem" style="font-size:3.5vh;" class="pull-right "  ><i class="fa fa-minus-circle "title="Remove" aria-hidden="true"></i></a> </a> </div> <h6 class="ubuntu"style="color:red;"> '.$full.' </h6></div>';
 				 
 				 
-					
+				array_push($id_filler,'"'.$krow[0].'"');	
 		 
 				$y++;
 				}
+                                echo'<script> var u_ids_pri=['.  implode(",", $id_filler).'];</script>';
                   
                   ?>
               </div>
@@ -837,7 +839,7 @@ and topic_tag.topic_id='$tid'");
         <div class="tab-pane active" id="tab1">
             <form class="form center-block"  enctype="multipart/form-data" >
             <div class="form-group">
-              <textarea rows="8" cols="100%" class="form-control input-lg" maxlength="2000" name="cap" id="cap" placeholder="What do you want to shout?"></textarea>
+              <textarea rows="8" cols="100%" class="form-control input-lg inputbak" maxlength="2000" name="cap" id="cap" placeholder="What do you want to shout?"></textarea>
               <br>
               <div class="checkbox text-center fa-lg">
     <label>
@@ -860,7 +862,7 @@ and topic_tag.topic_id='$tid'");
         <div class="tab-pane" id="tab2">
         	 <form method="POST"   id="docupload" action="uploadmera.php" class="dropzone" enctype="multipart/form-data" >
            <div class="form-group">
-              <textarea rows="4" cols="100%"class="form-control input-lg" name="cap2" maxlength="2000"  id="cap2" placeholder="Enter caption..."></textarea>
+              <textarea rows="4" cols="100%"class="form-control input-lg inputbak" name="cap2" maxlength="2000"  id="cap2" placeholder="Enter caption..."></textarea>
 			 <div id="respo"></div>
             </div>
                      
@@ -873,7 +875,7 @@ and topic_tag.topic_id='$tid'");
 	 <div class="tab-pane" id="tab3">
             <form class="form center-block" enctype="multipart/form-data" >
             <div class="form-group">
-                <textarea rows="3" cols="100%"class="form-control input-lg text-danger" name="cap3" maxlength="1000" id="cap3" placeholder="Ask something..."required="give poll question.."></textarea>
+                <textarea rows="3" cols="100%"class="form-control input-lg text-danger inputbak" name="cap3" maxlength="1000" id="cap3" placeholder="Ask something..."required="give poll question.."></textarea>
 			
                          
                          <!-- poll options -->

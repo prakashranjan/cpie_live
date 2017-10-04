@@ -25,7 +25,7 @@ $y=-1;
                 while($krow = mysql_fetch_row($kresult))
                 {$full=$krow[3]." ".$krow[4];
 				 
-					echo'<div class=" col-lg-3 col-sm-6 panel  " style="padding-bottom:3px;"><div class="panel-heading" style="padding:3px;background-color:#663ce7;border-color:#663ce7;"><a href="profile?un='.$krow[1].'" >
+					echo'<div class=" col-lg-3 col-sm-6 panel  " id="'.$krow[0].'usercard" style="padding-bottom:3px;"><div class="panel-heading" style="padding:3px;background-color:#663ce7;border-color:#663ce7;"><a href="profile?un='.$krow[1].'" >
 									      <img class="img-circle pull-left" style="height:45px;" src="'.$krow[2].'">
 									</a> <a style="color:white;"href="profile?un='.$krow[1].'"><h6 class="ubuntu"> &nbsp;$'.$krow[1].'</h6><a role="button" onclick="memberdo(this.id);" id="'.$krow[0].'todomem" style="font-size:3.5vh;" class="pull-right " >';
                                         kya_ayega($krow[1],$jqry[0]);

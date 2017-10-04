@@ -17,7 +17,7 @@ $sql="UPDATE topic SET cdesc='$val' WHERE topic_id='$tid'";
    //             $result45=mysql_query($qry45);
 
 
-echo'<p class="text-primary lead ubuntu "style="color:black;"  ><blockquote style="font-size:15px;" onclick="editchandis();" name="channeldiscrip" id="channeldiscrip"> '.$val.' </blockquote></p>';
+echo'<p class="text-primary lead ubuntu "style="color:black;"  ><blockquote style="font-size:15px;" class="blockbg" onclick="editchandis();" name="channeldiscrip" id="channeldiscrip"> '.$val.' </blockquote></p>';
 
 
 

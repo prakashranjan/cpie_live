@@ -418,7 +418,8 @@ setTimeout(function(){
    
 	function naseeb_batao(){
             var val = parseInt(Math.random() * 4);
-            val=20000 + val*10000;
+            var salty=parseInt(Math.random() * 10);
+            val=40000 + val*salty*10000;
             
             return val;
         }	

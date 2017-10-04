@@ -22,7 +22,7 @@ $y=-1;
                 while($krow = mysql_fetch_row($kresult))
                 {$full=$krow[3]." ".$krow[4];
 			
-					echo'<div class=" col-lg-4 col-sm-6 panel  " id="'.$krow[0].'usercard"style="padding-bottom:3px;background-color:white;"><div class="panel-heading" style="padding:3px;background-color:#663ce7;border-color:#663ce7;"><a  >
+					echo'<div class=" col-lg-4 col-sm-6 panel  " id="'.$krow[0].'usercard" style="padding-bottom:3px;background-color:white;"><div class="panel-heading" style="padding:3px;background-color:#663ce7;border-color:#663ce7;"><a  >
 									      <img class="img-circle pull-left" style="height:45px;" src="'.$krow[2].'">
 									</a> <a style="color:white;"><h6 class="ubuntu"> &nbsp;$'.$krow[1].'</h6><a role="button" onclick="memberdojs(this.id);" id="'.$krow[0].'todomem" style="font-size:3.5vh;" class="pull-right "  >';
                                         

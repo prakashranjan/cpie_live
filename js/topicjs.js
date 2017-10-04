@@ -300,7 +300,7 @@ setTimeout(notify, 40000);
 function editchandis(){
   var chandata= $("#channeldiscrip").text();
 
- $( "#chandis" ).html("<textarea rows='10' cols='100%'class='form-control input-lg lead ubuntu 'style='color:black;' onblur='channeldiscrip();'name='channeldiscrip' id='channeldiscrip' placeholder='Give the channel discription in detail......'></textarea");
+ $( "#chandis" ).html("<textarea rows='10' cols='100%'class='form-control input-lg lead ubuntu inputbak'style='color:black;' onchange='channeldiscrip();'name='channeldiscrip' id='channeldiscrip' placeholder='Give the channel discription in detail......'></textarea");
 $("#channeldiscrip").text(chandata);
 }
 function channeldiscrip(){

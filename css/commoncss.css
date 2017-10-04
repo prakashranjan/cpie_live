@@ -212,6 +212,7 @@ margin-left:35%;}
     background-color: #18bc9c;
 }
 @media (max-width: 480px){
+    
 ::-webkit-scrollbar{width:0px;}
 .navbar-blue{background-color:rgba(24,188,156,1.0);}
 .navbar{min-height:40px;}
@@ -252,9 +253,16 @@ margin-left:35%;}
       background-color: rgba(255, 255, 255, 0.52) !important;
 }
 .inputmob{
-    border-color: #2C3E50;
+    border-color: #2C3E50 !important;
 }
 }
 
 @media screen and (max-height: 450px){
 .sidenav{padding-top:15px;color:white;}}
+
+blockquote{
+    border-left: 5px solid #2c3e50 !important;
+}
+.blockbg{
+    background-color: rgba(147, 219, 205, 0.45) !important;
+}

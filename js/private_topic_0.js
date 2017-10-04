@@ -147,10 +147,9 @@ if(term==""){
  
 }
 
-function memberdo(membermark){
+function memberdoinside(membermark){
     console.log(mark);
-    var sachi=confirm("are you sure?");
-    if(sachi==true){
+  
      $('#' + membermark + 'todomem' ).hide();
 			    membermark= membermark.replace(/\D/g,'');
 			// ion.sound.play("water_droplet_2");
@@ -168,5 +167,40 @@ function memberdo(membermark){
    cache: false
 });
 	
-        }	
+        	
+};
+
+
+
+function memberdo(membermark){
+     membermark= membermark.replace(/\D/g,'');
+     if(membermark){
+         
+         if(u_ids_pri.indexOf(membermark)<0){
+               var sachi=confirm("are you sure?");
+    if(sachi==true){
+         u_ids_pri.push(membermark);
+    memberdoinside(membermark);
+    console.log(u_ids_pri.toString());
+    
+     $('#' + membermark + 'usercard' ).prependTo("#members_all");
+     }	 } 
+     
+     else{
+         if( $('#' + membermark + 'usercard').parent().attr("id")=="search_members"){
+         $('#' + membermark + 'usercard' ).remove();
+         console.log(u_ids_pri.toString());
+     }
+     else if($('#' + membermark + 'usercard').parent().attr("id")=="members_all"){
+        var sachi=confirm("are you sure?");
+    if(sachi==true){ 
+                u_ids_pri.splice(u_ids_pri.indexOf(membermark),1);
+             memberdoinside(membermark);
+                $('#' + membermark + 'usercard' ).remove();
+                console.log(u_ids_pri.toString());
+            }}
+ }
+     }
+	
+        	
 };
