@@ -2,11 +2,12 @@
 require_once('auth.php');
 include("connection.php");
 include("commonfun.php");
+include("vcommon.php");
 
-$type_id=$_POST['typeid'];
-$topic_vis=$_POST['topic_visi'];
+$type_id=cleankar($_POST['typeid']);
+$topic_vis=cleankar($_POST['topic_visi']);
 $cdesc=  addslashes($_POST['cdesc']);
-   $private=$_POST['private']; 
+   $private=cleankar($_POST['private']); 
     $newcat= addslashes($_POST['newcat']);
    $topictagy=  addslashes($_POST['ttagy']);
    if(($type_id!="" && $newcat!="") ||($type_id=="" && $newcat=="") ){ //exit case
@@ -46,8 +47,8 @@ $cdesc=  addslashes($_POST['cdesc']);
             $mem_id=$_SESSION['SESS_MEMBER_ID'];
 			$uname=$_SESSION['SESS_USERNAME'];
                          $newcat= addslashes($_POST['newcat']);
-      $type_id=$_POST['typeid'];
-      $topic_vis=$_POST['topic_visi'];
+      $type_id=cleankar($_POST['typeid']);
+      $topic_vis=cleankar($_POST['topic_visi']);
       $topictagy=  addslashes($_POST['ttagy']);
       $alltopic_tagy=  explode(',', $topictagy, 8);
        unset($alltopic_tagy[8]);
@@ -56,9 +57,9 @@ $cdesc=  addslashes($_POST['cdesc']);
        foreach ($alltopic_tagy as &$value) {
            
        $value = preg_replace('/\s+/', '_', $value);
-       echo $value."<br>";
+      // echo $value."<br>";
        }
-       echo implode(',',$alltopic_tagy);
+      // echo implode(',',$alltopic_tagy);
        
        // for type_id and checking of newcat
       
@@ -170,25 +171,27 @@ $cdesc=  addslashes($_POST['cdesc']);
           if(mysql_num_rows($macbo)>0){
               
               while($run=mysql_fetch_row($macbo)){
-                  echo "match".$run[1]."<br>";
+                //  echo "match".$run[1]."<br>";
                   array_push($tag_id_ar,$run[0]);
                   $alltopic_tagy = array_diff($alltopic_tagy, ["$run[1]"]);
                   
               }
-             echo "<br>copy hata ke".implode(',',$alltopic_tagy); 
+           //  echo "<br>copy hata ke".implode(',',$alltopic_tagy); 
           }
-          else{echo "<br>no match".implode(',',$alltopic_tagy); }
+          else{
+             // echo "<br>no match".implode(',',$alltopic_tagy);
+              }
           if(!empty($alltopic_tagy)){
               
                  foreach ($alltopic_tagy as $valse) {
-                     echo $valse."<br>";
+                   //  echo $valse."<br>";
              $qrypo=mysql_query("INSERT INTO tag_list (tag_name) VALUES ('$valse')");
                    $newtag_id=mysql_insert_id();
                    array_push($tag_id_ar,$newtag_id);
                 }
-                    echo "<br>new entry".implode(',',$alltopic_tagy); 
+                    //echo "<br>new entry".implode(',',$alltopic_tagy); 
                  }
-                                 echo "<br>all".implode(',',$tag_id_ar);                     
+                               //  echo "<br>all".implode(',',$tag_id_ar);                     
                                                   foreach ($tag_id_ar as $valme) {
              $qml=mysql_query("INSERT INTO topic_tag (topic_id,tagl_id) VALUES ('$newtopic_id','$valme')");
                  

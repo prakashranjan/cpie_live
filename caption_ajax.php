@@ -2,23 +2,14 @@
 require_once('auth.php');
  include("connection.php");	
  include("commonfun.php");
+ include("vcommon.php");
 	
 	        $usern=$_SESSION['SESS_USERNAME'];
 	       
-		// anon = anonymous
+		
 
 
-		if(isset($_POST['anon'])){
-            $anon=1;
-        }else{
-            $anon=0;
-        }	
-
- $tid=$_POST['tid'];
-$caption=  addslashes($_POST['cap']); 
-
-
-                    if(!savecap($caption)){
+                    if(!savecap()){
 			echo'<div class="alert alert-success">
   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
   <strong>Success!</strong> .
@@ -38,10 +29,12 @@ echo'<div class="alert alert-danger">
 </div>';
 
 }	
-function savecap($caption)
+function savecap()
             { $usern=$_SESSION['SESS_USERNAME'];
-			$tid=$_POST['tid'];
+			$tid=cleankar($_POST['tid']);
 			$caption=  addslashes($_POST['cap']); 
+                            if($caption=="" || $tid==""){return 1;
+                            }
 			
                         $caption=strip_tags($caption,"<img> <a> <br>");
                         $caption=trim($caption);
@@ -57,7 +50,7 @@ function savecap($caption)
 				$sql="SELECT category FROM topic WHERE topic_id='$tid'";
 			     $toname=mysql_query($sql);
 				$rows = mysql_fetch_row($toname);
-                                if($caption!=''){
+                                if($caption!="" && $tid!=""){
                  $qry="insert into testblob (category,username,caption,owner,anonymous) values ('$rows[0]','$usern','$caption','$usern','$anon')";
                 $result=mysql_query($qry);
                                 }

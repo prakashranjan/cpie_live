@@ -4,6 +4,8 @@
 require_once('auth.php');
  include("connection.php");	
  include("commonfun.php");
+ include("vcommon.php");
+ 
 	
 	        $usern=$_SESSION['SESS_USERNAME'];
 	       
@@ -12,16 +14,9 @@ require_once('auth.php');
 
 		
 
- $tid=$_POST['tid'];
-$caption=  addslashes($_POST['cap']); 
-$mul_cor= 0;
-
-$mul_cor=0;
-$anony=$_POST['anony'];
-$polloption=$_POST['polloption'];
 
 
-                    if(!savecap($caption)){
+                    if(!savecap()){
 			echo'<div class="alert alert-success">
   <a href="#" class="close text-center" data-dismiss="alert" aria-label="close">&times;</a>
   <strong>Success!</strong> .
@@ -41,9 +36,10 @@ echo'<div class="alert alert-danger">
 </div>';
 
 }	
-function savecap($caption)
-            { $usern=$_SESSION['SESS_USERNAME'];
-			$tid=$_POST['tid'];
+function savecap()
+            { $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+    $usern=$_SESSION['SESS_USERNAME'];
+			$tid=cleankar($_POST['tid']);
 			$caption=  addslashes($_POST['cap']); 
 			
                         $caption=strip_tags($caption,"<img> <a> <br>");
@@ -53,8 +49,10 @@ function savecap($caption)
                         $mul_cor= 0;
                         
                         $polloption=$_POST['polloption'];
+                        $polloption =array_map('strip_tags', $polloption);
                         
-			$anony=$_POST['anony'];
+			$anony=cleankar($_POST['anony']);
+                        if($anony=="" || $caption=="" || $tid=="" || empty($polloption)==true){return 1;}
 			
 				$sql="SELECT category FROM topic WHERE topic_id='$tid'";
 			     $toname=mysql_query($sql);

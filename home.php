@@ -1,7 +1,8 @@
 
 <?php
 	require_once('auth.php');
-include("connection.php");	
+include("connection.php");
+include("vcommon.php");
 
 $session=session_id();
 $fav_led="-off";

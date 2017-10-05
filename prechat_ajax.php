@@ -2,13 +2,14 @@
 require_once('auth.php');
  include("connection.php");	
   include("commonfun.php");
-   
+    include("vcommon.php");
 	
 	        $usern=$_SESSION['SESS_USERNAME'];
                  $memid=$_SESSION['SESS_MEMBER_ID'];
 	        
 			
- $tid=$_GET['tid'];
+ $tid=cleankar($_GET['tid']);
+ if($tid==""){exit();}
  $n=0;
  $y=-1;
  $mart=0;

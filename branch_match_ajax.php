@@ -2,6 +2,7 @@
  require_once('auth.php');
 include("connection.php");
 include("commonfun.php");
+include("vcommon.php");
 //Start session
     if($_SESSION['SESS_MODE']==2){
 $session=session_id();
@@ -9,8 +10,8 @@ $time=time();
 $sql4="Update user_online set time='$time' where session='$session'";
 $result4=mysql_query($sql4);
  
-$branch_id=  addslashes($_GET['branchid']);
-
+$branch_id=  cleankar($_GET['branchid']);
+if($branch_id==""){exit();}
 
                 
 
@@ -60,7 +61,7 @@ for($i=1;$i<=$gmrow[0];$i++) {
 
 
   function getchannels($inyear){
-      $branch_id=  addslashes($_GET['branchid']);
+      $branch_id=  cleankar($_GET['branchid']);
  
                  $kqry="SELECT section_id,category,cdesc,wall,private FROM section WHERE branch_id='$branch_id' and year='$inyear' ORDER BY views DESC";
 $y=-1;

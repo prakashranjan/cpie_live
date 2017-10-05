@@ -2,9 +2,11 @@
  require_once('auth.php');
 include("connection.php");
 include("commonfun.php");
+include("vcommon.php");
  $usern=$_SESSION['SESS_USERNAME'];
  
-$count=$_GET['counter'];
+$count=cleankar($_GET['counter']);
+
 
  
  
@@ -99,7 +101,7 @@ $j=0;
                 
 		 
 		 	if(!$krow[0]&& $y==-1) 
-{echo'<img height="15%" width="15%"src="images/sorry.png"></img><br /><h2>you have not created any channel</h2>';}
+{echo'<img height="15%" width="15%"src="images/sorry.png"></img><br /><h2>you haven\'t been added to any channel</h2>';}
 		 
 	//Start session
     

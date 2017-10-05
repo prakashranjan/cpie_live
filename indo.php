@@ -1,5 +1,5 @@
 <?php
-phpinfo();
+//phpinfo();
 
 //faltu
  /*<div style="background-color:rgba(44,62,80,0.08); "><h2 class="text-center text-danger"> --------  OR  -------- </h2></div>

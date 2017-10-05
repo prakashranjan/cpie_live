@@ -1,11 +1,11 @@
 <?php
  require_once('auth.php');
 include("connection.php");
-
+include("vcommon.php");
   $usern=$_SESSION['SESS_USERNAME'];
  
- $comment_id=$_POST['commentid'];
- 
+ $comment_id=cleankar($_POST['commentid']);
+ if($comment_id==""){exit();}
  
  
  

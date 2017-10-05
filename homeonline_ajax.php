@@ -1,5 +1,5 @@
 <?php 
- require_once('auth.php');
+ /*require_once('auth.php');
 include("connection.php");
   //Start session
    
@@ -27,6 +27,6 @@ $kqry=" SELECT DISTINCT mem_id,time FROM user_online where $time - time <=900  o
 				
 				}
 
-
+*/
 
 ?>

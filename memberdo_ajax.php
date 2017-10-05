@@ -1,12 +1,14 @@
 <?php
 require_once('auth.php');
 include("connection.php");
+include("vcommon.php");
 
   $usern=$_SESSION['SESS_USERNAME'];
   $mem_id=$_SESSION['SESS_MEMBER_ID'];
  $tid=addslashes($_GET['tid']);
   $membermark=addslashes($_GET['membermark']);
   $membermark=preg_replace('/\D/', '', $membermark);
+  if($tid=="" || $membermark==""){exit();}
   
   $kqrym="SELECT username FROM member WHERE mem_id='$membermark'";
  $mqrym=mysql_query($kqrym);

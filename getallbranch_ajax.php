@@ -2,10 +2,11 @@
  <?php
  require_once('auth.php');
 include("connection.php");
+include("vcommon.php");
 
  if($_SESSION['SESS_MODE']==2){
 $cour_id=addslashes($_GET['cour']);
-
+if($cour_id==""){exit();}
  $kqry="SELECT course_short FROM course where course_id='$cour_id' ";
 
 

@@ -3,7 +3,8 @@
 
 
 require_once('auth.php');
- include("connection.php");	
+ include("connection.php");
+ include("vcommon.php");
 	
 	        $usern=$_SESSION['SESS_USERNAME'];
 	        $firstn=$_SESSION['SESS_FIRST_NAME'];
@@ -12,9 +13,10 @@ require_once('auth.php');
 			$gender=$_SESSION['SESS_GENDER'];
 			$gender= strtolower($gender);
 			
- $tid=$_POST['tid'];
+ $tid=cleankar($_POST['tid']);
  			
- $counter=$_POST['count'];
+ $counter=cleankar($_POST['count']);
+ if($tid=="" || $counter==""){exit();}
 
 $sql1="SELECT log FROM member WHERE username='$usern'";
 $log=mysql_query($sql1);

@@ -1,10 +1,11 @@
 <?php
 require_once('auth.php');
 include("connection.php");
+include("vcommon.php");
 
   $usern=$_SESSION['SESS_USERNAME'];
- $tid=$_GET['tid'];
- 
+ $tid=cleankar($_GET['tid']);
+ if($tid==""){exit();}
  $kqry="SELECT category FROM topic WHERE topic_id='$tid'";
  $mqry=mysql_query($kqry);
  $jqry=mysql_fetch_row($mqry);

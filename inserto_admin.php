@@ -1,5 +1,5 @@
 <?php
-require_once('auth.php');
+/*require_once('auth.php');
 
 
  $kqry="SELECT * FROM branch WHERE course_id=1";
@@ -22,4 +22,6 @@ else{
    }  
    }
  }
+ 
+ */
  ?>

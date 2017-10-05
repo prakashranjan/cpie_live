@@ -3,7 +3,10 @@
 	require_once('auth.php');
  include("connection.php");	
   include("commonfun.php");
-  $tn=$_GET['tn'];
+   include("vcommon.php");
+   
+  $tn=cleankar($_GET['tn']);
+  if($tn==""){exit();}
                 $sql="select private from section where category='$tn'";
             $query=mysql_query($sql)or die;
             
@@ -41,7 +44,7 @@ function hideprivate (){
     //for students and teachers.....
 $usern=$_SESSION['SESS_USERNAME'];
 $mode_id=$_SESSION['SESS_MODE'];
-$tn=$_GET['tn'];
+$tn=cleankar($_GET['tn']);
  $qr=mysql_query("select section_id from section where category='$tn'");
   $rn=mysql_fetch_row($qr);
    $tid=$rn[0];
@@ -234,7 +237,7 @@ if(hideprivate()==0 && $_SESSION['SESS_MODE']==1 ){echo'
                                         
                                         
 <?php
-$tn=$_GET['tn']; $qr=mysql_query("select section_id from section where category='$tn'"); $rn=mysql_fetch_row($qr); $tid=$rn[0];
+$tn=cleankar($_GET['tn']); $qr=mysql_query("select section_id from section where category='$tn'"); $rn=mysql_fetch_row($qr); $tid=$rn[0];
                 
                 $qry99="SELECT course_id,branch_id FROM section WHERE section_id='$tid'";
                 $res45=mysql_query($qry99);
@@ -310,7 +313,7 @@ $qry199="SELECT branch_short FROM branch WHERE branch_id='$zrow[1]'";
             </div>
             
             <?php  
-$tn=$_GET['tn'];
+$tn=cleankar($_GET['tn']);
 $mem_id=$_SESSION['SESS_MEMBER_ID'];
  $qr=mysql_query("select section_id from section where category='$tn'");
   $rn=mysql_fetch_row($qr);
