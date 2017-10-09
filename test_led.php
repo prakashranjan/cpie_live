@@ -1,5 +1,5 @@
 <?php
-
+/*
 
 echo'
 <html>
@@ -57,4 +57,6 @@ echo'
  <div class="led-yellow"></div>
 </body>
 </html>';
+ 
+ */
 ?>

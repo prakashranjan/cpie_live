@@ -2,8 +2,12 @@
 	require_once('auth.php');
  include("connection.php");	
   include("commonfun.php");
+   include("vcommon.php");
+  
 	
-   $tn=$_GET['tn'];
+   $tn=cleankar($_GET['tn']);
+   if($tn==""){header("location: home");
+       exit();}
                 $sql="select private from topic where category='$tn'";
             $query=mysql_query($sql);
            
@@ -36,7 +40,9 @@
 
 function hideprivate (){
 $usern=$_SESSION['SESS_USERNAME'];
-$tn=$_GET['tn'];
+$tn=cleankar($_GET['tn']);
+if($tn==""){header("location: home");
+    exit();}
  $qr=mysql_query("select topic_id from topic where category='$tn'");
   $rn=mysql_fetch_row($qr);
    $tid=$rn[0];
@@ -198,7 +204,7 @@ echo'<script type="text/javascript" src="js/private_topic_common.js"></script>';
                     <li class="active"><a href="home"> Home <i class="fa fa-home pull-right"></i></a></li>
 					<li><a id="refresh"href=""> Refresh <i class="glyphicon glyphicon-refresh pull-right"></i></a></li>
 <?php
-$tn=$_GET['tn']; $qr=mysql_query("select topic_id from topic where category='$tn'"); $rn=mysql_fetch_row($qr); $tid=$rn[0];
+$tn=cleankar($_GET['tn']); $qr=mysql_query("select topic_id from topic where category='$tn'"); $rn=mysql_fetch_row($qr); $tid=$rn[0];
                 
                 $qry99="SELECT type_id FROM topic WHERE topic_id='$tid'";
                 $res45=mysql_query($qry99);
@@ -275,7 +281,7 @@ $tn=$_GET['tn']; $qr=mysql_query("select topic_id from topic where category='$tn
               
             </div>
             <?php  
-$tn=$_GET['tn'];
+$tn=cleankar($_GET['tn']);
  $qr=mysql_query("select topic_id from topic where category='$tn'");
   $rn=mysql_fetch_row($qr);
    $tid=$rn[0];

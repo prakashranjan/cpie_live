@@ -3,7 +3,8 @@
 require_once('auth.php');
  include("connection.php");	
  include("commonfun.php");
-include("comment_script.php");	
+include("comment_script.php");
+include("vcommon.php");
 	        $usern=$_SESSION['SESS_USERNAME'];
 	       
 		// anon = anonymous
@@ -16,7 +17,8 @@ include("comment_script.php");
        // }	
 
  
-$comment_post_id= $_GET['comment_post_id']; 
+$comment_post_id= cleankar($_GET['comment_post_id']);
+if($comment_post_id==""){exit();}
 
 $sql="select comment_count from testblob where image_id='$comment_post_id'";
 $result=  mysql_query($sql) or die;

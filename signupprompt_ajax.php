@@ -1,5 +1,6 @@
 <?php
   include("connection.php");
+   include("vcommon.php");
   
 
 		session_start();
@@ -10,6 +11,7 @@
 $yr= addslashes($_GET['yr']);
 $br= addslashes($_GET['br']);
 $rl= addslashes($_GET['rl']);
+if($yr=="" || $br=="" ||$rl==""){exit();}
 if(strlen($rl)!=3){
     echo "<h4> invalid admission no. </h4>";
     exit();

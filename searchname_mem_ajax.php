@@ -1,12 +1,14 @@
 <?php
  require_once('auth.php');
 include("connection.php");
+include("vcommon.php");
 
 include("member_common_fun.php");
 $memid=$_SESSION['SESS_MEMBER_ID'];
 
  $tid=addslashes($_GET['tid']);
-$term=$_GET['term'];
+$term=cleankar($_GET['term']);
+if($tid=="" || $term==""){exit();}
 $kqryj="SELECT category FROM topic WHERE topic_id='$tid' and private=1";
  $mqryj=mysql_query($kqryj);
 if(mysql_num_rows($mqryj)==0){

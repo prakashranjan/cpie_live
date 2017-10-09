@@ -1,8 +1,10 @@
 <?php 
 require_once('auth.php');
 include("connection.php");
-$postid=$_POST['postid'];
-$category=$_POST['category'];
+include("vcommon.php");
+$postid=cleankar($_POST['postid']);
+$category=cleankar($_POST['category']);
+if($postid=="" || $category==""){exit();}
  $usern=$_SESSION['SESS_USERNAME'];
     
 if($category!=-99){

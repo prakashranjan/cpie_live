@@ -1,7 +1,7 @@
 <?php
 require_once('auth.php');
  include("connection.php");
- include("vcommon.php");
+ 
 
 function magic($qry){
      $usern=$_SESSION['SESS_USERNAME'];

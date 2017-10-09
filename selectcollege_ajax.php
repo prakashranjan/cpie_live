@@ -1,5 +1,5 @@
 <?php
-include_once"connection.php";
+/*include_once"connection.php";
 $str=$_GET['str'];
 if($str!=""){
 $sql=mysql_query("select college,college_id from college where univ='$str' ORDER BY college");
@@ -16,5 +16,5 @@ echo'</select>';
 else
 {}
 
-
+*/
 ?>

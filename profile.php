@@ -1,6 +1,7 @@
 <?php
 	require_once('auth.php');
- include("connection.php");	
+ include("connection.php");
+ include("vcommon.php");
 	
 	        $usern=$_SESSION['SESS_USERNAME'];
                 $mem_id=$_SESSION['SESS_MEMBER_ID'];
@@ -10,7 +11,10 @@
 			$gender=$_SESSION['SESS_GENDER'];
 			$gender= strtolower($gender);
  
-$ui=$_GET['un'];
+$ui=cleankar($_GET['un']);
+if($ui==""){header("location: home");
+    exit();
+}
 $sql=mysql_query("select mem_id from member where username='$ui'");
 $query=mysql_fetch_row($sql);
 $uid=$query[0];
@@ -23,7 +27,7 @@ if(!is_numeric($uid)){
 function edit() {   
 	$usern=$_SESSION['SESS_USERNAME'];
                 
-$ui=$_GET['un'];
+$ui=cleankar($_GET['un']);
 $sql=mysql_query("select mem_id from member where username='$ui'");
 $query=mysql_fetch_row($sql);
 $uid=$query[0];
@@ -152,7 +156,7 @@ $qry05="Update member set views=views+1 WHERE mem_id='$uid'";
                 <ul class="nav" id="lg-menu">
 					
 					<?php 
-$ui=$_GET['un'];
+$ui=cleankar($_GET['un']);
 $sql=mysql_query("select mem_id from member where username='$ui'");
 $query=mysql_fetch_row($sql);
 $uid=$query[0];
@@ -378,7 +382,7 @@ $shouts=$metro[0];
                          <div class="col-sm-5">
                            
                               <div class="panel panel-default well">
-                                  <?php			$ui=$_GET['un'];
+                                  <?php			$ui=cleankar($_GET['un']);
 $sql=mysql_query("select mem_id from member where username='$ui'");
 $query=mysql_fetch_row($sql);
 $uid=$query[0];

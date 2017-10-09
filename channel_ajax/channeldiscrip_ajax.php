@@ -2,11 +2,13 @@
 require_once('../auth.php');
  include("../connection.php");	
  include("../commonfun.php");
+ include("../vcommon.php");
  $usern=$_SESSION['SESS_USERNAME'];
- $val=$_POST['val'];
-$tid=$_POST['tid'];
+ $val=cleankar($_POST['val']);
+$tid=cleankar($_POST['tid']);
 $val=trim($val);
 $val=carbonlink($val);
+if($tid=="" || $val==""){exit();}
 
 
 $sql="UPDATE section SET cdesc='$val' WHERE section_id='$tid'";

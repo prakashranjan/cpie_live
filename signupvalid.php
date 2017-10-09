@@ -1,13 +1,14 @@
 <?php
 include("connection.php");
+ include("vcommon.php");
 $p;
 $t;
 
 
-$value = $_GET['query'];
-$formfield = $_GET['field'];
+$value = cleankar($_GET['query']);
+$formfield = cleankar($_GET['field']);
 
-
+if($value=="" || $formfield==""){exit();}
 
 // Check Valid or Invalid user name when user enters user name in username input field.
 if ($formfield == "username") {$t=0;

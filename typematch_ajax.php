@@ -2,6 +2,7 @@
  require_once('auth.php');
 include("connection.php");
 include("commonfun.php");
+include("vcommon.php");
 //Start session
     
 $session=session_id();
@@ -9,7 +10,8 @@ $time=time();
 $sql4="Update user_online set time='$time' where session='$session'";
 $result4=mysql_query($sql4);
  
-$type_id=$_GET['typeid'];
+$type_id=cleankar($_GET['typeid']);
+if($type_id==""){exit();}
 
 
                 

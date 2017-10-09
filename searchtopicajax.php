@@ -2,9 +2,11 @@
  require_once('auth.php');
 include("connection.php");
 include("commonfun.php");
+include("vcommon.php");
 
  
-$term=$_GET['term'];
+$term=cleankar($_GET['term']);
+if($term==""){exit();}
 
 
                  $kqry="SELECT topic_id,category,cdesc,wall,private,topic_mode FROM topic where category like '$term%' ORDER BY views DESC ";

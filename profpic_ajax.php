@@ -3,6 +3,7 @@ require_once('auth.php');
  include("connection.php");
   include("commonfun.php");
  require 'Zebra_Image.php';
+ include("vcommon.php");
 
 
  $usern=$_SESSION['SESS_USERNAME'];
@@ -12,7 +13,7 @@ if (!empty($_FILES) && $_FILES['file']['error'] === UPLOAD_ERR_OK) {
  $check_name=  strlen(get_basename($_FILES['file']['tmp_name']));
  if($check_name==0 || $check_name>=150){
           unset($_FILES);
-     echo "file nametoo long";
+     echo "file name too long";
      exit();}
   
 

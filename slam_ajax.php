@@ -1,12 +1,13 @@
 <?php
  require_once('auth.php');
 include("connection.php");
+ include("vcommon.php");
 
   $usern=$_SESSION['SESS_USERNAME'];
- $tid=$_POST['tid'];
- $chat_id=$_POST['chatid'];
+ $tid=cleankar($_POST['tid']);
+ $chat_id=cleankar($_POST['chatid']);
  
- 
+ if($tid=="" || $chat_id==""){exit();}
  
  
  $jql="SELECT s_id FROM slam WHERE username='$usern' AND topic_id='$tid' AND chat_id='$chat_id'";

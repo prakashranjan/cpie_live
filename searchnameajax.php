@@ -2,9 +2,12 @@
  require_once('auth.php');
 include("connection.php");
 include("commonfun.php");
+include("vcommon.php");
 $memid=$_SESSION['SESS_MEMBER_ID'];
  
-$term=$_GET['term'];
+$term=cleankar($_GET['term']);
+
+
 if($term!=""){
 
 $y=-1;
@@ -133,7 +136,7 @@ $session=session_id();
 $time=time();
 $sql4="Update user_online set time='$time' where session='$session'";
 $result4=mysql_query($sql4);
-}
+}else{exit();}
  ?>
  
         

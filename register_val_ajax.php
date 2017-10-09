@@ -1,8 +1,10 @@
 <?php
  include("connection.php");
  require_once('auth_signup.php');
+ include("vcommon.php");
  
  $val=addslashes($_GET['val']);
+ if($val==""){exit();}
 $arr = array();
 
 if($val!=""){

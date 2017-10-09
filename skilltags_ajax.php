@@ -2,6 +2,7 @@
 require_once('auth.php');
  include("connection.php");	
  include("commonfun.php");
+  include("vcommon.php");
  $usern=$_SESSION['SESS_USERNAME'];
  $mem_id=$_SESSION['SESS_MEMBER_ID'];
 

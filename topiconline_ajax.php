@@ -1,12 +1,13 @@
 <?php 
  require_once('auth.php');
 include("connection.php");
+include("vcommon.php");
 
  $usern=$_SESSION['SESS_USERNAME'];
 	$member_id=$_SESSION['SESS_MEMBER_ID'];
-$tid=$_GET['tid'];
+$tid=cleankar($_GET['tid']);
 $time=time();
-
+if($tid==""){exit();}
 //Start session
     
 $session=session_id();
@@ -14,7 +15,7 @@ $session=session_id();
 $sql4="Update user_online set time='$time' where session='$session'";
 $result4=mysql_query($sql4);
 
-$kqry=" SELECT  distinct mem_id FROM user_online where topic_id='$tid' and time > ($time-900) ";
+$kqry=" SELECT  distinct mem_id FROM user_online where topic_id='$tid' and time > ($time-900) LIMIT 0,10 ";
      $kresult=mysql_query($kqry);
 				
                 while($krow = mysql_fetch_row($kresult))

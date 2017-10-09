@@ -1,11 +1,12 @@
 <?php
  require_once('auth.php');
 include("connection.php");
+include("vcommon.php");
  $usern=$_SESSION['SESS_USERNAME'];
  $mem_id=$_SESSION['SESS_MEMBER_ID'];
 $uid=addslashes($_GET['uid']);
 $hut_val=addslashes($_GET['hut']);
-
+if($uid=="" || $hut_val==""){exit();}
 
 if($uid!=$mem_id && ($hut_val==1||$hut_val==2)){
 $kqry="SELECT mem_id FROM member WHERE mem_id='$uid'";

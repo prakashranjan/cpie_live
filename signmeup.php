@@ -1,6 +1,7 @@
 <?php
  include("connection.php");
  require_once('auth_signup.php');
+ include("vcommon.php");
   
     
     
@@ -132,6 +133,10 @@ else{
  // unique username ,phone ,college id,email
      //echo "<h4><strong>Hey!</strong> shuru to hua</h4><br>";
      
+     if($_POST['first_name']=="" ||$_POST['password']=="" || $_POST['sex']=="" || $_POST['year']=="" ||$_POST['branch']=="" || $_POST['section']=="" )
+         {echo '<h4><strong>Warning!</strong> please give correct details.</h4><br>';
+     exit();}
+     
      if(!empty($_POST['user'])|| !empty($_POST['phone'])|| !empty($_SESSION['GIFTY'])|| !empty($_POST['email'])) 
      { //echo'<h4><strong>Hey!</strong>1st step cross</h4><br>';
          $userlame = addslashes($_POST['user']);
@@ -169,7 +174,7 @@ else{
 <script type="text/javascript">
 
 function delayer(){
-   // window.location = "index";
+    window.location = "index";
 }
 
 </script>

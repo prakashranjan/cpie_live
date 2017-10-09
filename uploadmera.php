@@ -3,6 +3,7 @@ require_once('auth.php');
  include("connection.php");	
   include("commonfun.php");
   require 'Zebra_Image.php';
+  include("vcommon.php");
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -14,7 +15,11 @@ $image_check=false;
 $myaccept_mime=array('image/jpeg','image/png','image/gif','image/jpg','application/pdf','audio/mpeg','application/msword','application/vnd.openxmlformats-officedocument.wordprocessingml.document','application/vnd.openxmlformats-officedocument.spreadsheetml.sheet','application/vnd.openxmlformats-officedocument.presentationml.presentation','application/vnd.ms-excel','application/vnd.ms-powerpoint','application/x-rar-compressed','application/zip','application/vnd.oasis.opendocument.presentation','application/x-rar');
 $caption=  addslashes($_POST['caption']);
 
-$tn=$_POST['tn'];
+$tn=cleankar($_POST['tn']);
+ if($tn==""){
+     echo "invalid";
+      unset($_FILES);
+     exit();}
  $usern=$_SESSION['SESS_USERNAME'];
  $check_name=  strlen(get_basename($_FILES['file']['tmp_name']));
  if($check_name==0 || $check_name>=150){

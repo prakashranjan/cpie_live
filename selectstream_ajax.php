@@ -1,5 +1,5 @@
 <?php
-include_once"connection.php";
+/*include_once"connection.php";
 $str=$_GET['str'];
 if($str!=""){
 $sql=mysql_query("select major,stream_id from stream where stream='$str' ORDER BY major");
@@ -14,6 +14,6 @@ echo'</select>';
 }
 else
 {}
-
+*/
 
 ?>

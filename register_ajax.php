@@ -1,8 +1,12 @@
   <?php
  include("connection.php");
  require_once('auth_signup.php');
+ include("vcommon.php");
+ 
  $val=addslashes($_POST['val']);
 $name=addslashes($_POST['name']);
+if($val=="" || $name==""){exit();}
+
 if($name=="phone" || $name=="username" || $name=="email"){
 if($name=="phone"){ $name="mobile";}
 if($name=="username"){

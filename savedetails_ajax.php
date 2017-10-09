@@ -1,6 +1,7 @@
   <?php
 require_once('auth.php');
- include("connection.php");	
+ include("connection.php");
+ include("vcommon.php");
  $usern=$_SESSION['SESS_USERNAME'];
  $val=addslashes($_POST['val']);
  $val=trim($val);
