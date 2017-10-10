@@ -375,7 +375,7 @@
       sendingmultiple: noop,
       success: function(file) {
         if (file.previewElement) {
-            console.log("upload ho gaya bhai..");
+            //console.log("upload ho gaya bhai..");
             prechat();
           return file.previewElement.classList.add("dz-success");
         }

@@ -371,7 +371,7 @@ function branch_match(branch_id){
 function global_led(kya){
     var root="";
     var prfix=".";
-    console.log(kya);
+    //console.log(kya);
     if(kya==="class"){root="channel_ajax/";
     prfix="#";}
  $.ajax({
@@ -381,9 +381,9 @@ function global_led(kya){
    data: { },
    success: function( data ) {
    var output=data;
-   console.log(output);
+   //console.log(output);
    if(output==1){
-        console.log("----"+output);
+        //console.log("----"+output);
        if($( prfix+kya+"_led" ).hasClass("led-yellow")){ 
        //do nothing
            }
@@ -395,7 +395,7 @@ function global_led(kya){
        
    }
    else{
-        console.log("++++"+output);
+        //console.log("++++"+output);
    }
    },
    async:true,
@@ -405,7 +405,7 @@ function global_led(kya){
 });
 
 var naseeb=naseeb_batao();
-console.log(naseeb);
+//console.log(naseeb);
 
 if(!($(prfix+kya+"_led").hasClass("led-yellow"))){
 setTimeout(function(){

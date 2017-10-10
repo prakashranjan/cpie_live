@@ -4,6 +4,7 @@
 require_once('../auth.php');
  include("../connection.php");
  	 include("../commonfun.php");
+          include("../vcommon.php");
 //Start session
    
 $session=session_id();
@@ -14,7 +15,8 @@ $result4=mysql_query($sql4);
 	        $usern=$_SESSION['SESS_USERNAME'];
 	$j=0;        
 			
- $tid=$_GET['tid'];
+ $tid=cleankar($_GET['tid']);
+ if($tid==""){exit();}
 
  
  

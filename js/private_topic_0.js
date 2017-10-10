@@ -148,7 +148,7 @@ if(term==""){
 }
 
 function memberdoinside(membermark){
-    console.log(mark);
+    //console.log(mark);
   
      $('#' + membermark + 'todomem' ).hide();
 			    membermark= membermark.replace(/\D/g,'');
@@ -181,7 +181,7 @@ function memberdo(membermark){
     if(sachi==true){
          u_ids_pri.push(membermark);
     memberdoinside(membermark);
-    console.log(u_ids_pri.toString());
+    //console.log(u_ids_pri.toString());
     
      $('#' + membermark + 'usercard' ).prependTo("#members_all");
      }	 } 
@@ -189,7 +189,7 @@ function memberdo(membermark){
      else{
          if( $('#' + membermark + 'usercard').parent().attr("id")=="search_members"){
          $('#' + membermark + 'usercard' ).remove();
-         console.log(u_ids_pri.toString());
+         //console.log(u_ids_pri.toString());
      }
      else if($('#' + membermark + 'usercard').parent().attr("id")=="members_all"){
         var sachi=confirm("are you sure?");
@@ -197,7 +197,7 @@ function memberdo(membermark){
                 u_ids_pri.splice(u_ids_pri.indexOf(membermark),1);
              memberdoinside(membermark);
                 $('#' + membermark + 'usercard' ).remove();
-                console.log(u_ids_pri.toString());
+                //console.log(u_ids_pri.toString());
             }}
  }
      }

@@ -1,5 +1,5 @@
  <?php
-exit();
+/*exit();
 
 //require_once('../auth.php');
 //include("../connection.php");
@@ -23,6 +23,6 @@ $row6=mysql_fetch_row($query6);
 else{
     // do nothing
 }
-
+*/
 
 ?>

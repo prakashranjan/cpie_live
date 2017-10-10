@@ -5,6 +5,7 @@
   include("../commonfun.php");
   require '../Zebra_Image.php';
   include_once("broadcastpost_common.php");
+  include("../vcommon.php");
 
 $usern=$_SESSION['SESS_USERNAME'];
 $mem_id=$_SESSION['SESS_MEMBER_ID'];
@@ -21,17 +22,19 @@ $tn=null;
 $anon=  addslashes($_POST['anon2']);
        	
  
- echo $all_tagy."<br>";
- echo $caption."<br>";
- echo $anon."<br>";
- echo $catin."<br>";
- echo $tn."<br>";
+ //echo $all_tagy."<br>";
+ //echo $caption."<br>";
+ //echo $anon."<br>";
+ //echo $catin."<br>";
+ //echo $tn."<br>";
  $mebateyga=2;
  
  $chala_kya=broadcastpost_common($usern,$mem_id,$caption,$all_tagy,$catin,$anon,null,null,$mebateyga,$u_ids);
-  if($chala_kya==1){echo"------chal gya";
+  if($chala_kya==1){ //echo"------chal gya";
        return 1;}
-   else {echo "--------------------------------nhi-chalega";return 0;}
+   else {
+       //echo "--------------------------------nhi-chalega";
+       return 0;}
   
  
  

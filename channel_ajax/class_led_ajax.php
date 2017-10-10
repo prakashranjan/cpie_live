@@ -1,6 +1,7 @@
 <?php
 require_once('../auth.php');
- include("../connection.php");	
+ include("../connection.php");
+  include("../vcommon.php");
  $usern=$_SESSION['SESS_USERNAME'];
  $memid=$_SESSION['SESS_MEMBER_ID'];
  $sec_id=$_SESSION['SESS_SECTION'];

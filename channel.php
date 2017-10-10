@@ -820,7 +820,7 @@ echo'<i style="color:#e74c3c;" class="fa fa-heart-o fa-lg fa-2x"></i> <span clas
                 
                 <script>
           $( window ).load(function() {
-    console.log( "ready!" );
+   // console.log( "ready!" );
     $("body").css("filter","none");
 });
 </script>

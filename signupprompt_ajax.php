@@ -84,14 +84,14 @@ echo '<script src="https://www.google.com/recaptcha/api.js"></script>
 <script>
 var errory= new Array();
 $("#signupform").submit(function (event) {
-console.log("capthca wala chala");
+//console.log("capthca wala chala");
  event.preventDefault();
 // submit the form which now includes a g-recaptcha-response input
   //add custom validations...
   var allWell=signup_cus_val();
   
   if(allWell==true){
-  console.log("1 validation");
+  //console.log("1 validation");
     grecaptcha.reset();
     grecaptcha.execute();    }
         else{return;}
@@ -100,12 +100,12 @@ console.log("capthca wala chala");
   });
 
 function formSubmit() {
-console.log("submit wala chala");
+//console.log("submit wala chala");
   // submit the form which now includes a g-recaptcha-response input
   //add custom validations...
   var allWell2=signup_cus_val();
   if(allWell2==true){
-  console.log("2 validation");
+  //console.log("2 validation");
         document.getElementById("signupform").submit();
         $("#signMeUp").hide();}
         else{return;}

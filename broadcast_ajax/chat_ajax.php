@@ -2,6 +2,7 @@
 require_once('../auth.php');
  include("../connection.php");	
 	 include("../commonfun.php");
+          include("../vcommon.php");
          $sqlstart=mysql_query("select NOW()");
          $wakt=mysql_fetch_row($sqlstart);
                  $mode_id=$_SESSION['SESS_MODE'];
@@ -20,8 +21,9 @@ require_once('../auth.php');
         }
                         $y=-1;	
  
- $bmark=$_POST['counter'];
- $wallid=$_POST['wallid'];
+ $bmark=cleankar($_POST['counter']);
+ $wallid=cleankar($_POST['wallid']);
+ if($wallid=="" || $bmark==""){exit();}
  $bmark=$bmark*3;
  
  $end=3;
@@ -117,7 +119,7 @@ if(mysql_num_rows($mainac)==0)
  echo'<script>  $(\'#loadmore\').show();    if ( $("#wall_desk").css(\'display\') === \'none\' ){
     // element is hidden
     $("#loadmore").hide();
-    console.log("me agaya");
+    //console.log("me agaya");
 }</script>';
  
     
@@ -127,7 +129,7 @@ if(mysql_num_rows($mainac)==0)
     echo'<script>  $(\'#loadmore\').show();    if ( $("#wall_desk").css(\'display\') === \'none\' ){
     // element is hidden
     $("#loadmore").hide();
-    console.log("me agaya");
+  //  console.log("me agaya");
     
 }
 

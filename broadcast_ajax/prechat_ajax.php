@@ -1,5 +1,5 @@
 <?php 
-exit();
+/*exit();
 //there is some problem with prechat throughout application
 
 //require_once('../auth.php');
@@ -45,6 +45,6 @@ function get_basename($filename)
 {
     return preg_replace('/^.+[\\\\\\/]/', '', $filename);
 }
-
+*/
 
 ?>

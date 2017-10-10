@@ -2,6 +2,7 @@
 require_once('../auth.php');
  include("../connection.php");	
 	 include("../commonfun.php");
+          include("../vcommon.php");
           $mode_id=$_SESSION['SESS_MODE'];
 	        $usern=$_SESSION['SESS_USERNAME'];
 	        $firstn=$_SESSION['SESS_FIRST_NAME'];
@@ -11,8 +12,9 @@ require_once('../auth.php');
 			$gender= strtolower($gender);
                                    $memid=$_SESSION['SESS_MEMBER_ID'];
 	$y=-1;	
- $tid=$_POST['tid'];
- $mark=$_POST['counter'];
+ $tid=cleankar($_POST['tid']);
+ $mark=cleankar($_POST['counter']);
+ if($tid=="" ||$mark==""){exit();}
  
  $mark=$mark*6;
  $end=6;

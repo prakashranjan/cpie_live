@@ -908,7 +908,7 @@ and skill_tag.mem_id='$uid'");
     $('#skill_tagy').tagging(tagsource);
    
               $( window ).load(function() {
-    console.log( "ready!" );
+    //console.log( "ready!" );
     $("body").css("filter","none");
 });
         </script>
@@ -940,13 +940,13 @@ autocomplete2.addListener(\'place_changed\', pop_place_info2);
   function pop_place_info(){
       var place=autocomplete.getPlace();
       place_id1=place.place_id;
-      console.log(place_id1);
+      //console.log(place_id1);
       validate("lives_at",$("#lives_at").val(),place_id1);
   }
 function pop_place_info2(){
       var place=autocomplete2.getPlace();
       place_id2=place.place_id;
-      console.log(place_id2);
+      //console.log(place_id2);
       validate("from_place",$("#from_place").val(),place_id2);
   }
 

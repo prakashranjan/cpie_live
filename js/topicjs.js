@@ -38,7 +38,7 @@ function add_opt(){
     if(opt_new<=10){
    
     $("#append_li").append('<li style="padding-bottom:3px;"><input type="text" class="form-control input-sm text-success text-center" name="opt'+opt_new+'" maxlength="60" id="opt'+opt_new+'" placeholder="+ option '+opt_new+'"/></li>');
-    console.log(opt_new);
+    //console.log(opt_new);
     if(opt_new==10){
         
       $("#add_opt_button").hide();      
@@ -127,7 +127,7 @@ else
     for(i=1,j=0;i<=10;i++){
     if($("#opt"+i).val()!=""){
         polloption[j]=$("#opt"+i).val();
-        console.log(polloption[j]+" "+j);
+        //console.log(polloption[j]+" "+j);
         j++;
     }    
     }

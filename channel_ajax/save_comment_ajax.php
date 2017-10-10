@@ -2,7 +2,8 @@
 require_once('../auth.php');
  include("../connection.php");	
  include("../commonfun.php");
-include("channel_comment_script.php");	
+include("channel_comment_script.php");
+include("../vcommon.php");
 	        $usern=$_SESSION['SESS_USERNAME'];
 	       
 		// anon = anonymous
@@ -15,9 +16,12 @@ include("channel_comment_script.php");
        // }	
 
  $comment_info= addslashes($_GET['comment_info']);
-$comment_post_id= $_GET['comment_post_id']; 
-
+$comment_post_id= cleankar($_GET['comment_post_id']); 
+if($comment_info=="" || $comment_post_id==""){
+    exit();
+}
 $c_info=$comment_info;
+
 
                     if(!savecom($c_info)){
                         
@@ -49,14 +53,16 @@ function savecom($c_info)
             { $usern=$_SESSION['SESS_USERNAME'];
 			
 			$comment_info= addslashes($_GET['comment_info']);
-$comment_post_id= $_GET['comment_post_id']; 
+$comment_post_id= cleankar($_GET['comment_post_id']); 
 $c_info=$comment_info;
 			
                         $c_info=strip_tags($c_info,"<img> <a> <br>");
                         $c_info=trim($c_info);
 			$c_info=carbonlink($c_info);
 			
-
+if($c_info=="" || $comment_post_id==""){
+    exit();
+}
 			
 	
                  $qry="insert into channel_comments (image_id,username,caption,owner) values ('$comment_post_id','$usern','$c_info','$usern')";

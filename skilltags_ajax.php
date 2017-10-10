@@ -56,15 +56,15 @@ and skill_tag.mem_id='$mem_id'");
        $cmatbo="";
         foreach ($alltopic_tagy as $valtu) {
             
-      echo $cmatbo."'".$valtu."',";
+      //echo $cmatbo."'".$valtu."',";
       
       }
-      echo"-----------------------------------------------------------------";
+    //  echo"-----------------------------------------------------------------";
        $temptag=array_diff($input_tags, $alltopic_tagy) ;
        $newtemptag=array_diff($prev_tags, $temptag) ; 
-       echo implode(',',$temptag);
-       echo"-----------------------";
-       echo implode(',',$newtemptag); 
+      // echo implode(',',$temptag);
+      // echo"-----------------------";
+     //  echo implode(',',$newtemptag); 
        
        if(!empty($newtemptag)){
            // for deletion
@@ -76,7 +76,7 @@ and skill_tag.mem_id='$mem_id'");
                 $nqrypo=mysql_query("DELETE from skill_tag where mem_id = '$mem_id' && tagl_id IN "
                      . "(select tagl_id from tag_list where tag_name IN ($dmatbo) )");
                 
-                    echo "<br>deleted entry".implode(',',$newtemptag); 
+                  //  echo "<br>deleted entry".implode(',',$newtemptag); 
            
            
        }
@@ -101,25 +101,27 @@ and skill_tag.mem_id='$mem_id'");
           if(mysql_num_rows($macbo)>0){
               
               while($run=mysql_fetch_row($macbo)){
-                  echo "match".$run[1]."<br>";
+                 // echo "match".$run[1]."<br>";
                   array_push($tag_id_ar,$run[0]);
                   $alltopic_tagy = array_diff($alltopic_tagy, ["$run[1]"]);
                   
               }
-             echo "<br>copy hata ke".implode(',',$alltopic_tagy); 
+            // echo "<br>copy hata ke".implode(',',$alltopic_tagy); 
           }
-          else{echo "<br>no match".implode(',',$alltopic_tagy); }
+          else{
+             // echo "<br>no match".implode(',',$alltopic_tagy);
+              }
           if(!empty($alltopic_tagy)){
               
                  foreach ($alltopic_tagy as $valse) {
-                     echo $valse."<br>";
+                   //  echo $valse."<br>";
              $qrypo=mysql_query("INSERT INTO tag_list (tag_name) VALUES ('$valse')");
                    $newtag_id=mysql_insert_id();
                    array_push($tag_id_ar,$newtag_id);
                 }
-                    echo "<br>new entry".implode(',',$alltopic_tagy); 
+                   // echo "<br>new entry".implode(',',$alltopic_tagy); 
                  }
-                                 echo "<br>all".implode(',',$tag_id_ar);                     
+                                // echo "<br>all".implode(',',$tag_id_ar);                     
                                                   foreach ($tag_id_ar as $valme) {
              $qml=mysql_query("INSERT INTO skill_tag (mem_id,tagl_id) VALUES ('$mem_id','$valme')");
                  

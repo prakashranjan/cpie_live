@@ -15,7 +15,7 @@
       if((($("#tagy").val()=="" )&& ($("#hide_u_ids").val()=="")) || $("#catin").val()=="")
       {done("something went wrong");}
       else
-      {console.log("hello");
+      {//console.log("hello");
         done();}} 
   },
   sending: function(file, xhr, formData) {
@@ -23,16 +23,16 @@
       if ($("#anon2").is(":checked")) {  
     // checkbox is checked 
     var anon2=1;
-    console.log("anon2 checked");
+    //console.log("anon2 checked");
 } else {
     // checkbox is not checked 
      var anon2=0;
-     console.log("anon2 unchecked");
+     //console.log("anon2 unchecked");
 }
-console.log(u_ids.toString());
-        console.log($("#hide_u_ids").val());
+//console.log(u_ids.toString());
+        //console.log($("#hide_u_ids").val());
         
-      console.log("ab chalega");
+      //console.log("ab chalega");
       var catino=$("#catin").val();
     catino= catino.replace(/\D/g,'');
     formData.append("tagy",$("#tagy").val());
@@ -173,15 +173,15 @@ function savepoll(){
 	if($("#cap3").val()=="" || (($("#tagy").val()=="") && ($("#hide_u_ids").val()=="")) )
 	$( "#respo3" ).html("<span style='color:red;text-align:center;'>**plese enter something...</span>");
 else
-{      console.log(u_ids.toString());
-        console.log($("#hide_u_ids").val());
+{      //console.log(u_ids.toString());
+        //console.log($("#hide_u_ids").val());
     
         $("#post_poll").hide();
     var polloption =[];
     for(i=1,j=0;i<=10;i++){
     if($("#opt"+i).val()!=""){
         polloption[j]=$("#opt"+i).val();
-        console.log(polloption[j]+" "+j);
+        //console.log(polloption[j]+" "+j);
         j++;
     }    
     }
@@ -207,7 +207,7 @@ var poll_checkbox=0;
   },
    data: {cap:$("#cap3").val(),poll_checkbox:poll_checkbox,polloption:polloption,anony:anony,tagy:$("#tagy").val(),catin:catin,u_ids:$("#hide_u_ids").val()},
    success: function( data ) {
-	  console.log(u_ids.toString()); 
+	  //console.log(u_ids.toString()); 
        prechat();
    $( "#respo3" ).html(data);
    $("#post_poll").show();
@@ -287,7 +287,7 @@ function slam_comment(comm_id){
 
         function validate(name,val,place_id=null){
             
-		console.log("chal gya"+place_id+"__"+name);
+		//console.log("chal gya"+place_id+"__"+name);
 		if(val==="" ||name===""){
                     return;
                 }
@@ -366,7 +366,7 @@ function add_opt(){
     if(opt_new<=10){
    
     $("#append_li").append('<li style="padding-bottom:3px;"><input type="text" class="form-control input-sm text-success text-center" name="opt'+opt_new+'" maxlength="60" id="opt'+opt_new+'" placeholder="+ option '+opt_new+'"/></li>');
-    console.log(opt_new);
+    //console.log(opt_new);
     if(opt_new==10){
         
       $("#add_opt_button").hide();      
@@ -387,8 +387,8 @@ function savecap(){
 	$( "#respo" ).html("<span style='color:red;'>***sorry invalid</span>");
 else
 { 
-        console.log(u_ids.toString());
-        console.log($("#hide_u_ids").val());
+        //console.log(u_ids.toString());
+        //console.log($("#hide_u_ids").val());
     $('#grabcap').hide();
     var catin=$("#catin").val();
     catin= catin.replace(/\D/g,'');
@@ -403,7 +403,7 @@ else
    data: {cap:$("#cap").val(),anon:$('input:checkbox:checked').val(),tagy:$("#tagy").val(),catin:catin,u_ids:$("#hide_u_ids").val()},
    success: function( data ) {
 	   //prechat();
-           console.log(u_ids.toString());
+           //console.log(u_ids.toString());
    $( "#respo" ).html(data);
    $('#grabcap').show();
    },
@@ -430,10 +430,10 @@ function refer(wallid){
 
 
     if( $("#wallcat"+wallid).is(':empty') || (("#wallcat"+wallid )===("#"+pichla_div))) {
-        console.log("----------ajax");
+        //console.log("----------ajax");
 var wall_id= wallid;
     bmark[wall_id]=0;
-    console.log("bmark-old-"+wall_id+"--"+bmark[wall_id]);
+    //console.log("bmark-old-"+wall_id+"--"+bmark[wall_id]);
 	$.ajax({
          type:"post",
    url: "broadcast_ajax/chat_ajax.php",
@@ -443,22 +443,22 @@ var wall_id= wallid;
    data: {counter:bmark[wall_id],wallid:wall_id},
    success: function( data ) {
        bmark[wall_id]=0;
-       console.log("bmark-new-"+wall_id+"--"+bmark[wall_id]);
+       //console.log("bmark-new-"+wall_id+"--"+bmark[wall_id]);
     $('#load_gif').remove();
     var name =$('#wall_desk').attr('name');
-    console.log("1----------"+name);
+    //console.log("1----------"+name);
     if((("#wallcat"+wallid )===("#"+pichla_div))){
         
         $( "#wall_desk" ).html(data);
-        console.log(data);
-        console.log("2-refresh--------"+$('#wall_desk').attr('name')); 
+        //console.log(data);
+        //console.log("2-refresh--------"+$('#wall_desk').attr('name')); 
     }
     else{
     $( "#"+name ).html($( "#wall_desk" ).html()); 
     
    $( "#wall_desk" ).html(data);
    $('#wall_desk').attr('name','wallcat'+wallid);
-     console.log("2--new-------"+$('#wall_desk').attr('name'));  
+     //console.log("2--new-------"+$('#wall_desk').attr('name'));  
      }
    },
    
@@ -466,18 +466,18 @@ var wall_id= wallid;
 });
 }
 else{ 
-    console.log("----------cache");
+    //console.log("----------cache");
     var name =$('#wall_desk').attr('name');
-    console.log("1-------------"+name);
+    //console.log("1-------------"+name);
     $( "#"+name ).html($( "#wall_desk" ).html()); 
      $( "#wall_desk" ).html( $( "#wallcat"+wallid ).html());
      $( "#wallcat"+wallid ).empty();
      $('#wall_desk').attr('name','wallcat'+wallid);
-     console.log("2-------------"+$('#wall_desk').attr('name'));
+     //console.log("2-------------"+$('#wall_desk').attr('name'));
     }
     
  now_wall_id=wallid;   
- console.log("now_wall_id-----------"+now_wall_id);
+ //console.log("now_wall_id-----------"+now_wall_id);
  
  
  
@@ -488,10 +488,10 @@ else{
         
 function refer_next(){
 	$('#loadmore').hide();
-        console.log("working");
+        //console.log("working");
    
 var now2_wall_id= now_wall_id;
-console.log("bmark-old-"+now2_wall_id+"--"+bmark[now2_wall_id]);
+//console.log("bmark-old-"+now2_wall_id+"--"+bmark[now2_wall_id]);
 	$.ajax({
          type:"post",
    url: "broadcast_ajax/chat_index_ajax.php",
@@ -501,13 +501,13 @@ console.log("bmark-old-"+now2_wall_id+"--"+bmark[now2_wall_id]);
    data: {counter:bmark[now2_wall_id],wallid:now2_wall_id},
    success: function( data ) {
        bmark[now2_wall_id]+=1;
-       console.log("bmark-now-"+now2_wall_id+"--"+bmark[now2_wall_id]);
+       //console.log("bmark-now-"+now2_wall_id+"--"+bmark[now2_wall_id]);
     $('#load_gif').remove();
     
     
         
         $( "#wall_desk" ).append(data);
-        console.log("append--------"+ now2_wall_id); 
+        //console.log("append--------"+ now2_wall_id); 
     
    },
    
@@ -594,7 +594,7 @@ function memberdojs(membermark){
          if(u_ids.indexOf(membermark)<0){
          u_ids.push(membermark);
     $('#hide_u_ids').val(u_ids.toString());
-    console.log(u_ids.toString());
+    //console.log(u_ids.toString());
     
      $('#' + membermark + 'usercard' ).prependTo("#members_all");
      }	  
@@ -602,13 +602,13 @@ function memberdojs(membermark){
      else{
          if( $('#' + membermark + 'usercard').parent().attr("id")=="search_members"){
          $('#' + membermark + 'usercard' ).remove();
-         console.log(u_ids.toString());
+         //console.log(u_ids.toString());
      }
      else if($('#' + membermark + 'usercard').parent().attr("id")=="members_all"){
        u_ids.splice(u_ids.indexOf(membermark),1);
         $('#hide_u_ids').val(u_ids.toString());
                 $('#' + membermark + 'usercard' ).remove();
-                console.log(u_ids.toString());
+                //console.log(u_ids.toString());
      }}
      }
 	

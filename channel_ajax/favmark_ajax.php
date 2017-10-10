@@ -1,6 +1,7 @@
 <?php
  require_once('../auth.php');
 include("../connection.php");
+ include("../vcommon.php");
 // for teachers only --- choose my classessss...
 if($_SESSION['SESS_MODE']==2){
   $usern=$_SESSION['SESS_USERNAME'];
@@ -8,7 +9,7 @@ if($_SESSION['SESS_MODE']==2){
   
  $tid=  addslashes($_GET['tid']);
  
-  
+  if($tid==""){exit();}
  
  $jql="SELECT fav_id FROM channel_favs WHERE mem_id='$mem_id' AND section_id='$tid'";
  $dar=mysql_query($jql);

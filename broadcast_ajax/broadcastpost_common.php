@@ -13,14 +13,14 @@ function broadcastpost_common($usern,$mem_id,$caption,$all_tagy,$catin,$anon,$po
       $mod=$_SESSION['SESS_MODE'];
       if($personal==1){
           //for personal
-          echo $u_ids."<br>";
+         // echo $u_ids."<br>";
           $ar_u_ids=  explode(',', $u_ids, 31);
        
        unset($ar_u_ids[31]);
          $ar_u_ids=array_unique($ar_u_ids);
          
-         echo"-----u_ids-----";
-    echo implode(',',$ar_u_ids);
+        // echo"-----u_ids-----";
+   // echo implode(',',$ar_u_ids);
     $sqm555=mysql_query("select mem_id from member where mem_id in (".implode(',',$ar_u_ids).")");
     unset($ar_u_ids);
     $ar_u_ids=array();
@@ -28,7 +28,7 @@ function broadcastpost_common($usern,$mem_id,$caption,$all_tagy,$catin,$anon,$po
          while($run555=mysql_fetch_row($sqm555)){
              array_push($ar_u_ids, $run555[0]);
          }
-         echo implode(',',$ar_u_ids);
+        // echo implode(',',$ar_u_ids);
          
      }else{return 0;
          exit();}
@@ -43,10 +43,10 @@ function broadcastpost_common($usern,$mem_id,$caption,$all_tagy,$catin,$anon,$po
       $tagsy= array();
       $arall_tagy= array();
       
-      echo"raw data----<br>";
+     // echo"raw data----<br>";
       //tag wala hai to kya hoga
       
-      echo $all_tagy."<br>";
+      //echo $all_tagy."<br>";
       
       
        $arall_tagy=  explode(',', $all_tagy, 8);
@@ -61,10 +61,10 @@ function broadcastpost_common($usern,$mem_id,$caption,$all_tagy,$catin,$anon,$po
       
       }
          $intag=$intag."'HELL'"; 
-         echo"intag data----<br>";
-         echo $intag."<br>";
+       //  echo"intag data----<br>";
+        // echo $intag."<br>";
         $sqm=mysql_query("select tag_name from broadcast_tags where tag_name in($intag) and (mode='$mod' or mode=0)");
-           echo"selected data----<br>"; 
+       //    echo"selected data----<br>"; 
            if(mysql_num_rows($sqm)>0){
                //for content upload --------------------------------------------------------------------
              
@@ -109,7 +109,7 @@ function broadcastpost_common($usern,$mem_id,$caption,$all_tagy,$catin,$anon,$po
         while($runop=  mysql_fetch_row($sqm))
         { $runop[0]=trim($runop[0]);
             array_push($tagsy,$runop[0]); 
-        echo $runop[0]."--<br>";
+       // echo $runop[0]."--<br>";
         }  
          
       
@@ -148,28 +148,29 @@ function broadcastpost_common($usern,$mem_id,$caption,$all_tagy,$catin,$anon,$po
         
          
        
-         echo "<code>".$caption."</code><br>";
+      //   echo "<code>".$caption."</code><br>";
          
          $eve=  array_search('EVERYONE',$tagsy);
-         if(is_numeric($eve)){ echo $eve."--";
-             echo"everyone found do its stuff";
+         if(is_numeric($eve)){ 
+             //echo $eve."--";
+             //echo"everyone found do its stuff";
              //here no need to worry about personal....
          $qrye="insert into access (image_id,post_mode,owner_id,category_id) values ('$content_id',0,'$mem_id','$catin')";
                 $resulte=mysql_query($qrye);
-         echo $statement.$tagsy[$eve];
+        // echo $statement.$tagsy[$eve];
           $tagsy= reset($tagsy);
          $tags_every= 1;
          
          }
          else{
-         echo"else";
+        // echo"else";
          //two childs students and teachers
          $eve11=  array_search('STUDENTS',$tagsy);
             $eve12=  array_search('TEACHERS',$tagsy);
            //------+-----------+-------------+-----------+----------+-------+-----------+--------+---------+------------+-----------+---------------------------------
         
          if(is_numeric($eve11)){ 
-             echo"students found do its stuff";
+          //   echo"students found do its stuff";
              //for personal--- only teachers---- check it..................
               $qrys="insert into access (image_id,post_mode,owner_id,category_id,personal) values ('$content_id',1,'$mem_id','$catin','$personal')";
                 $results=mysql_query($qrys);
@@ -177,12 +178,12 @@ function broadcastpost_common($usern,$mem_id,$caption,$all_tagy,$catin,$anon,$po
         $acc_stud=mysql_insert_id();
         if($personal==1){
             $qryt4=mysql_query("insert into access_mem_p (user_id,image_id,access_id) (select mem_id,'$content_id','$acc_stud' from member where mem_id in (".implode(',',$ar_u_ids).") and mode_id=2)");
-                echo"kaam ho gya personal student";
+            //    echo"kaam ho gya personal student";
             
         }
         
                 }
-         echo $statement.$tagsy[$eve11];
+        // echo $statement.$tagsy[$eve11];
            unset($tagsy[$eve11]);
          $tags_students= 1;
          
@@ -202,7 +203,7 @@ function broadcastpost_common($usern,$mem_id,$caption,$all_tagy,$catin,$anon,$po
         $acc=mysql_insert_id();
         if($personal==1){
             $qryt489=mysql_query("insert into access_mem_p (user_id,image_id,access_id) (select mem_id,'$con_id','$acc' from member where mem_id in (".implode(',',$ar_u_ids)."))");
-                echo"kaam ho gya personal student";
+              //  echo"kaam ho gya personal student";
             
         }
         
@@ -212,7 +213,7 @@ function broadcastpost_common($usern,$mem_id,$caption,$all_tagy,$catin,$anon,$po
                  
              }
              
-             echo"<br>else11<br>";
+            // echo"<br>else11<br>";
          
          foreach ($tagsy as $value) {
             
@@ -223,19 +224,22 @@ function broadcastpost_common($usern,$mem_id,$caption,$all_tagy,$catin,$anon,$po
          
          //student child tree
            $sqlm=mysql_query("select tag_name,ref_id from broadcast_tags where tag_name in($cotag) and (mode='$mod' or mode=0) and type=2");
-           echo"selected co --data----<br>"; 
+           //echo"selected co --data----<br>"; 
            if(mysql_num_rows($sqlm)>0){
         while($runco=  mysql_fetch_row($sqlm))
         { $runco[0]=trim($runco[0]);
             array_push($tags_co,$runco[0]); 
             array_push($tags_co_id,$runco[1]); 
             $tagsy = array_diff($tagsy, ["$runco[0]"]);
-        echo $runco[0]."---".$runco[1]."--<br>";
+       // echo $runco[0]."---".$runco[1]."--<br>";
         // do the course stuff
         $access1=getaccess1($access1,$content_id,$mem_id,$catin,$personal,$ar_u_ids);
                    $qrye11="insert into access_stud (image_id,access_id,course_id,tag_type) values ('$content_id','$access1','$runco[1]',2)";
                 $resulte11=mysql_query($qrye11);
-                if($resulte11){echo'CO-yes';}
+                if($resulte11){
+                   // echo'CO-yes';
+                    
+                }
                    
                    
                 
@@ -245,7 +249,8 @@ function broadcastpost_common($usern,$mem_id,$caption,$all_tagy,$catin,$anon,$po
            
            
            
-        }else{echo"<br>else21<br>";
+        }else{
+          //  echo"<br>else21<br>";
         //do nothing
          }
          //-------------------------==--------------------==-----------------==--------------------==-------==------
@@ -263,7 +268,7 @@ function broadcastpost_common($usern,$mem_id,$caption,$all_tagy,$catin,$anon,$po
           else{$not_emp="";}
           
          $sqlmn=mysql_query("select tag_name,ref_id from broadcast_tags where tag_name in($cotag) and (mode='$mod' or mode=0) and type=6 ".$not_emp);
-        echo"selected yr_co --data----<br>"; 
+      //  echo"selected yr_co --data----<br>"; 
           if(mysql_num_rows($sqlmn)>0){
               
         while($runyrco=  mysql_fetch_row($sqlmn))
@@ -273,13 +278,16 @@ function broadcastpost_common($usern,$mem_id,$caption,$all_tagy,$catin,$anon,$po
             $yr_num=preg_replace('/\D/', '', $runyrco[0]);
             array_push($tags_yr_co_num,$yr_num); 
             $tagsy = array_diff($tagsy, ["$runyrco[0]"]);
-        echo $runyrco[0]."---".$runyrco[1]."--".$yr_num."--<br>";
+       // echo $runyrco[0]."---".$runyrco[1]."--".$yr_num."--<br>";
         // do the yr_course stuff
         $access1=getaccess1($access1,$content_id,$mem_id,$catin,$personal,$ar_u_ids);
         
         $qrye21="insert into access_stud (image_id,access_id,course_id,year,tag_type) values ('$content_id','$access1','$runyrco[1]','$yr_num',6)";
                 $resulte21=mysql_query($qrye21);
-                if($resulte21){echo'CO-yr -yes';}
+                if($resulte21){
+                   // echo'CO-yr -yes';
+                    
+                }
         
         
         
@@ -317,19 +325,22 @@ function broadcastpost_common($usern,$mem_id,$caption,$all_tagy,$catin,$anon,$po
               $not_emp6="and course_id NOT IN (".implode(',',$tags_co_id).")";}
           else{$not_emp6="";}
         $lineb=mysql_query("select branch_id,branch_full from branch where branch_id IN (".implode(',',$tags_br).") ".$not_emp6);
-       echo"selected branch --data----<br>";
+      // echo"selected branch --data----<br>";
          if(mysql_num_rows($lineb)>0){
                  
         while($resu=mysql_fetch_row($lineb))
         { 
             array_push($tags_br_id,$resu[0]); 
-        echo $resu[0]."---".$resu[1]."--<br>";
+        //echo $resu[0]."---".$resu[1]."--<br>";
         // do the branch stuff
         $access1=getaccess1($access1,$content_id,$mem_id,$catin,$personal,$ar_u_ids);
         
         $qrye31="insert into access_stud (image_id,access_id,branch_id,tag_type) values ('$content_id','$access1','$resu[0]',3)";
                 $resulte31=mysql_query($qrye31);
-                if($resulte31){echo'br-yes';}
+                if($resulte31){
+                   // echo'br-yes';
+                    
+                }
         
         
         
@@ -364,7 +375,7 @@ function broadcastpost_common($usern,$mem_id,$caption,$all_tagy,$catin,$anon,$po
         
           
          $sqlmno=mysql_query("select tag_name,ref_id from broadcast_tags where tag_name in($cotag) and (mode='$mod' or mode=0) and type=5 ".$not_emp2);
-        echo"selected yr_br --data----<br>"; 
+       // echo"selected yr_br --data----<br>"; 
           if(mysql_num_rows($sqlmno)>0){
               
         while($runyrbr=  mysql_fetch_row($sqlmno))
@@ -379,21 +390,28 @@ function broadcastpost_common($usern,$mem_id,$caption,$all_tagy,$catin,$anon,$po
          $matr2=  mysql_query("select branch_id from branch where branch_id='$runyrbr[1]' and course_id NOT IN (".implode(',',$tags_co_id).")"); 
             
             if(mysql_num_rows($matr2)>0)   
-        {echo $runyrbr[0]."---".$runyrbr[1]."--".$yr_num."--<br>";
+        {
+               // echo $runyrbr[0]."---".$runyrbr[1]."--".$yr_num."--<br>";
         // do the yr_branch stuff
         $access1=getaccess1($access1,$content_id,$mem_id,$catin,$personal,$ar_u_ids);
         
         $qrye51="insert into access_stud (image_id,access_id,branch_id,year,tag_type) values ('$content_id','$access1','$runyrbr[1]','$yr_num',5)";
                 $resulte51=mysql_query($qrye51);
-             if($resulte51){echo'br-yr-yes';}}}
+             if($resulte51){
+                 //echo'br-yr-yes';
+                 
+             }}}
              else{
-                echo $runyrbr[0]."---".$runyrbr[1]."--".$yr_num."--<br>";
+               // echo $runyrbr[0]."---".$runyrbr[1]."--".$yr_num."--<br>";
         // do the yr_branch stuff
         $access1=getaccess1($access1,$content_id,$mem_id,$catin,$personal,$ar_u_ids);
         
         $qrye51="insert into access_stud (image_id,access_id,branch_id,year,tag_type) values ('$content_id','$access1','$runyrbr[1]','$yr_num',5)";
                 $resulte51=mysql_query($qrye51);
-             if($resulte51){echo'br-yr-yes';} 
+             if($resulte51){
+                // echo'br-yr-yes';
+                 
+             } 
                  
                  
                  
@@ -420,7 +438,7 @@ function broadcastpost_common($usern,$mem_id,$caption,$all_tagy,$catin,$anon,$po
         
           
          $sqlmns=mysql_query("select tag_name,ref_id from broadcast_tags where tag_name in($cotag) and (mode='$mod' or mode=0) and type=4 ");
-        echo"selected section --data----<br>"; 
+      //  echo"selected section --data----<br>"; 
           if(mysql_num_rows($sqlmns)>0){
               
         while($runsec=  mysql_fetch_row($sqlmns))
@@ -442,13 +460,17 @@ function broadcastpost_common($usern,$mem_id,$caption,$all_tagy,$catin,$anon,$po
            $matr=  mysql_query("select section_id from section where section_id='$runsec[1]' ".$not_emp3." ".$not_emp4); 
             
             if(mysql_num_rows($matr)>0)
-       { echo $runsec[0]."---".$runsec[1]."--".$yr_num."--<br>";
+       { 
+                //echo $runsec[0]."---".$runsec[1]."--".$yr_num."--<br>";
         // do the section stuff
         $access1=getaccess1($access1,$content_id,$mem_id,$catin,$personal,$ar_u_ids);
         
         $qrye41="insert into access_stud (image_id,access_id,section_id,tag_type) values ('$content_id','$access1','$runsec[1]',4)";
                 $resulte41=mysql_query($qrye41);
-       if($resulte41){echo'section-yes';}}
+       if($resulte41){
+           //echo'section-yes';
+           
+       }}
         
         
         
@@ -461,17 +483,17 @@ function broadcastpost_common($usern,$mem_id,$caption,$all_tagy,$catin,$anon,$po
          //-----------------------------------------------------------------------------------------------------------------------------------------------
         
         if(!empty($tagsy)){
-            echo "<br>---------------".implode(',',$tagsy)."------------<br>";
+            //echo "<br>---------------".implode(',',$tagsy)."------------<br>";
         }
         else{
-            echo"<br>---------empty------------------<br>";
+            //echo"<br>---------empty------------------<br>";
         }
          
          }
          //--------------+----------+---------------+------------------+---------------------+---------------+-----------------+-----------------------------------------------
          
          if(is_numeric($eve12)){ 
-             echo"teachers found do its stuff";
+            // echo"teachers found do its stuff";
              //here in personal only students can be added....
              $qryt="insert into access (image_id,post_mode,owner_id,category_id,personal) values ('$content_id',2,'$mem_id','$catin','$personal')";
                 $resultt=mysql_query($qryt);
@@ -479,19 +501,21 @@ function broadcastpost_common($usern,$mem_id,$caption,$all_tagy,$catin,$anon,$po
         $acc_teach=mysql_insert_id();
         if($personal==1){
             $qryt4=mysql_query("insert into access_mem_p (user_id,image_id,access_id) (select mem_id,'$content_id','$acc_teach' from member where mem_id in (".implode(',',$ar_u_ids).") and mode_id=1)");
-                echo"kaam ho gya personal teach";
+              //  echo"kaam ho gya personal teach";
             
         }
         
                 }
-         echo $statement.$tagsy[$eve12];
+        // echo $statement.$tagsy[$eve12];
           unset($tagsy[$eve12]);
          $tags_teachers= 1;
          
          }
          else{
              //do nothing
-             echo"<br>else12<br>";}
+            // echo"<br>else12<br>";
+             
+         }
        //------+-----------+-------------+-----------+----------+-------+-----------+--------+---------+------------+-----------+---------------------------------
          
          
@@ -560,7 +584,7 @@ else{return 0;
         $acc_personal=mysql_insert_id();
         
             $qryt4=mysql_query("insert into access_mem_p (user_id,image_id,access_id) (select mem_id,'$content_id','$acc_personal' from member where mem_id in (".implode(',',$ar_u_ids)."))");
-                echo"kaam ho gya personal only chal gya";
+              //  echo"kaam ho gya personal only chal gya";
             
         
         
@@ -593,9 +617,10 @@ $caption=  addslashes($_POST['caption']);
      exit();}
 $size=formatbytes($_FILES['file']['tmp_name']);
 $in_mime=mime_content_type($_FILES['file']['tmp_name']);
-echo $in_mime;
+//echo $in_mime;
 $mime_res=array_search($in_mime,$myaccept_mime,true);
-if($mime_res===false){echo "incorrect mime";
+if($mime_res===false){
+   // echo "incorrect mime";
  unset($_FILES);
  return false;
     exit();}

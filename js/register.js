@@ -62,9 +62,9 @@ function adno_getform(){
     var tempori=$("#adno").val();
     if(tempori!==""){
               var bardata = tempori.split('/',3);
-               console.log("year-"+bardata[0]);
-              console.log("branch-"+bardata[1]);
-              console.log("rollno-"+bardata[2]);
+              // console.log("year-"+bardata[0]);
+              //console.log("branch-"+bardata[1]);
+              //console.log("rollno-"+bardata[2]);
 /* checker */
 var er=[];
 var temp1=bardata[0];
@@ -73,21 +73,21 @@ var temp3=bardata[2];
 
 if(temp1=="14"||temp1=="15"||temp1=="16"||temp1=="17"){er[0]=1;}
 else {er[0]=0;}
-console.log(er[0]);
+//console.log(er[0]);
 if(temp2=="IT"||temp2=="CSE"||temp2=="EC"||temp2=="EE"||temp2=="CE"||temp2=="IC"||temp2=="EEE"||temp2=="ME"){er[1]=1;}
 else {er[1]=0;}
-console.log(er[1]);
+//console.log(er[1]);
 
 if(temp3!=0 && temp3<250 ){er[2]=1;}
 else {er[2]=0;}
-console.log(er[2]);
+//console.log(er[2]);
 /*checker ends*/
 if(bardata[2] && bardata[0] && bardata[1] && er[0] && er[1] && er[2]){
 
              if((bardata[2].length==3||bardata[2].length==2) && bardata[0].length==2 && bardata[1].length<=3 ){
              
              /*correct*/
-            console.log("chalaaaaaa kyaaaa");
+            //console.log("chalaaaaaa kyaaaa");
          
                   $("#headody").remove(); 
                  $('#signModal').modal('show'); 
@@ -297,9 +297,9 @@ function checkPasswordMatch() {
    
     var password = $("#pword").val();
     var confirmPassword = $("#cpword").val();
-    console.log(password.length);
+   // console.log(password.length);
  if(password.length <= 3){
-     console.log("ye kaise chala");
+   //  console.log("ye kaise chala");
      $("#error").html("**too short..").css('color', 'red');
      chal['password']=1;
      return;}

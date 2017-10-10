@@ -5,6 +5,7 @@ require_once('../auth.php');
  include("../connection.php");	
  include("../commonfun.php");
   include_once("broadcastpost_common.php");
+   include("../vcommon.php");
   
 	  $mem_id=$_SESSION['SESS_MEMBER_ID'];
 	        $usern=$_SESSION['SESS_USERNAME'];
@@ -13,19 +14,13 @@ require_once('../auth.php');
 
 
 		
- $all_tagy=addslashes($_POST['tagy']);
- 
-$catin=  addslashes($_POST['catin']); 
- 
-$caption=  addslashes($_POST['cap']); 
+
 $mul_cor= 0;
 
- $u_ids=  addslashes($_POST['u_ids']);
-$anon=$_POST['anony'];
-$polloption=$_POST['polloption'];
+ 
 
-if((($all_tagy=="") && ($u_ids==""))||$caption==""){exit();}
-                    if(savecappoll($caption)==1){
+
+                    if(savecappoll()==1){
 			echo'<div class="alert alert-success">
   <a href="#" class="close text-center" data-dismiss="alert" aria-label="close">&times;</a>
   <strong>Success!</strong> .
@@ -45,8 +40,9 @@ echo'<div class="alert alert-danger">
 </div>';
 
 }	
-function savecappoll($caption)
-            { $usern=$_SESSION['SESS_USERNAME'];
+function savecappoll()
+            { $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+    $usern=$_SESSION['SESS_USERNAME'];
             $mebateyga=3; 
     
 			           $mem_id=$_SESSION['SESS_MEMBER_ID'];
@@ -54,25 +50,29 @@ function savecappoll($caption)
                         $all_tagy=addslashes($_POST['tagy']);
                        $catin=  addslashes($_POST['catin']);
                        $u_ids=  addslashes($_POST['u_ids']);
-		
+		$polloption=$_POST['polloption'];
+                        $polloption =array_map('strip_tags', $polloption);
+                        
+			$anon=$_POST['anony'];
 			$caption=  addslashes($_POST['cap']); 
-			
+			if((($all_tagy=="") && ($u_ids==""))||$caption=="" || $catin=="" || empty($polloption)==true){return 0;}
                         $caption=strip_tags($caption,"<img> <a> <br>");
                         $caption=trim($caption);
 			$caption=carbonlink($caption);
                          $caption=trim($caption);
                         $mul_cor= 0;
                         
-                        $polloption=$_POST['polloption'];
                         
-			$anon=$_POST['anony'];
 			
 				
                                 if($caption!=''){
                 $chala_kya=broadcastpost_common($usern,$mem_id,$caption,$all_tagy,$catin,$anon,$polloption,$mul_cor,$mebateyga,$u_ids);
-                if($chala_kya==1){echo"------chal gya";
+                if($chala_kya==1){
+                    //echo"------chal gya";
        return 1;}
-   else {echo "--------------------------------nhi-chalega";return 0;}
+   else {
+       //echo "--------------------------------nhi-chalega";
+       return 0;}
             }else{return 0;}
 
 

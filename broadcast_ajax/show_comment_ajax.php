@@ -3,7 +3,8 @@
 require_once('../auth.php');
  include("../connection.php");	
  include("../commonfun.php");
-include("broadcast_comment_script.php");	
+include("broadcast_comment_script.php");
+   include("../vcommon.php");
 	        $usern=$_SESSION['SESS_USERNAME'];
 	       
 		// anon = anonymous
@@ -17,6 +18,7 @@ include("broadcast_comment_script.php");
 
  
 $comment_post_id= addslashes($_GET['comment_post_id']); 
+if($comment_post_id==""){exit();}
 
 $sql="select comment_count from broadcast_post where image_id='$comment_post_id'";
 $result=  mysql_query($sql) or die;

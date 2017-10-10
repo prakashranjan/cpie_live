@@ -1,10 +1,13 @@
 <?php
 require_once('../auth.php');
 include("../connection.php");
+   include("../vcommon.php");
 
   $usern=$_SESSION['SESS_USERNAME'];
- $poll_id=$_POST['poll_id'];
- $opt_val=$_POST['opt_val'];
+  
+ $poll_id=cleankar($_POST['poll_id']);
+ $opt_val=cleankar($_POST['opt_val']);
+ if($poll_id=="" || $opt_val==""){exit();}
  
  
  

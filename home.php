@@ -745,7 +745,7 @@ echo'</p>
        
        $('#ttagy').tagging(tagsource); 
                 $( window ).load(function() {
-    console.log( "ready!" );
+   // console.log( "ready!" );
     $("body").css("filter","none");
 });
         

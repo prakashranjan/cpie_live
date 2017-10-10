@@ -2,6 +2,7 @@
 require_once('../auth.php');
  include("../connection.php");	
 	 include("../commonfun.php");
+          include("../vcommon.php");
         
                  $mode_id=$_SESSION['SESS_MODE'];
 	        $usern=$_SESSION['SESS_USERNAME'];
@@ -19,8 +20,9 @@ require_once('../auth.php');
         }
                         $y=-1;	
  
- $bmark=$_POST['counter'];
- $wallid=$_POST['wallid'];
+ $bmark=cleankar($_POST['counter']);
+ $wallid=cleankar($_POST['wallid']);
+ if($bmark=="" || $wallid==""){exit();}
  $bmark=$bmark*6;
  $end=6;
 $n=0;

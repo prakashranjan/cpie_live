@@ -896,13 +896,13 @@ and topic_tag.topic_id='$tid'");
                          <li class="text-center" style="list-style:none;"><button type="button" id="add_opt_button" onclick="add_opt();" class=" btn-muted btn-xs "> + </button></li>  
                          
             </div>
-				 <div class="modal-footer">
-         <ul class="pull-left list-inline"><li>
-         <div class=" form-control checkbox ">
+            <div class=" form-control checkbox ">
              <label class="text-danger input-md"><input id="poll_checkbox" name="poll_checkbox" type="checkbox" ><i class="fa fa-user-secret fa-lg" aria-hidden="true"></i> hide identity</label>
-         </div></li></ul>
+         </div>
+				 <div class="modal-footer">
+         
          <button id="post_poll"name="post_poll" onclick="savepoll();" type="button" class="btn btn-primary btn-md " > Shout <i class="fa fa-bullhorn fa-3x"></i></button>
-         <br><div id="respo3"></div>
+         <br><br><div id="respo3"></div>
                                  </div>
                   
 		  
@@ -958,7 +958,7 @@ $("#members_count_show").html($("#members_all div").length/2);
                 
                <script>
           $( window ).load(function() {
-    console.log( "ready!" );
+    //console.log( "ready!" );
     $("body").css("filter","none");
 });
 </script> 

@@ -448,7 +448,7 @@ for the 21st century Colleges.</h2>
 <script src="js/file_input.js" type="text/javascript"></script>-->
 <script>
           $( window ).load(function() {
-    console.log( "ready!" );
+    //console.log( "ready!" );
     $("body").css("filter","none");
 });
 </script>

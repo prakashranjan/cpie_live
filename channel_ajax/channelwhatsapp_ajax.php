@@ -2,9 +2,13 @@
 require_once('../auth.php');
  include("../connection.php");	
  include("../commonfun.php");
+  include("../vcommon.php");
  $usern=$_SESSION['SESS_USERNAME'];
- $val=$_POST['link'];
-$tid=$_POST['tid'];
+ $val=cleankar($_POST['link']);
+$tid=cleankar($_POST['tid']);
+if($val=="" || $tid==""){
+    exit();
+}
 $val=trim($val);
 $val_part=substr($val,0,26);
 

@@ -27,12 +27,12 @@
    success: function( data ) {
        if(data==1){
    $('.makar'+hut).remove();
-   console.log("ho gya ----"+hut);
+  // console.log("ho gya ----"+hut);
    //update progress bar and value
    update_diska();
        }else if (data==0){
            //nothing
-           console.log("waah");
+         //  console.log("waah");
        }
    },
    async:true,
