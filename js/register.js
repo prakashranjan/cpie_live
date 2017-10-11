@@ -125,7 +125,49 @@ if(bardata[2] && bardata[0] && bardata[1] && er[0] && er[1] && er[2]){
     
 }}
     
+
+
+function sec_key_getform(){
+    var temporia=$("#seckey").val();
+    if(temporia!==""){
+             
+             
+
+if(temporia.length==12){
+
+             
+             
+             /*correct*/
+            //console.log("chalaaaaaa kyaaaa");
+         
+                  $("#headody").remove(); 
+                 $('#signModal').modal('show'); 
+                 $("#result").html("<div style='text-align:center;'><img src='images/copy.gif'/></div>");
+                          $.ajax({
+         type:"get",
+   url:"signupprompt_t_ajax.php",
+   
+   data: {sec_key:temporia},
+   success: function( data ) {
+   $( "#result" ).html(data);
+   },
+   
+   cache: false
+})
+                
+
+              }
+            else{
+            
+             /* wrong*/
+              $("#container2").html("<h2 class='text-info' style='text-align:center;'><i class='fa fa-refresh fa-2x' aria-hidden='true'></i> try again</h2>");    
+             
+                  }
+/* checker end*/
     
+}}
+
+
     function major(stream,ur,div){
 ur=ur+".php";
 var str=stream;

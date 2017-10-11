@@ -260,7 +260,7 @@ for the 21st century Colleges.</h2>
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2> Sign up with admission number </h2>
+                    <h2> Student's Sign up with admission number </h2>
                     <hr class="star-primary">
                 </div>
             </div>
@@ -280,6 +280,37 @@ for the 21st century Colleges.</h2>
                             </div>
                 <div id="filebar">
 <div id="container" class="container">
+    
+  <!-- bar code stuff-->
+</div>
+</div>
+              
+            </div>
+            
+            <hr style="border-top:5px dashed #18bc9c;" >
+            <!--for teachers-->
+             <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2> Teacher's Sign up with secret key</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+           
+            <div class="row">
+                
+               <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label class="text-center"> Secret key </label>
+                                <input class="form-control text-center" type="text" name="sec_key" id="seckey"     maxlength="12" placeholder="type your Secret key" required data-validation-required-message="Please enter your Secret key">
+                                
+                            </div>
+                        </div>
+                <br>
+                <div class="form-group col-xs-12 text-center">
+                    <button   type="button" role="button" name="sec_key_getform" id="sec_key_getform" onclick="sec_key_getform();" class="btn btn-success fa-2x btn-md ">Get Sign Up form</button>
+                            </div>
+                <div id="filebar">
+<div id="container2" class="container">
     
   <!-- bar code stuff-->
 </div>

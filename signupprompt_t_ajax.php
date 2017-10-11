@@ -7,70 +7,50 @@
 	
 	
 
-  
-$yr= addslashes($_GET['yr']);
-$br= addslashes($_GET['br']);
-$rl= addslashes($_GET['rl']);
-if($yr=="" || $br=="" ||$rl==""){exit();}
-if(strlen($rl)!=3){
-    echo "<h4> invalid admission no. </h4>";
+ // echo "<br>-----1--------".$_GET['sec_key']."---------------------<br>";
+  if($_GET['sec_key']=="" || strlen($_GET['sec_key'])!=12){
+    echo "<h4 style='text-align:center;'> invalid secret key</h4>";
     exit();
 }
+$sec_key= cleankar($_GET['sec_key']);
+//echo "<br>------2-------".$sec_key."---------------------<br>";
 
 
 
-
-$f_cid=$yr."/".$br."/".$rl;
-
-$rl=(int) $rl;
 
  $er=array();
  
 
-if($yr=="14"||$yr=="15"||$yr=="16"||$yr=="17"){$er[0]=1;}
-else {$er[0]=0;}
-
-if($br=="IT"||$br=="CSE"||$br=="EC"||$br=="EEE"||$br=="CE"||$br=="IC"||$br=="EE"||$br=="ME"){$er[1]=1;}
-else {$er[1]=0;}
 
 
-if($rl!=0 && $rl<250){$er[2]=1;}
-else {$er[2]=0;}
-
-if((strlen($f_cid) ==9 ||strlen($f_cid) ==10) && $er[0] && $er[1] && $er[2]){
+if($sec_key!=""){
     
-    $sql= "select id,form_fill from barcode_sign where full_cid='$f_cid'";
+    $sql= "select key_data from teacher_key where key_data='$sec_key' and valid=1";
     $data1= mysql_query ($sql);
     if(mysql_num_rows($data1))
     { 
         $res=mysql_fetch_row($data1);
-           if($res[1]== 0){
-            echo"<h4 style='text-align:center;' class='text-success'><i class='fa fa-2x fa-smile-o' aria-hidden='true'></i> Thank you for coming back..</h4>";
-            $_SESSION['GIFTY'] = $f_cid;
+           if($res[0]){
+            echo"<h4 style='text-align:center;' class='text-success'><i class='fa fa-2x fa-smile-o' aria-hidden='true'></i>Access Granted</h4>";
+            $_SESSION['GIFTY_SEC_KEY'] = $sec_key;
+          //  echo "<br>----".$_SESSION['GIFTY_SEC_KEY']."--------<br>";
           
             showsign();
         }
         else{
-            echo'<h4 class="text-danger" style="text-align:center;" ><i class="fa fa-2x fa-smile-o" aria-hidden="true"></i>  Hey! You have already signed up </h4>';
             
-        }
+        echo "<h4 style='text-align:center;'> invalid secret key</h4>";}
+   
         
         
-    }
-    else{
-        $mql= "insert into barcode_sign (year,branch,roll_no,form_fill,full_cid) values ('$yr','$br','$rl',0,'$f_cid') ";
-        $data2 = mysql_query ($mql)or die(mysql_error());
-        if($data2)
-        { $_SESSION['GIFTY'] = $f_cid;
-            showsign();}
-        
-        
-    }
+    }else{
+       echo "<h4 style='text-align:center;'> invalid secret key</h4>";}
+   
     
 
 }
 else{
-       echo "<h4> invalid admission no. </h4>";}
+       echo "<h4 style='text-align:center;'> invalid secret key</h4>";}
 
 
 
@@ -121,7 +101,7 @@ function formSubmit() {
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <form  role="form" id="signupform" name="signupform" method="POST" action="signmeup.php"  >
+                    <form  role="form" id="signupform" name="signupform" method="POST" action="signmeup_t.php"  >
                     
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
@@ -139,7 +119,7 @@ function formSubmit() {
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label> Email(Gmail) </label>
+                                 <label> Email(Gmail) </label>
                                 <input type="email" class="form-control"  name="email" id="email" onchange="validate(this.name,this.value);" placeholder="Email Address"  required data-validation-required-message="Please enter your email address.">
                                 <p class="help-block text-danger" id="emailerror"></p>
                             </div>
@@ -159,58 +139,6 @@ function formSubmit() {
                             <label class="btn "><input class="form-control " value="male"type="radio" name="sex"required placeholder=" male "><i class="fa fa-male" aria-hidden="true"></i> male</label>
                             </div>
                         </div>
-                        
-                          
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 ">
-                                <label>Branch</label>
-                                <select class="selectpicker form-control "  onchange="sections(this.options[this.selectedIndex].value);" name="branch" required>
-                                    <option value=""  >select</option>';
-                         $mas=mysql_query("select branch_id,branch_short,branch_full from branch where course_id=1");
-                         while($masr=  mysql_fetch_row($mas)){
-                         echo'<option value="'.$masr[0].'"  >'.$masr[1].'__ '.$masr[2].' </option>';
-                         }
-                               echo'</select>
-                                
-                                <p id="mbranch"class="help-block text-danger"></p>
-                            </div>
-                        </div>
-                        
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 ">
-                                <label>Year</label>
-                                <select class="selectpicker form-control "  name="year" required>
-                                    ';
-                         $mas2=mysql_query("select duration from course where course_id=1");
-                         $masr2=  mysql_fetch_row($mas2);
-                         $l=1;
-                         while($l<= $masr2[0]){
-                         echo'<option value="'.$l.'">'.$l.'</option>';
-                         $l++;
-                         
-                         }
-                               echo'
-                                    
-                                        
-                               </select>
-                                
-                                <p id="myear"class="help-block text-danger"></p>
-                            </div>
-                        </div>
-                        
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 " >
-                                <label>Section</label>
-                                <select class="selectpicker form-control "  id="classpik" name="section" required>
-
-                                      
-                               </select> 
-                                
-                                <p id="msection"class="help-block text-danger"></p>
-                            </div>
-                        </div>
-                        
-                           
                           
                            <br>
 
@@ -272,3 +200,4 @@ function formSubmit() {
 }
 
 ?>
+

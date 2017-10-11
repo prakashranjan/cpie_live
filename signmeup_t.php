@@ -1,6 +1,7 @@
+
 <?php
  include("connection.php");
- require_once('auth_signup.php');
+ require_once('auth_signup_t.php');
  include("vcommon.php");
   
     
@@ -39,44 +40,19 @@
  else{ 
    //  echo'<h4><strong>Hey!</strong>gender nahi</h4><br>';
      exit();}
- 
+   $ad_no_bar=$_SESSION['GIFTY_SEC_KEY'];
+       $ad_no=$ad_no_bar;
+  
   
  $dob=addslashes($_POST['dob']);
   
   
-   $course=1;
-    $branch=addslashes($_POST['branch']);
-     $year=addslashes($_POST['year']);
-      $section=addslashes($_POST['section']);
+   $query120 = mysql_query("select key_id,key_data from teacher_key where key_data = '$ad_no' and valid=1 ");
+   
       
-      
-       $ad_no_bar=$_SESSION['GIFTY'];
-       $ad_no=$ad_no_bar;
-  //for branch code to branch_short
-       $mql99=mysql_query("select branch_short from branch where branch_id='$branch' and course_id=1");
-     //  echo'<h4><strong>Hey!</strong>check branch</h4><br>';
-      
-       if(mysql_num_rows($mql99)==1){
-            $runmql99=mysql_fetch_row($mql99);
-       //    echo'<h4><strong>Hey!</strong>branch check in</h4><br>';
-           $branch_sh=$runmql99[0];
-       }
-       else{
-         //  echo'<h4><strong>Hey!</strong>branch exit hua</h4><br>';
-           exit();}
-       
-       
-  //for section id  ,year , branch
-       $section_name=$branch_sh."_".$section."_YR".$year;
-       
-       //echo'<h4><strong>Hey!</strong>section query hoga</h4><br>';
-       $mql=mysql_query("select section_id,course_id,branch_id,year from section where category='$section_name' and course_id=1");
-      
-       if(mysql_num_rows($mql)==1){
-           //echo'<h4><strong>Hey!</strong>section query hua</h4><br>';
-       $runmql=mysql_fetch_row($mql);     
-         // echo'<h4><strong>Hey!</strong>section query hua end</h4><br>';
-    $mod_idw=1;
+       if(mysql_num_rows($query120)==1){
+           $run120=mysql_fetch_row($query120);
+    $mod_idw=2;
           
  $data=mysql_query("INSERT INTO member (fname,lname,username,email,picture,thumbnail,password,gender,mobile,dob,mode_id) VALUES ('$firstname','$lastname','$userName','$email','$dpic','$dpic','$password','$gender','$phone','$dob','$mod_idw')"); 
   
@@ -87,7 +63,7 @@
      if($mem_id!=""){
          //for students...
         // at present only btech..........
-         $data2 =mysql_query("INSERT INTO stud_member (mem_id,course_id,branch_id,year,section_id,ad_no) VALUES ('$mem_id','$runmql[1]','$runmql[2]','$runmql[3]','$runmql[0]','$ad_no')"); 
+         $data2 =mysql_query("INSERT INTO teach_member (mem_id,emp_no,dept_id,key_id) VALUES ('$mem_id',1234567890,1,'$run120[0]')"); 
  
          
      }
@@ -105,10 +81,8 @@
     // echo "nhi chala mkdir";
      
  }
- $sql=  mysql_query("update barcode_sign set form_fill=1 where full_cid='$ad_no'");
- $sql09=  mysql_query("update section set stud_count=stud_count+1 where section_id='$runmql[0]'");
- $sql091=  mysql_query("update branch set branch_count=branch_count+1 where branch_id='$runmql[2]'");
- $sql092=  mysql_query("update course set course_count=course_count+1 where course_id='$runmql[1]'");
+ 
+
  // for defaults........
  $sql1998=mysql_query("insert into priority_log (mem_id) values ('$mem_id')");
  
@@ -133,16 +107,16 @@ else{
  // unique username ,phone ,college id,email
      //echo "<h4><strong>Hey!</strong> shuru to hua</h4><br>";
      
-     if($_POST['first_name']=="" ||$_POST['password']=="" || $_POST['sex']=="" || $_POST['year']=="" ||$_POST['branch']=="" || $_POST['section']=="" || $_POST['user']=="")
+     if($_POST['first_name']=="" ||$_POST['password']=="" || $_POST['sex']=="" || $_POST['user']=="" )
          {echo '<h4><strong>Warning!</strong> please give correct details.</h4><br>';
      exit();}
      
-     if(!empty($_POST['user'])|| !empty($_POST['phone'])|| !empty($_SESSION['GIFTY'])|| !empty($_POST['email'])) 
+     if(!empty($_POST['user'])|| !empty($_POST['phone'])|| !empty($_SESSION['GIFTY_SEC_KEY'])|| !empty($_POST['email'])) 
      { //echo'<h4><strong>Hey!</strong>1st step cross</h4><br>';
          $userlame = addslashes($_POST['user']);
      $phonew = addslashes($_POST['phone']);
      $emailw = addslashes($_POST['email']);
-     $giftyw = $_SESSION['GIFTY'];
+     $giftyw = $_SESSION['GIFTY_SEC_KEY'];
  $userlame=  strtolower($userlame);
  $userlame= preg_replace('/[^A-Za-z0-9\']/','', $userlame);
  //echo'<h4><strong>Hey!</strong>1st step cross 1.5</h4><br>';
@@ -150,11 +124,11 @@ else{
    //  echo'<h4><strong>Hey!</strong>1st step cross2.1</h4><br>';
       $query2= mysql_query("SELECT mobile FROM member WHERE mobile = '$phonew'");
      // echo'<h4><strong>Hey!</strong>1st step cross2.2</h4><br>';
-       $query3 = mysql_query("SELECT ad_no FROM stud_member WHERE ad_no = '$giftyw'"); 
+       $query3 = mysql_query("select key_data from teacher_key where key_data = '$giftyw' and valid=1 "); 
      //echo'<h4><strong>Hey!</strong>1st step cross2.3</h4><br>';
        $query4 = mysql_query("SELECT email FROM member WHERE email = '$emailw'");
       //echo'<h4><strong>Hey!</strong>1st step cross2.4</h4><br>';
-     if((mysql_num_rows($query)==0) && (mysql_num_rows($query2)==0) && (mysql_num_rows($query3)==0) && (mysql_num_rows($query4)==0)) {
+     if((mysql_num_rows($query)==0) && (mysql_num_rows($query2)==0) && (mysql_num_rows($query3)==1) && (mysql_num_rows($query4)==0)) {
         // echo'<h4><strong>Hey!</strong>2nd step cross</h4><br>';
          newuser();
        //  echo'<h4><strong>Hey!</strong>newuser to chala</h4><br>';
@@ -232,7 +206,7 @@ function delayer(){
           //echo $runmask2[0]."<br>";
         
         
-        if($_SESSION['GIFTY']){
+        if($_SESSION['GIFTY_SEC_KEY']){
          //echo'<h4><strong>Hey!</strong>0th step cross</h4><br>';
      SignUp();
      //echo'<h4><strong>Hey!</strong>i think all done</h4><br>';
