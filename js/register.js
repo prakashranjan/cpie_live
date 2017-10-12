@@ -191,6 +191,7 @@ $.ajax({
 
 
     function validate(name,val){
+       // console.log("--"+name+"--"+val+"--");
 		var error="error";
 		 if(name=="user"){name="username";
                 val = val.replace(/[^a-zA-Z0-9]/g, ''); }
@@ -211,8 +212,10 @@ else{
        if(data ==1){
          $('#' + id ).html("<span class=\"pull-right\" style=\"color:green;\">correct <i class=\"fa fa-check\" aria-hidden=\"true\"></i></span>"); 
        chal['phone']=0;
-       }else{
+       }else if(data==0){
           $('#' + id ).html("Sorry! already exist"); 
+       chal['phone']=1;}
+   else{  $('#' + id ).html("<span class='pull-right'>invalid </span>"); 
        chal['phone']=1;}
    
       
@@ -243,8 +246,10 @@ else{
        if(data ==1){
          $('#' + id ).html("<span class=\"pull-right\" style=\"color:green;\">correct <i class=\"fa fa-check\" aria-hidden=\"true\"></i></span>"); 
        chal['email']=0;
-       }else{
+       }else if(data==0){
           $('#' + id ).html("Sorry! already exist"); 
+       chal['email']=1;}
+   else{ $('#' + id ).html("<span class='pull-right'>invalid </span>"); 
        chal['email']=1;}
    
   
@@ -275,9 +280,11 @@ else{
        if(data ==1){
          $('#' + id ).html("<span class=\"pull-right\" style=\"color:green;\">correct <i class=\"fa fa-check\" aria-hidden=\"true\"></i></span>"); 
        chal['username']=0;
-       }else{
+       }else if(data==0){
           $('#' + id ).html("Sorry! already exist"); 
       chal['username']=1; }
+  else{   $('#' + id ).html("<span class='pull-right'>invalid </span>"); 
+      chal['username']=1;}
    
    
    },

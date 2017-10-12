@@ -593,11 +593,11 @@ and skill_tag.mem_id='$uid'");
                    if($mes){ while($reso=mysql_fetch_row($mes)){
                         array_push($show_tags,$reso[0]); 
                    }
-                   echo implode(',',$show_tags);
+                  if(!empty($show_tags)) {echo implode(',',$show_tags);}
                    }
           
           
-                  echo' " data-max-tags="8" readonly="true">
+                  echo'" data-max-tags="8" readonly="true">
                       </div>
                                                                 
 

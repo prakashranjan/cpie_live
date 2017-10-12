@@ -1,10 +1,17 @@
   <?php
  include("connection.php");
- require_once('auth_signup.php');
+ //Start session
+	session_start();
+	//Check whether the session variable SESS_MEMBER_ID is present or not
+	if(!isset($_SESSION['GIFTY']) && !isset($_SESSION['GIFTY_SEC_KEY'])) {
+		header("location: index");
+		exit();
+	}
  include("vcommon.php");
  
  $val=addslashes($_POST['val']);
 $name=addslashes($_POST['name']);
+//echo"hell check------<br>";
 if($val=="" || $name==""){exit();}
 
 if($name=="phone" || $name=="username" || $name=="email"){
