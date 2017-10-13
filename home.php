@@ -514,7 +514,7 @@ setTimeout(function(){
         
        <div id="return">
 		<?php echo'
-<div class=" khatoono  "style="background-color:#18bc9c;"> <i class="fa fa-pie-chart" aria-hidden="true"></i> College PIE </div>
+<div class=" khatoono  "style="background-color:#18bc9c;"> <i class="fa fa-pie-chart" aria-hidden="true"></i> JSSATEN PIE </div>
        
   
     <br>

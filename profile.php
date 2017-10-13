@@ -295,8 +295,10 @@ $shouts=$metro[0];
                            <div class="btn-group bg-warning" role="group"id="pfile2r">
     <button type="button" id="pfile2" class="btn btn-warning " href="#" onclick="chan(this.id);" ><i class="fa fa-user getora" ></i></button>
   </div>
-                            <div class="btn-group" role="group" id="wll2r">
-    <button type="button" id="wll2" class="btn btn-success " href="#" onclick="chan(this.id);" ><i class="fa fa-table getora" ></i></button>
+                           
+  
+<div class="btn-group" style="background-color:#2c3e50;" role="group" id="wll2r">
+    <button type="button" id="wll2" class="btn btn-success " href="#" onclick="chan(this.id);" style="background-color:#2c3e50;" ><i class="fa fa-table getora" ></i><div  class="wall_led led-yellow-off"></div></button>
   </div>
    <div class="btn-group"style="display:none;" role="group" id="loud_shout2">
     <button type="button"  class="btn btn-success" href="#postModal" role="button" data-toggle="modal" ><i class="fa fa-wifi getora" aria-hidden="true"></i></button>
@@ -907,7 +909,7 @@ and skill_tag.mem_id='$uid'");
   
     $('#skill_tagy').tagging(tagsource);
    
-              $( window ).load(function() {
+              $( window ).ready(function() {
     //console.log( "ready!" );
     $("body").css("filter","none");
 });
