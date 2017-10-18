@@ -30,12 +30,7 @@
 	
 
 
-              //  $usern=$_SESSION['SESS_USERNAME'];
-                //$qry7="SELECT picture FROM member WHERE username='$usern'";
-               // $ppicture7=mysql_query($qry7);
-// $crow = mysql_fetch_row($ppicture7);
- 
-
+             
  $qr=mysql_query("select topic_id,topic_mode,user from topic where category='$tn'");
   $rn=mysql_fetch_row($qr);
   $tid=$rn[0];
@@ -57,6 +52,7 @@ $sql89="UPDATE user_online SET topic_id='$tid' WHERE mem_id='$member_id' and ses
 
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>

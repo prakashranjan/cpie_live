@@ -26,7 +26,72 @@
       "src": "images/ic_launcher/web_hi_res_512.png",
       "type": "image/png",
       "sizes": "512x512"
-    }
+    },
+        {
+            "src": "images/af41d3f2-405e-398d-449f-cffc575cb27f.webPlatform.png",
+            "sizes": "1240x600",
+            "type": "image/png"
+        },
+        {
+            "src": "images/0442f137-f592-c0d3-b33f-ba99c2247b1b.webPlatform.png",
+            "sizes": "300x300",
+            "type": "image/png"
+        },
+        {
+            "src": "images/0bfc4991-5a46-52de-8998-b08496af01d0.webPlatform.png",
+            "sizes": "88x88",
+            "type": "image/png"
+        },
+        {
+            "src": "images/5430cc40-56d5-2956-2e3c-8ad4d3b0bfd3.webPlatform.png",
+            "sizes": "24x24",
+            "type": "image/png"
+        },
+        {
+            "src": "images/9b264111-3a8f-0b5e-11cd-537cbc97acec.webPlatform.png",
+            "sizes": "50x50",
+            "type": "image/png"
+        },
+        {
+            "src": "images/d067ca68-4ba2-b976-bee1-c69e6c6b9f72.webPlatform.png",
+            "sizes": "620x300",
+            "type": "image/png"
+        },
+        {
+            "src": "images/1b4b5ae7-a033-3103-89ef-875df1525d5b.webPlatform.png",
+            "sizes": "72x72",
+            "type": "image/png"
+        },
+        {
+            "src": "images/2ecf6305-41aa-daaa-cc01-33eb90c333c7.webPlatform.png",
+            "sizes": "36x36",
+            "type": "image/png"
+        },
+        {
+            "src": "images/0920e50c-4a5b-9c1d-65bf-b0d3d53c16f1.webPlatform.png",
+            "sizes": "1024x1024",
+            "type": "image/png"
+        },
+        {
+            "src": "images/ae6cf8f0-976d-f911-5471-a06309ac8af7.webPlatform.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        },
+        {
+            "src": "images/678f176c-4c71-bd93-4125-f777db0a347b.webPlatform.png",
+            "sizes": "152x152",
+            "type": "image/png"
+        },
+        {
+            "src": "images/d05e0467-5d30-0f22-1475-1190e2989f72.webPlatform.png",
+            "sizes": "120x120",
+            "type": "image/png"
+        },
+        {
+            "src": "images/f0cc9210-0a79-60bb-27e6-96f8e5ba1a9a.webPlatform.png",
+            "sizes": "76x76",
+            "type": "image/png"
+        }
     
   ],
   "start_url": "/",

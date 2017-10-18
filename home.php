@@ -4,6 +4,7 @@
 include("connection.php");
 include("vcommon.php");
 
+
 $session=session_id();
 $fav_led="-off";
 $class_led="-off";
@@ -211,6 +212,7 @@ if($class_no[0]==0){
 
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -224,6 +226,7 @@ if($class_no[0]==0){
                 <meta name="theme-color" content="#2c3e50">
                
 	<link rel="manifest" href="manifest.json">
+        
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		
 			<link href="css/styles.css" rel="stylesheet">
@@ -748,6 +751,14 @@ echo'</p>
    // console.log( "ready!" );
     $("body").css("filter","none");
 });
+        
+        </script>
+        <script>
+        Notification.requestPermission(function(status) {
+    console.log('Notification permission status:', status);
+});
+
+
         
         </script>
 		

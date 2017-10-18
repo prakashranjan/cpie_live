@@ -7,6 +7,24 @@
 
 var side=1;
 
+function displayNotification(title,content,pkey) {
+  if (Notification.permission === 'granted') {  
+    navigator.serviceWorker.getRegistration()
+    .then(function(reg){
+       
+       var options = {
+   body: content,
+   icon: 'images/ic_launcher/res/mipmap-xhdpi/ic_launcher.png',
+   vibrate: [100, 50, 100],
+   data: { primaryKey: pkey } // allows us to identify notification
+ };
+ reg.showNotification(title, options);
+
+     
+    });
+  }
+}
+
 function sidehide(){
 if(side==1){$('#sidebar').hide();
 $("#main").removeClass("column col-sm-10 ");
@@ -65,6 +83,7 @@ function copyToClipboard(element) {
          2. Paste the email id in the search box.");
 }
 	
+
 
 
 
