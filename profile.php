@@ -956,7 +956,9 @@ function pop_place_info2(){
 google.maps.event.addDomListener(window, \'load\', initialize);
 </script>';}
 	
-        ?></body>
+        ?>
+        
+        </body>
 </html>
 
 

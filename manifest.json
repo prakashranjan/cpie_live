@@ -42,16 +42,7 @@
             "sizes": "88x88",
             "type": "image/png"
         },
-        {
-            "src": "images/5430cc40-56d5-2956-2e3c-8ad4d3b0bfd3.webPlatform.png",
-            "sizes": "24x24",
-            "type": "image/png"
-        },
-        {
-            "src": "images/9b264111-3a8f-0b5e-11cd-537cbc97acec.webPlatform.png",
-            "sizes": "50x50",
-            "type": "image/png"
-        },
+       
         {
             "src": "images/d067ca68-4ba2-b976-bee1-c69e6c6b9f72.webPlatform.png",
             "sizes": "620x300",
@@ -95,7 +86,7 @@
     
   ],
   "start_url": "/",
-  "background_color": "#2c3e50",
+  "background_color": "#ffffff",
   "display": "standalone",
   "theme_color": "#2c3e50",
   "orientation": "portrait"

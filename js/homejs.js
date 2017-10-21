@@ -390,7 +390,11 @@ function global_led(kya){
            else if($( prfix+kya+"_led" ).hasClass("led-yellow-off")){
                $( prfix+kya+"_led" ).removeClass("led-yellow-off");
                $( prfix+kya+"_led" ).addClass("led-yellow");
-               
+               if(kya==="class"){var martha="My class LED blinking";}
+               else if(kya==="fav"){var martha="Favorite channel LED blinking";}
+               else{}
+              displayNotification(martha,"check out new shouts",1);
+           
            }
        
    }
