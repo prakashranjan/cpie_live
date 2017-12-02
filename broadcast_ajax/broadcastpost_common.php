@@ -638,7 +638,7 @@ $caption=trim($caption);
 
     $tempFile = $_FILES['file']['tmp_name']; //3
     $filename =$_FILES['file']['name'];
-    $filename=preg_replace("/[^a-z0-9\.]/", "", strtolower($filename));
+    $filename=preg_replace("/[^a-z0-9_ \.]/", "", strtolower($filename));
   $ext = pathinfo($filename, PATHINFO_EXTENSION);
   
   

@@ -366,6 +366,17 @@ function branch_match(branch_id){
   
 };
 
+                function wall_need(prfix,kya,cattype,alpha){
+               $( prfix+kya+"_led" ).removeClass("led-yellow-off");
+               $( prfix+kya+"_led" ).addClass("led-yellow");
+              if($( ".bar_led" ).hasClass("led-yellow-off")){
+               $( ".bar_led" ).removeClass("led-yellow-off");
+               $( ".bar_led" ).addClass("led-yellow");
+           }
+               
+              
+              displayNotification(cattype+" Wall",alpha+" new Loud Shouts",3);}
+
 
 
 function global_led(kya){
@@ -374,14 +385,58 @@ function global_led(kya){
     //console.log(kya);
     if(kya==="class"){root="channel_ajax/";
     prfix="#";}
+    if(kya==="wall"){root="broadcast_ajax/";
+    }
+
+
  $.ajax({
          type:"get",
    url: root+kya +"_led_ajax.php",
-   
+   dataType: "json",
    data: { },
    success: function( data ) {
-   var output=data;
-   //console.log(output);
+       if(kya==="wall"){
+        
+       console.log(data);
+       
+       
+      
+        if($( prfix+kya+"_led" ).hasClass("led-yellow")){ 
+       //do nothing
+           }
+           else if($( prfix+kya+"_led" ).hasClass("led-yellow-off")){
+            
+            if(data.urgent>0){
+                wall_need(prfix,kya,"Urgent",data.urgent);
+            }
+            if(data.academic>0){
+                wall_need(prfix,kya,"Academic",data.academic);}
+            if(data.knowledge>0){
+                wall_need(prfix,kya,"Knowledge",data.knowledge);}
+            if(data.event>0){
+                wall_need(prfix,kya,"Event",data.event);}
+            if(data.skill>0){
+                wall_need(prfix,kya,"Skill",data.skill);}
+            if(data.opportunity>0){
+                wall_need(prfix,kya,"Opportunity",data.opportunity);}
+            if(data.fun>0){
+                wall_need(prfix,kya,"Fun",data.fun);}
+            
+            
+            
+            
+            
+           
+           }
+       
+                 
+           
+           
+   
+   }
+   else{
+      var output=data;
+   console.log(output);
    if(output==1){
         //console.log("----"+output);
        if($( prfix+kya+"_led" ).hasClass("led-yellow")){ 
@@ -390,9 +445,14 @@ function global_led(kya){
            else if($( prfix+kya+"_led" ).hasClass("led-yellow-off")){
                $( prfix+kya+"_led" ).removeClass("led-yellow-off");
                $( prfix+kya+"_led" ).addClass("led-yellow");
-               if(kya==="class"){var martha="My class LED blinking";}
+               if(kya==="class"){var martha="My class LED blinking";
+               $( ".bar_led" ).removeClass("led-yellow-off");
+               $( ".bar_led" ).addClass("led-yellow");
+               }
                else if(kya==="fav"){var martha="Favorite channel LED blinking";}
+              
                else{}
+              
               displayNotification(martha,"check out new shouts",1);
            
            }
@@ -400,7 +460,11 @@ function global_led(kya){
    }
    else{
         //console.log("++++"+output);
+   } 
+       
+       
    }
+   
    },
    async:true,
    cache: false
@@ -408,7 +472,7 @@ function global_led(kya){
  
 });
 
-var naseeb=naseeb_batao();
+var naseeb=naseeb_batao(40000,10);
 //console.log(naseeb);
 
 if(!($(prfix+kya+"_led").hasClass("led-yellow"))){
@@ -420,15 +484,7 @@ setTimeout(function(){
 		};	
     
    
-	function naseeb_batao(){
-            var val = parseInt(Math.random() * 4);
-            var salty=parseInt(Math.random() * 10);
-            val=40000 + val*salty*10000;
-            
-            return val;
-        }	
-		
-    
+	
 	
 
    

@@ -78,12 +78,20 @@ function copyToClipboard(element) {
   $temp.val($(element).text()).select();
   document.execCommand("copy");
   $temp.remove();
-  alert("->> Email id  has been copied!\n\
+  alert(" Email id  has been copied!\n\\n\
          1. Click on new conversation.\n\
          2. Paste the email id in the search box.");
 }
 	
 
 
-
+function naseeb_batao(param,gap){
+            var val = parseInt(Math.random() * 4);
+            var salty=parseInt(Math.random() * gap);
+            val=param + val*salty*10000;
+            
+            return val;
+        }	
+		
+    
 

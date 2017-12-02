@@ -3,6 +3,7 @@ require_once('auth.php');
  include("connection.php");	
  include("commonfun.php");
  include("vcommon.php");
+  require_once('priv_auth.php');
 	
 	        $usern=$_SESSION['SESS_USERNAME'];
 	       
@@ -35,10 +36,18 @@ function savecap()
 			$caption=  addslashes($_POST['cap']); 
                             if($caption=="" || $tid==""){return 1;
                             }
+                             
+  $trigo=check_priv_auth($tid);
+ 
+if($trigo==3 || $trigo==null){
+    return 1;
+}
 			
-                        $caption=strip_tags($caption,"<img> <a> <br>");
+                        $caption=strip_tags($caption,"<img> <a> <br> <b>");
+                       
                         $caption=trim($caption);
 			$caption=carbonlink($caption);
+                       
                          $caption=trim($caption);
 			if(isset($_POST['anon'])){
             $anon=1;

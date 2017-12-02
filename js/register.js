@@ -1,11 +1,15 @@
 //for intializing vlaidation array
 var chal = { "email": 1, "phone": 1, "username": 1 , "password":1 };
 
-
+var dl;
 function keyadno(mask){
     var kat=mask;
     kat =kat.toUpperCase();
     var cou=kat.length;
+    if(kat[3]=="d"||kat[3]=="D"){
+        dl=1;
+    }
+    else{dl=0;}
     if(cou==2){
       if(kat=="14" || kat=="15" || kat=="16" || kat=="17")
       {  $("#adno").val(kat+'/');
@@ -14,10 +18,15 @@ function keyadno(mask){
        {
        $("#adno").val('');  }   
     }
-    else if(cou==5){
+    else if(cou==5||(cou==7 && dl==1)){
        
        var ltwo = kat.substr(cou - 2);
-       if(ltwo=="IT" || ltwo=="CE" || ltwo=="IC" || ltwo=="EC" || ltwo=="ME")
+       if(ltwo=="DL"){
+           dl=1;
+          kat =kat.toUpperCase();
+          $("#adno").val(kat);
+       }
+        else {  if(ltwo=="IT" || ltwo=="CE" || ltwo=="IC" || ltwo=="EC" || ltwo=="ME")
        { $("#adno").val(kat+'/');
             
        }  
@@ -28,7 +37,10 @@ function keyadno(mask){
              $("#adno").val(''); 
         }
     }
-    else if(cou==6){
+        
+    }
+    else if((cou==6 && dl==0)||(cou==8 && dl==1)){
+        
         var lone = kat.substr(cou - 1);
        if(lone=="E")
        { $("#adno").val(kat+'/');
@@ -74,6 +86,11 @@ var temp3=bardata[2];
 if(temp1=="14"||temp1=="15"||temp1=="16"||temp1=="17"){er[0]=1;}
 else {er[0]=0;}
 //console.log(er[0]);
+if(temp2.substr(0,2)=="DL"){
+    temp2=temp2.substr(2);
+}else{
+    //do nothing
+}
 if(temp2=="IT"||temp2=="CSE"||temp2=="EC"||temp2=="EE"||temp2=="CE"||temp2=="IC"||temp2=="EEE"||temp2=="ME"){er[1]=1;}
 else {er[1]=0;}
 //console.log(er[1]);
@@ -84,7 +101,7 @@ else {er[2]=0;}
 /*checker ends*/
 if(bardata[2] && bardata[0] && bardata[1] && er[0] && er[1] && er[2]){
 
-             if((bardata[2].length==3||bardata[2].length==2) && bardata[0].length==2 && bardata[1].length<=3 ){
+             if((bardata[2].length==3||bardata[2].length==2) && bardata[0].length==2 && bardata[1].length<=5 ){
              
              /*correct*/
             //console.log("chalaaaaaa kyaaaa");
@@ -96,7 +113,7 @@ if(bardata[2] && bardata[0] && bardata[1] && er[0] && er[1] && er[2]){
          type:"get",
    url:"signupprompt_ajax.php",
    
-   data: {yr:bardata[0] , br:bardata[1],rl:bardata[2]},
+   data: {yr:bardata[0] , br:bardata[1],rl:bardata[2],roll_no:null},
    success: function( data ) {
    $( "#result" ).html(data);
    },
@@ -118,12 +135,14 @@ if(bardata[2] && bardata[0] && bardata[1] && er[0] && er[1] && er[2]){
             else{
             
              /* wrong*/
-              $("#container").html("<h2 class='text-info' style='text-align:center;'><i class='fa fa-refresh fa-2x' aria-hidden='true'></i> try again</h2>");    
+              $("#container1").html("<h2 class='text-info' style='text-align:center;'><i class='fa fa-refresh fa-2x' aria-hidden='true'></i> try again</h2>");    
              
                   }
 /* checker end*/
     
 }}
+
+
     
 
 
@@ -167,6 +186,46 @@ if(temporia.length==12){
     
 }}
 
+
+function rollno_getform(){
+    var temporia=$("#roll_no_s").val();
+    if(temporia!==""){
+             
+             
+
+if(temporia.length==10){
+
+             
+             
+             /*correct*/
+            //console.log("chalaaaaaa kyaaaa");
+         
+                  $("#headody").remove(); 
+                 $('#signModal').modal('show'); 
+                 $("#result").html("<div style='text-align:center;'><img src='images/copy.gif'/></div>");
+                          $.ajax({
+         type:"get",
+   url:"signupprompt_ajax.php",
+   
+   data: {yr:null,br:null,rl:null,roll_no:temporia},
+   success: function( data ) {
+   $( "#result" ).html(data);
+   },
+   
+   cache: false
+})
+                
+
+              }
+            else{
+            
+             /* wrong*/
+              $("#container3").html("<h2 class='text-info' style='text-align:center;'><i class='fa fa-refresh fa-2x' aria-hidden='true'></i> try again</h2>");    
+             
+                  }
+/* checker end*/
+    
+}}
 
     function major(stream,ur,div){
 ur=ur+".php";

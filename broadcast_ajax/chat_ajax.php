@@ -174,6 +174,7 @@ $sql199=mysql_query("insert into b_post_index (image_id,mem_id,category_id) valu
                 $rowori= mysql_fetch_row($result);
                 $n++;
                // echo "n---->".$n;
+                $rowori[4]=  str_replace("  ", "&nbsp;&nbsp;", $rowori[4]);
                 $rowori[4]=  nl2br($rowori[4]);
                 	if($rowori[9]!=1){
                 	
@@ -202,8 +203,15 @@ $sql199=mysql_query("insert into b_post_index (image_id,mem_id,category_id) valu
 						$rowori[1] ="*******";}
 
 						echo'<div class="row">
-                          <!-- main col right -->
-                          <div class="col-sm-6 ">
+                             <!-- main col right -->';
+                   $wadka=  str_replace("&nbsp;"," ", $rowori[4]);
+                                                $wadka=strlen(strip_tags($wadka));
+                                               
+                          if($wadka>650)
+                          echo'<div class="col-sm-12 ">';
+                          else
+                           echo'<div class="col-sm-6  ">';
+                               echo'
                                
                                
                       
@@ -361,8 +369,15 @@ $sql199=mysql_query("insert into b_post_index (image_id,mem_id,category_id) valu
 					{
 
 						echo'<div class="row">
-                          <!-- main col right -->
-                          <div class="col-sm-6 ri">
+                             <!-- main col right -->';
+                        $wadka=  str_replace("&nbsp;"," ", $rowori[4]);
+                                                $wadka=strlen(strip_tags($wadka));
+                                               
+                          if($wadka>650)
+                          echo'<div class="col-sm-12 ri">';
+                          else
+                           echo'<div class="col-sm-6 ri ">';
+                               echo'
                                
                                
                       

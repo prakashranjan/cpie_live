@@ -3,6 +3,7 @@
      $result=mysql_query($qry);
                 while($rowori= mysql_fetch_row($result))
                 {$n++;
+                $rowori[4]=  str_replace("  ", "&nbsp;&nbsp;", $rowori[4]);
                 $rowori[4]=  nl2br($rowori[4]);
                 	if($rowori[9]!=1){
                 	
@@ -32,7 +33,15 @@
 
 						echo'<div class="row">
                           <!-- main col right -->
-                          <div class="col-sm-6 ">
+               ';
+                            $wadka=  str_replace("&nbsp;"," ", $rowori[4]);
+                                                $wadka=strlen(strip_tags($wadka));
+                                               
+                          if($wadka>650)
+                          echo'<div class="col-sm-12 ">';
+                          else
+                           echo'<div class="col-sm-6 ">';
+                               echo'
                                
                                
                       
@@ -190,8 +199,15 @@
 					{$y=0;
 
 						echo'<div class="row">
-                          <!-- main col right -->
-                          <div class="col-sm-6 ri">
+                           <!-- main col right -->';
+                           $wadka=  str_replace("&nbsp;"," ", $rowori[4]);
+                                                $wadka=strlen(strip_tags($wadka));
+                                                
+                          if($wadka>650)
+                          echo'<div class="col-sm-12 ri">';
+                          else
+                           echo'<div class="col-sm-6 ri ">';
+                               echo'
                                
                                
                       

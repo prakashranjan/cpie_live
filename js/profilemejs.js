@@ -5,7 +5,7 @@
   maxFilesize: 30, // MB
   uploadMultiple: false,
   maxFiles: 5,
-   dictDefaultMessage: "<i class='fa fa-upload fa-lg' aria-hidden='true' ></i> Drop or choose anhdh image/file here to auto upload ",
+   dictDefaultMessage: "<i class='fa fa-upload fa-lg' aria-hidden='true' ></i> Drop or choose an image/file here to auto upload ",
      acceptedFiles:null, 
   accept: function(file, done) {
    

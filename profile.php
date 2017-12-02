@@ -201,10 +201,11 @@ $emailw=$n2row[14];
 $mem_mobile=$n2row[15];
 $mem_mode=$n2row[16];
 if($mem_mode==1){
-$n2qry="select ad_no,(select course_short from course where course_id=stud_member.course_id),(select category from section where section_id=stud_member.section_id) from stud_member WHERE mem_id='$uid'";
+$n2qry="select ad_no,(select course_short from course where course_id=stud_member.course_id),(select category from section where section_id=stud_member.section_id),roll_no from stud_member WHERE mem_id='$uid'";
                 $n2result=mysql_query($n2qry);
                 $myrow = mysql_fetch_row($n2result);
                 $mem_ad_no=$myrow[0];
+                $mem_roll_no=$myrow[3];
                 $mem_course=$myrow[1];
                 $mem_section=$myrow[2];
                 $mem_section_part=explode('_', $mem_section);
@@ -413,7 +414,14 @@ $uid=$query[0];
                                                           if($mem_mode==1){echo'<a class="list-group-item  ubuntu" title="Branch-'.$mem_section_part[0].' &#013; Section-'.$mem_section_part[1].' &#013; Year-'.$mem_section_part[2].'" href="channel?tn='.$mem_section.'" style="background-color:rgba(0,0,0,0.95);color:#9aea21;font-size:0.80em;"><span> <i class="fa fa-graduation-cap fa-2x" aria-hidden="true"><span class="ubuntu"> '.$mem_section.' </span></i></span> <span class="pull-right" style="font-size:1.1em;"><i class="fa fa-book" aria-hidden="true"></i> '.$mem_course.' </span></a>';}
 	if(($mem_mode==1 && $_SESSION['SESS_MODE']==2) || ($mem_id==$n2row[2]))	{echo'<a class="list-group-item   ubuntu" target="_blank"href="https://api.whatsapp.com/send?text=hey%20'.$fullnw.'($'.$ui.')&phone=+91'.$mem_mobile.'" style="background-color:#25d366;color:white;"><span > <i class="fa fa-whatsapp fa-2x " aria-hidden="true"></i>  </span> Whatsapp chat<span class="pull-right ubuntu" style="font-size:1.1em;"> <i class="fa fa-mobile" aria-hidden="true"></i> '.$mem_mobile.'</span></a>
                                                                                 ';}
-                                                         if(($mem_mode==1 && $_SESSION['SESS_MODE']==2) || ($mem_id==$n2row[2]&& $mem_mode!=2)){echo'<li class="list-group-item  ubuntu" style="font-size:1.2em;"><span class="text-primary"> <i class="fa fa-qrcode fa-2x" aria-hidden="true"></i>  </span> <span class="pull-right" style="font-size:0.9em;">'.$mem_ad_no.'</span></li>';}
+                                                         if(($mem_mode==1 && $_SESSION['SESS_MODE']==2) || ($mem_id==$n2row[2]&& $mem_mode!=2)){
+                                                            if($mem_ad_no!=null) echo'<li class="list-group-item  ubuntu" style="font-size:1.2em;"><span class="text-primary"> <i class="fa fa-qrcode fa-2x" aria-hidden="true"></i>  </span> <span class="pull-right" style="font-size:0.9em;">'.$mem_ad_no.'</span></li>';
+                                                         
+                                                         else if($mem_roll_no!=null)
+                                                             echo'<li class="list-group-item  ubuntu" style="font-size:1.2em;"><span class="text-primary"> <i class="fa fa-qrcode fa-2x" aria-hidden="true"></i>  </span> <span class="pull-right" style="font-size:0.9em;">'.$mem_roll_no.'</span></li>';
+                                                         
+                                                         }
+                                                         
 										echo'<a class="list-group-item  ubuntu " role="link" href="mailto:'.$emailw.'?subject=cpie%20chat&amp;body=Hey%20'.$fullnw.'($'.$ui.')" style="background-color:rgba(0,0,0,0.75);color:#9aea21;"><span > <i class="fa fa-envelope fa-2x" style="color:#9aea21;"aria-hidden="true"></i> <sup><i class="fa fa-share fa-2x" aria-hidden="true"></i></sup>  </span> <span id="mail_to" class="pull-right" style="font-size:1.0em;">'.$emailw.' </span></a>
                                                                                 <a onclick="copyToClipboard(\'#mail_to\')" target="_blank" href="https://hangouts.google.com/chat"class=" btn  btn-primary btn-block ubuntu " style="background-color:rgba(0,0,0,0.95);color:#9aea21;font-size:1.2em;"><img  src="https://ssl.gstatic.com/images/icons/material/product/1x/hangouts_32dp.png"/> Google hangout chat</a>
                                     </ul>
@@ -520,7 +528,7 @@ $uid=$query[0];
                                     <div class="clearfix"></div>
                                     
                                     
-                                    <textarea row="6" maxlength="255" style="height:160px;" id="long_disc" name="long_disc"  onblur="validate(this.name,this.value);"class="form-control " style="color:#2c3e50;"placeholder="tell me something about yourself...."> '.$long_discw.' </textarea>                                    
+                                    <textarea rows="6" maxlength="255" style="height:160px;" id="long_disc" name="long_disc"  onblur="validate(this.name,this.value);"class="form-control " style="color:#2c3e50;"placeholder="tell me something about yourself...."> '.$long_discw.' </textarea>                                    
                                     
                                     <form>
                                   
@@ -749,14 +757,14 @@ and skill_tag.mem_id='$uid'");
         <div class="tab-pane active" id="tab1">
             <form class="form center-block"  enctype="multipart/form-data" >
             <div class="form-group">
-              <textarea rows="4" cols="100%" style="background-color:antiquewhite;" class="form-control input-lg" maxlength="2000" name="cap" id="cap" placeholder="What do you want to shout Loud?"></textarea>
-              <div id="moveform"><br>
-             <label for="tagy" class="text-info postmf">&nbsp;&nbsp; <i class="fa fa-tags fa-2x" aria-hidden="true"></i> tags </label> 
+              <textarea rows="8" cols="100%" style="background-color:antiquewhite;" class="form-control input-lg" maxlength="45000" name="cap" id="cap" placeholder="What do you want to shout Loud?"></textarea>
+              <div id="moveform"><hr>
+             <label for="tagy" class="text-info postmf">&nbsp;&nbsp; <i class="fa fa-tags fa-2x" aria-hidden="true"></i> Target tags </label> 
         <input id="tagy" class="tags-input"  value="" data-max-tags="8">
         
   <form class="navbar-form" >
                         <div class="input-group input-group-sm " >
-                          <input type="text" class="form-control ubuntu inputpc" onkeyup="searchuser(this.id);" size="100" placeholder="$username or name"  id="termmob" >
+                          <input type="text" class="form-control ubuntu inputpc" onkeyup="searchuser(this.id);" size="100" placeholder="Tag $username or name"  id="termmob" >
                           <div class="input-group-btn">
                             <button class="btn btn-primary" onclick="searchuser(\'termmob\');" type="button"><i class="glyphicon glyphicon-search"></i></button>
                           </div>
@@ -764,15 +772,15 @@ and skill_tag.mem_id='$uid'");
       </form>
           <div class="row">
               <div id="search_members"></div></div>
-               <hr />
+               <h4 class=" text-info text-center ubuntu postmf" style="background-color: aliceblue;" ><i class="fa fa-bullseye " aria-hidden="true"></i> Selected targets</h4>
               <div class="row">
              
-              <div id="members_all" style="background-color:#faebd7;">
+              <div id="members_all" style="background-color:#faebd7;min-height:5vh;">
                  
               </div>
             
              
-              
+              <hr>
           </div>
  <input type="hidden"  id="hide_u_ids">
         <div class="form-group">
@@ -811,7 +819,7 @@ and skill_tag.mem_id='$uid'");
         <div class="tab-pane" id="tab2">
         	 <form method="POST"   id="broadcastdocupload" action="broadcast_ajax/broadcast_uploadmera.php"  class="dropzone" enctype="multipart/form-data" >
            <div class="form-group">
-              <textarea rows="4" cols="100%"class="form-control input-lg" style="background-color:antiquewhite;" name="cap2" maxlength="2000"  id="cap2" placeholder="Enter caption..."></textarea>
+              <textarea rows="8" cols="100%"class="form-control input-lg" style="background-color:antiquewhite;" name="cap2" maxlength="45000"  id="cap2" placeholder="Enter caption..."></textarea>
               <div id="tab2com"></div>
               <div class=" text-center fa-lg postmf">
     <label>

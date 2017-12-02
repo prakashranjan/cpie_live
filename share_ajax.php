@@ -2,6 +2,7 @@
 require_once('auth.php');
 include("connection.php");
 include("vcommon.php");
+require_once('priv_auth.php');
 $postid=cleankar($_POST['postid']);
 $category=cleankar($_POST['category']);
 if($postid=="" || $category==""){exit();}
@@ -12,7 +13,14 @@ $qr="select * from testblob where image_id='$postid'";
  $res=mysql_query($qr);
 $outp=mysql_fetch_row($res);
    
-
+$qr2=mysql_query("select topic_id from topic where category='$outp[2]'");
+$outp2=mysql_fetch_row($qr2);
+$tid=$outp2[0];
+$trigo=check_priv_auth($tid);
+ 
+if($trigo==3 || $trigo==null){
+    exit();
+}
                    
     $qry90="INSERT into testblob (file_name,category,username,caption,image_name,owner,gif_name,thumb_name) values ('$outp[7]','$category','$usern','$outp[4]','$outp[3]','$outp[8]','$outp[11]','$outp[10]')";
                 if($result=mysql_query($qry90))   

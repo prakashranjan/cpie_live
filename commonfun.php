@@ -228,11 +228,11 @@ return $caption;
 }
 
 function getfontsize($caplen){
-    $size=1.0;
+    $size=1.2;
     
-  if($caplen<30){$size=1.6;}
-   else if($caplen<60){$size=1.4;}
-    else if($caplen<120){$size=1.2;}
+  if($caplen<30){$size=1.7;}
+   else if($caplen<60){$size=1.5;}
+    else if($caplen<120){$size=1.4;}
     
     return $size;
     

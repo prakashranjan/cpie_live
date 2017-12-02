@@ -4,7 +4,7 @@ Dropzone.options.channeldocupload = {
   maxFilesize: 30, // MB
   uploadMultiple: false,
   maxFiles: 5,
-   dictDefaultMessage: "<i class='fa fa-upload fa-lg' aria-hidden='true' ></i> Drop or choosefff an image/file here to auto upload ",
+   dictDefaultMessage: "<i class='fa fa-upload fa-lg' aria-hidden='true' ></i> Drop or choose an image/file here to auto upload ",
      acceptedFiles:null, 
   accept: function(file, done) {
    
@@ -282,6 +282,7 @@ if ($("#anon").is(":checked")) {
    data: {tid:tid},
    success: function( data ) {
     $("#load_gif").remove();
+    tick=0;
    $( "#chatdiv" ).prepend(data);
    },
    async:true,
@@ -323,23 +324,47 @@ function media(){
 };		
 
 
-setTimeout(notify, 40000)
 
-var tick=1;
+
+var naseebnoti=naseeb_batao(20000,4);
+setTimeout(notify, naseebnoti) 
+console.log(naseebnoti);
+var tick=0;
 function notify(){
 	$.ajax({
          type:"post",
    url: "channel_ajax/notification_ajax.php",
     
+    
    data: {tid:tid,count:tick},
-   success: function( data ) {tick=tick++;
-   $( "#ting" ).html(data);
+   success: function( data ) {
+   $( ".ting" ).html(data);
+   var numbu=parseInt(data);
+   console.log("numbu-->"+numbu);
+   if(numbu!=0){
+       console.log("tick-->"+tick);
+       var waga=data.search("red");
+       console.log("waga-->"+waga);
+       if(waga!=-1 && tick!=numbu){
+           console.log("tick-->"+tick);
+        displayNotification("@"+tn_url+"",numbu+" new shouts",2);
+    }
+   }
+   tick=numbu;
+   console.log("tick-->"+tick);
    },
    async:true,
    cache: false
 })
-  
-setTimeout(notify, 40000);
+   
+   
+   if(tick>0)
+   naseebnoti=naseeb_batao(20000,7);
+   else
+   naseebnoti=naseeb_batao(20000,4);
+   
+   console.log(naseebnoti);
+setTimeout(notify, naseebnoti);
 	
 };
 

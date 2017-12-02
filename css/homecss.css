@@ -20,6 +20,7 @@ blockquote footer.privfoot:hover{
     transition: 0.5s;
 	zoom:110%;
  background-color:inherit;
+ font-weight: bolder;
 }
 .totext{overflow:hidden;
         color:RoyalBlue;
@@ -68,9 +69,13 @@ background-color:rgba(255,255,255,1);
  }
  .homeo:hover{
      box-shadow: none !important;
+     font-weight: bolder;
      
  }
  
+ .topic_bheed{
+     line-height: 550%;
+ }
  @media (max-width: 480px){
 
  .full.col-sm-9{
@@ -128,5 +133,7 @@ background-color:rgba(255,255,255,1);
     box-shadow: 2px 2px 15px #929433 !important;
     
  } 
- 
+ .topic_bheed{
+     line-height: 8vh;
+ }
 }

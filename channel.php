@@ -122,7 +122,7 @@ $sql89="UPDATE channel_user_online SET topic_id='$tid' WHERE mem_id='$member_id'
     /* some CSS for large resolution */
 
 			#main{  
-  background: url("images/c7dark.jpg") no-repeat center center fixed; 
+  background: url("images/cw8.jpg") no-repeat center center fixed; 
 }
                   /*    }*/	
 		
@@ -140,7 +140,7 @@ $sql89="UPDATE channel_user_online SET topic_id='$tid' WHERE mem_id='$member_id'
 		</style>
 		<script>
 		var tid=<?php echo $tid; ?>;
-    
+                   var tn_url="<?php echo $tn; ?>";
 		
 		</script>
 		<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
@@ -158,7 +158,7 @@ $sql89="UPDATE channel_user_online SET topic_id='$tid' WHERE mem_id='$member_id'
       
 <script src="js/dropzone.js"></script>
 
-
+<script src="js/commonjs.js"></script>
 <?php 
 if(hideprivate()==0){echo'
     <script type="text/javascript" src="js/channel_common.js"></script>
@@ -185,7 +185,7 @@ if(hideprivate()==0 && $_SESSION['SESS_MODE']==1 ){echo'
 
 
 
-		<script src="js/commonjs.js"></script>
+		
 		
 		
 		<link href="css/dropzone.css" type="text/css" rel="stylesheet" />
@@ -379,7 +379,7 @@ $hrt=false;
     <button type="button" class="btn " style="background-color:#8784ff;" href="#postModal" role="button" data-toggle="modal" onclick="saaf();"><i class="glyphicon glyphicon-bullhorn getora"></i></button>
   </div>
                             <div class="btn-group" role="group">
-    <button type="button" class="btn  " href="#" onclick="prechat();"style="padding:0;background-color:#8784ff;" ><i class="fa fa-comments getora" style="color:#3ce793;"></i></button>
+    <button type="button" class="btn  " href="#" onclick="prechat();"style="padding:0;background-color:#8784ff;" ><i class="fa fa-comments getora" style="color:#3ce793;"></i><span class="badge ting" style=" background-color:#2C3E50;" ></span></button>
   </div>
                          <?php if($_SESSION['SESS_MODE']==2){echo'   <div class="btn-group" role="group">
     <button type="button" class="btn  " style="background-color:#8784ff;" id="fav2" onclick="favmark();">';
@@ -459,7 +459,7 @@ echo'<i style="color:#e74c3c;" class="fa fa-heart-o fa-lg fa-2x"></i> <span clas
                         echo'</a>    
                      </li>';} ?>
 					  
-                    <li class="active" ><a href="#" onclick="prechat();"><i class="fa fa-comments fa-lg fa-2x" style="color:#3ce793;" ></i> <span class="badge" style=" background-color:#2C3E50;" id="ting"></span></a></li>
+                    <li class="active" ><a href="#" onclick="prechat();"><i class="fa fa-comments fa-lg fa-2x" style="color:#3ce793;" ></i> <span class="badge ting" style=" background-color:#2C3E50;" ></span></a></li>
                       
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
@@ -724,7 +724,7 @@ echo'<i style="color:#e74c3c;" class="fa fa-heart-o fa-lg fa-2x"></i> <span clas
         <div class="tab-pane active" id="tab1">
             <form class="form center-block"  enctype="multipart/form-data" >
             <div class="form-group">
-              <textarea rows="8" cols="100%" class="form-control input-lg inputbak" maxlength="2000" name="cap" id="cap" placeholder="What do you want to shout?"></textarea>
+              <textarea rows="8" cols="100%" class="form-control input-lg inputbak" maxlength="45000" name="cap" id="cap" placeholder="What do you want to shout?"></textarea>
               <br>
               <div class="checkbox text-center  row ubuntu">
     <label>
@@ -750,7 +750,7 @@ echo'<i style="color:#e74c3c;" class="fa fa-heart-o fa-lg fa-2x"></i> <span clas
         <div class="tab-pane" id="tab2">
         	 <form method="POST"   id="channeldocupload" action="channel_ajax/channel_uploadmera.php" class="dropzone" enctype="multipart/form-data" >
            <div class="form-group">
-              <textarea rows="4" cols="100%"class="form-control input-lg inputbak" name="cap2" maxlength="2000"  id="cap2" placeholder="Enter caption..."></textarea>
+              <textarea rows="4" cols="100%"class="form-control input-lg inputbak" name="cap2" maxlength="45000"  id="cap2" placeholder="Enter caption..."></textarea>
 		 <br>
               <div class="checkbox text-center  row ubuntu">
     <label>
@@ -818,7 +818,13 @@ echo'<i style="color:#e74c3c;" class="fa fa-heart-o fa-lg fa-2x"></i> <span clas
 		
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/scripts.js"></script>
+                <?php 
+                $qry0="Update member set log = NOW() WHERE username='$usern'";
+               $done=mysql_query($qry0);
                 
+                
+                
+                ?>
                 <script>
           $( window ).load(function() {
    // console.log( "ready!" );

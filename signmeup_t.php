@@ -13,6 +13,10 @@
      $firstname = addslashes($_POST['first_name']); 
     // echo'<h4><strong>Hey!</strong>'.$firstname.'</h4><br>';
   $firstname = strtoupper($firstname);
+  $midname = addslashes($_POST['middle_name']);
+  $midname = strtoupper($midname);
+  $firstname=$firstname." ".$midname;
+  
  $lastname=addslashes($_POST['last_name']);
  //echo'<h4><strong>Hey!</strong>'.$lastname.'</h4><br>';
  $lastname = strtoupper($lastname);

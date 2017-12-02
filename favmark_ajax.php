@@ -2,10 +2,16 @@
  require_once('auth.php');
 include("connection.php");
 include("vcommon.php");
+ require_once('priv_auth.php'); 
 
   $usern=$_SESSION['SESS_USERNAME'];
  $tid=  addslashes($_GET['tid']);
  if($tid==""){exit();}
+  $trigo=check_priv_auth($tid);
+ 
+if($trigo==3 || $trigo==null){
+    exit();
+}
  
  $kqry="SELECT category FROM topic WHERE topic_id='$tid'";
  $mqry=mysql_query($kqry);

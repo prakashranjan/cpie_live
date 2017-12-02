@@ -182,7 +182,9 @@ blockquote{font-family: ubuntu;
 
 #main h4{font-size:1em;
 margin-left:2px;}
-#main p{padding-left:0.3em;
+#main p{
+    word-break: break-word;
+    padding-left:0.3em;
 padding-right: 0.3em;
 margin: 0 0 0.05em;
 }
@@ -211,9 +213,19 @@ font-size:15px;
     padding-right:10px;
     
 }
+#main #wall_desk .chat .row .col-sm-12.ri{
+    padding-left:10px;
+    padding-right:10px;
+    
+}
 #main #wall_desk .chat .row .col-sm-6 {
     padding-left:10px;
     padding-right:0px;
+} 
+
+#main #wall_desk .chat .row .col-sm-12 {
+    padding-left:10px;
+    padding-right:10px;
 } 
 
 div#wall_desk.full.col-sm-9{
@@ -230,11 +242,11 @@ div#wall_desk.full.col-sm-9{
   padding-right: 0px;
   padding-left: 0px;
  }
- #main #wall_desk .chat .row .col-sm-6.ri{
+ #main #wall_desk .chat .row .col-sm-6.ri,#main #wall_desk .chat .row .col-sm-12.ri{
   padding-left: 0px;
   padding-right: 0px;
  }
- #main #wall_desk .chat .row .col-sm-6{
+ #main #wall_desk .chat .row .col-sm-6,#main #wall_desk .chat .row .col-sm-12{
   padding-left: 0px;
   padding-right: 0px;
  }

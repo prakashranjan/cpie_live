@@ -104,14 +104,19 @@ function formSubmit() {
                     <form  role="form" id="signupform" name="signupform" method="POST" action="signmeup_t.php"  >
                     
                         <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <div class="form-group col-xs-12 col-sm-4 floating-label-form-group controls">
                                 <label> First Name </label>
                                 <input class="form-control"  type="text" name="first_name" pattern=".{2,}" onkeyup="cutter(this.id,\'a\');" id="first_name" maxlength="15" title="be honest" placeholder=" First Name" required data-validation-required-message="Please enter your first name.">
                                 <p class="help-block text-danger"></p>
                             </div>
-                        </div>
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                        
+                            <div class="form-group col-xs-12 col-sm-4 floating-label-form-group controls">
+                                <label> Middle Name </label>
+                                <input class="form-control" type="text" name="middle_name" id="middle_name" maxlength="12"  pattern=".{2,}" onkeyup="cutter(this.id,\'a\');" title="be honest" placeholder=" Middle Name" >
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        
+                            <div class="form-group col-xs-12 col-sm-4 floating-label-form-group controls">
                                 <label> Last Name </label>
                                 <input class="form-control" type="text" name="last_name" id="last_name" maxlength="15"  pattern=".{2,}" onkeyup="cutter(this.id,\'a\');" title="be honest" placeholder=" Last Name" >
                                 <p class="help-block text-danger"></p>

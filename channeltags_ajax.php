@@ -3,14 +3,20 @@ require_once('auth.php');
  include("connection.php");	
  include("commonfun.php");
  include("vcommon.php");
+  require_once('priv_auth.php'); 
  $usern=$_SESSION['SESS_USERNAME'];
  
 $tid=addslashes($_POST['tid']);
+
 $topictagy=  addslashes($_POST['newtag']);
 if($tid=="" || $topictagy=="" ){
     exit();
 }
-
+$trigo=check_priv_auth($tid);
+ 
+if($trigo==3 || $trigo==null){
+    exit();
+}
 savenewtags();
           
           

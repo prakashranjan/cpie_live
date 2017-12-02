@@ -135,6 +135,7 @@ $sql89="UPDATE user_online SET topic_id='$tid' WHERE mem_id='$member_id' and ses
 		</style>
 		<script>
 		var tid=<?php echo $tid; ?>;
+                 var tn_url="<?php echo $tn; ?>";
     
 		
 		</script>
@@ -144,7 +145,7 @@ $sql89="UPDATE user_online SET topic_id='$tid' WHERE mem_id='$member_id' and ses
 		<script type="text/javascript" src="js/jquery.min.js"></script>
 	
 		<script type="text/javascript" src="js/logout.js"></script>
-	
+	<script src="js/commonjs.js"></script>
 		
 <?php if(hideprivate()==0){echo'<script type="text/javascript" src="js/private_topic_0.js"></script><script src="js/dropzone.js"></script>
                 <script src="js/topicjs.js"></script><link href="css/dropzone.css" type="text/css" rel="stylesheet" />
@@ -154,7 +155,7 @@ else if(hideprivate()==1){echo'<script type="text/javascript" src="js/private_to
 echo'<script type="text/javascript" src="js/private_topic_common.js"></script>';
 ?>
                 
-		<script src="js/commonjs.js"></script>
+		
 		
                 <style type="text/css">
                         @media (max-width: 480px) {
@@ -269,7 +270,17 @@ $tn=cleankar($_GET['tn']); $qr=mysql_query("select topic_id from topic where cat
                                                 
                                                 
                                                     <?php  if(hideprivate()==0) { echo'<li class="mybr">&nbsp;</li><li class="mybr">&nbsp;</li><li style="text-align:center;font-family:ubuntu;" >
-		<button type="button" class="btn btn-info " data-toggle="modal" onclick="joinreq_show();"data-target="#joinreqModal"><i class="fa fa-hourglass-half" aria-hidden="true"></i> Join requests <span class="badge" style=" background-color:#2C3E50; color:red;" id="joinreq_count_show"></span></button>
+		<button type="button" class="btn btn-info " data-toggle="modal" onclick="joinreq_show();"data-target="#joinreqModal"><i class="fa fa-hourglass-half" aria-hidden="true"></i> Join requests <span class="badge" style=" background-color:#2C3E50; color:red;" id="joinreq_count_show">';
+                                                    
+                $jqlwa=mysql_query("SELECT COUNT(pvt_id) FROM private_member WHERE category='$tn' AND allow=0");
+ $darwa=mysql_fetch_row($jqlwa);
+ if($darwa[0]>0){
+     echo $darwa[0];
+ }
+ else{
+     
+ }
+echo'</span></button>
                               </li><li class="mybr">&nbsp;</li>';
                                                     
                                                     } ?>
@@ -342,7 +353,7 @@ $hrt=false;
     <button type="button" class="btn btn-success" href="#postModal" role="button" data-toggle="modal" onclick="saaf();"><i class="glyphicon glyphicon-bullhorn getora"></i></button>
   </div>
                             <div class="btn-group" role="group">
-    <button type="button" class="btn btn-success " href="#"  style="padding:3px; onclick="prechat();" ><i class="fa fa-comments getora" style="color:#3ce793;"></i></button>
+    <button type="button" class="btn btn-success " href="#"  style="padding:3px;" onclick="prechat();" ><i class="fa fa-comments getora" style="color:#3ce793;"></i><span class="badge ting" style=" background-color:#2C3E50;" ></span></button>
   </div>';}?>
                        <?php 
           if(hideprivate()==0){     echo' <div class="btn-group" role="group">
@@ -435,7 +446,7 @@ echo'<i style="color:#e74c3c;" class="fa fa-heart-o fa-lg fa-2x"></i> <span clas
           </li>';}?> 
 					  
                     <?php 
-          if(hideprivate()==0){echo' <li class="active" ><a href="#" onclick="prechat();"><i class="fa fa-comments fa-lg fa-2x" style="color:#3ce793;" ></i> <span class="badge" style=" background-color:#2C3E50;" id="ting"></span></a></li>
+          if(hideprivate()==0){echo' <li class="active" ><a href="#" onclick="prechat();"><i class="fa fa-comments fa-lg fa-2x" style="color:#3ce793;" ></i> <span class="badge ting" style=" background-color:#2C3E50;" ></span></a></li>
           ';}?>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
@@ -846,7 +857,7 @@ and topic_tag.topic_id='$tid'");
         <div class="tab-pane active" id="tab1">
             <form class="form center-block"  enctype="multipart/form-data" >
             <div class="form-group">
-              <textarea rows="8" cols="100%" class="form-control input-lg inputbak" maxlength="2000" name="cap" id="cap" placeholder="What do you want to shout?"></textarea>
+              <textarea rows="8" cols="100%" class="form-control input-lg inputbak" maxlength="45000" name="cap" id="cap" placeholder="What do you want to shout?"></textarea>
               <br>
               <div class="checkbox text-center fa-lg">
     <label>
@@ -869,7 +880,7 @@ and topic_tag.topic_id='$tid'");
         <div class="tab-pane" id="tab2">
         	 <form method="POST"   id="docupload" action="uploadmera.php" class="dropzone" enctype="multipart/form-data" >
            <div class="form-group">
-              <textarea rows="4" cols="100%"class="form-control input-lg inputbak" name="cap2" maxlength="2000"  id="cap2" placeholder="Enter caption..."></textarea>
+              <textarea rows="4" cols="100%"class="form-control input-lg inputbak" name="cap2" maxlength="45000"  id="cap2" placeholder="Enter caption..."></textarea>
 			 <div id="respo"></div>
             </div>
                      

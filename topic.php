@@ -92,6 +92,7 @@ $sql89="UPDATE user_online SET topic_id='$tid' WHERE mem_id='$member_id' and ses
 		</style>
 		<script>
 		var tid=<?php echo $tid; ?>;
+                var tn_url="<?php echo $tn; ?>";
     
 		
 		</script>
@@ -103,9 +104,9 @@ $sql89="UPDATE user_online SET topic_id='$tid' WHERE mem_id='$member_id' and ses
 		<script type="text/javascript" src="js/logout.js"></script>
 		
                 <script src="js/dropzone.js"></script>
-                <script src="js/topicjs.js"></script>
+               
 		<script src="js/commonjs.js"></script>
-		
+		 <script src="js/topicjs.js"></script>
 		<script>
 	
 		</script>
@@ -264,7 +265,7 @@ $hrt=false;
     <button type="button" class="btn btn-success" href="#postModal" role="button" data-toggle="modal" onclick="saaf();"><i class="glyphicon glyphicon-bullhorn getora"></i></button>
   </div>
                             <div class="btn-group" role="group">
-    <button type="button" class="btn btn-success " href="#" style="padding:3px;" onclick="prechat();" ><i class="fa fa-comments getora" style="color:#3ce793;"></i></button>
+    <button type="button" class="btn btn-success " href="#" style="padding:3px;" onclick="prechat();" ><i class="fa fa-comments getora" style="color:#3ce793;"></i> <span class="badge ting" style=" background-color:#2C3E50;"></span></button>
   </div>
                             <div class="btn-group" role="group">
     <button type="button" class="btn btn-success " id="fav2" onclick="favmark();">
@@ -353,7 +354,7 @@ echo'<i style="color:#e74c3c;" class="fa fa-heart-o fa-lg fa-2x"></i> <span clas
                         </a>    
                       </li> 
 					
-                    <li class="active" ><a href="#" onclick="prechat();"><i class="fa fa-comments fa-lg fa-2x" style="color:#3ce793;" ></i> <span class="badge" style=" background-color:#2C3E50;" id="ting"></span></a></li>
+                    <li class="active" ><a href="#" onclick="prechat();"><i class="fa fa-comments fa-lg fa-2x" style="color:#3ce793;" ></i> <span class="badge ting" style=" background-color:#2C3E50;"></span></a></li>
                       
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
@@ -637,7 +638,7 @@ and topic_tag.topic_id='$tid'");
         <div class="tab-pane active" id="tab1">
             <form class="form center-block"  enctype="multipart/form-data" >
             <div class="form-group">
-              <textarea rows="8" cols="100%" class="form-control input-lg inputbak" maxlength="2000" name="cap" id="cap" placeholder="What do you want to shout?"></textarea>
+              <textarea rows="8" cols="100%" class="form-control input-lg inputbak" maxlength="45000" name="cap" id="cap" placeholder="What do you want to shout?"></textarea>
               <br>
               <div class="checkbox text-center fa-lg">
     <label>
@@ -660,7 +661,7 @@ and topic_tag.topic_id='$tid'");
         <div class="tab-pane" id="tab2">
         	 <form method="POST"   id="docupload" action="uploadmera.php" class="dropzone" enctype="multipart/form-data" >
            <div class="form-group">
-              <textarea rows="4" cols="100%"class="form-control input-lg inputbak" name="cap2" maxlength="2000"  id="cap2" placeholder="Enter caption..."></textarea>
+              <textarea rows="4" cols="100%"class="form-control input-lg inputbak" name="cap2" maxlength="45000"  id="cap2" placeholder="Enter caption..."></textarea>
 			 <div id="respo"></div>
             </div>
                      
@@ -729,6 +730,8 @@ and topic_tag.topic_id='$tid'");
     
         
       <?php
+      $qry0="Update member set log = NOW() WHERE username='$usern'";
+               $done=mysql_query($qry0);
          
       $mod=$_SESSION['SESS_MODE'];
       $tags= array();

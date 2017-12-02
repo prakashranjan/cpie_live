@@ -2,6 +2,7 @@
 require_once('auth.php');
 include("connection.php");
 include("vcommon.php");
+ require_once('priv_auth.php'); 
 
   $usern=$_SESSION['SESS_USERNAME'];
   $mem_id=$_SESSION['SESS_MEMBER_ID'];
@@ -9,6 +10,11 @@ include("vcommon.php");
   $membermark=addslashes($_GET['membermark']);
   $membermark=preg_replace('/\D/', '', $membermark);
   if($tid=="" || $membermark==""){exit();}
+  $trigo=check_priv_auth($tid);
+ 
+if($trigo==3 || $trigo==null){
+    exit();
+}
   
   $kqrym="SELECT username FROM member WHERE mem_id='$membermark'";
  $mqrym=mysql_query($kqrym);

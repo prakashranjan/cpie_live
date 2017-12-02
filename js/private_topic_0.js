@@ -31,6 +31,7 @@ function joinallow(join_idal){
    success: function( data ) {
 	    
    $('#' + join_idal + 'joinreq' ).remove();
+   $('#' + join_idal + 'joinreq_but' ).remove();
    },
    async:true,
    cache: false
@@ -53,6 +54,7 @@ function joinallow(join_idal){
    success: function( data ) {
 	   
    $('#' + join_idig + 'joinreq' ).remove();
+   $('#' + join_idal + 'joinreq_but' ).remove();
    },
    async:true,
    cache: false

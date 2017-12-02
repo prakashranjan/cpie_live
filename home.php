@@ -8,6 +8,8 @@ include("vcommon.php");
 $session=session_id();
 $fav_led="-off";
 $class_led="-off";
+$wall_led="-off";
+$bar_led="-off";
 	
 	        $usern=$_SESSION['SESS_USERNAME'];
 	        $firstn=$_SESSION['SESS_FIRST_NAME'];
@@ -199,6 +201,8 @@ if($class_no[0]==0){
 }else if($class_no[0]>0){
     //switch on blinker
     $class_led=" ";
+    $bar_led=" ";
+    
 }
 
 }
@@ -206,6 +210,35 @@ if($class_no[0]==0){
 
     
 }
+/*
+//for wall_led notification blinker
+//first check usermode
+
+    //first level
+$qry=mysql_query("SELECT COUNT(image_id) FROM channel_post WHERE category = (select category from section where section_id='$sec_id') AND event > (select pichla_view from stud_member where mem_id='$memid')");
+if(mysql_num_rows($qry)==1){
+    
+$wall_no=  mysql_fetch_row($qry);
+if($wall_no[0]==0){
+    //no fav_note
+     $wall_led="-off";
+    
+  
+    
+}else if($wall_no[0]>0){
+    //switch on blinker
+    $wall_led=" ";
+    $bar_led=" ";
+    
+}
+
+}
+
+*/
+    
+
+
+
 
 ?>
 
@@ -239,7 +272,7 @@ if($class_no[0]==0){
     /* some CSS for large resolution */
 
 			#main{  
-  background: url("images/c7.jpg") no-repeat center center fixed; 
+  background: url("images/hw35-min.jpg") no-repeat center center fixed; 
 }
                   /*      }*/
  
@@ -263,8 +296,9 @@ if($class_no[0]==0){
            
         </script>
 	<script src="js/dropzone.js"></script>
+        <script src="js/commonjs.js"></script>
 			<script type="text/javascript" src="js/homejs.js"></script>
-			<script src="js/commonjs.js"></script>
+			
 	
 		<link href="css/dropzone.css" type="text/css" rel="stylesheet" />
  
@@ -288,6 +322,17 @@ setTimeout(function(){
 }</script>';
     
 }
+
+
+    
+    echo'<script>if(!($(".wall_led").hasClass("led-yellow"))){
+setTimeout(function(){
+  global_led("wall");
+}, 30000);
+}</script>';
+    
+
+
 
 ?>
 		
@@ -323,7 +368,7 @@ setTimeout(function(){
 				    <li ><a class="btn btn-sm" href="#profile_picModal" style="padding-bottom:0px;background:url(<?php echo $n2row[0] ?>) center no-repeat;background-size:contain;background-color:#000;height:30vh;" role="button" data-toggle="modal" >
 					
 					</a></li>
-                    <li  class="ubuntu"><a style="background:#18bc9c;"href="profile?un=<?php echo $usern; ?>"><i class="fa fa-<?php echo $gender;?> fa-2x"></i><span style="font-size: 1.3em;"> $<?php echo $usern ?></span> <span class="badge pull-right" style="background-color:#2c3e50;"  ><div class="led-yellow-off"></div></span></a></li>
+                    <li  class="ubuntu"><a style="background:#18bc9c;"href="profile?un=<?php echo $usern; ?>"><i class="fa fa-<?php echo $gender;?> fa-2x"></i><span style="font-size: 1.3em;"> $<?php echo $usern ?></span> <span class="badge pull-right" style="background-color:#2c3e50;"  ><div class=" wall_led led-yellow<?php echo $wall_led; ?>"></div></span></a></li>
                    
                     
 					<li><a onclick="mytopic();" href="#" title="my channels"> My channels <i class="fa fa-hand-peace-o fa-lg pull-right" aria-hidden="true"></i> </a></li>
@@ -424,9 +469,10 @@ setTimeout(function(){
                      <div id="navswitch2" style="display: none;"></div>
                      
                         <div class="btn-group btn-group-justified visible-xs" id="navjustify" role="group" aria-label="...">
-                            <div class="btn-group" role="group" style="width:3%;" onclick="openNav()">
-    <button type="button" class="btn btn-success" style="padding:0px;"><span  class="visible-xs " ><i class="fa fa-bars text-primary getora" aria-hidden="true"></i></span></button>
+                            <div class="btn-group" style="background-color:#2c3e50;width:3%;" role="group" onclick="openNav()">
+    <button type="button" class="btn " href="#" style="background-color:#2c3e50;"><i class="fa fa-bars getora " aria-hidden="true"></i><div class="bar_led led-yellow<?php echo $bar_led; ?>"></div></button>
   </div>
+        
          <div class="btn-group" role="group">
                        <button class="btn btn-success" onclick="getinputbox();" type="button"><i class="glyphicon glyphicon-search"></i></button>
          </div>
@@ -522,7 +568,7 @@ setTimeout(function(){
   
     <br>
  
-<p style="line-height:120%;">';
+<p class="topic_bheed">';
 
                  $kqry="SELECT * FROM type ORDER BY views DESC";
 

@@ -5,6 +5,7 @@
 require_once('auth.php');
  include("connection.php");
  include("vcommon.php");
+ require_once('priv_auth.php'); 
 	
 	        $usern=$_SESSION['SESS_USERNAME'];
 	        $firstn=$_SESSION['SESS_FIRST_NAME'];
@@ -17,6 +18,11 @@ require_once('auth.php');
  			
  $counter=cleankar($_POST['count']);
  if($tid=="" || $counter==""){exit();}
+  $trigo=check_priv_auth($tid);
+ 
+if($trigo==3 || $trigo==null){
+    exit();
+}
 
 $sql1="SELECT log FROM member WHERE username='$usern'";
 $log=mysql_query($sql1);
@@ -30,32 +36,32 @@ $sql="SELECT category FROM topic WHERE topic_id='$tid'";
 	
 echo " ".$row2[0];
 
-if($counter==1 && $row2[0]>0)
+if($counter==0 && $row2[0]>0)
 { $t=$row2[0];
-echo"<script>  $('#ting').css('color','red'); </script>";
+echo"<script>  $('.ting').css('color','red'); </script>";
  notifysound($row2[0]);
 //yes
 }
-else if($counter==1 && $row2[0]==0)
+else if($counter==0 && $row2[0]==0)
 { $t=0;
-echo"<script>  $('#ting').css('color','white'); </script>";
+echo"<script>  $('.ting').css('color','white'); </script>";
 //no
     update_log();
 }
-else if($counter>1 && $row2[0]==0)
+else if($counter>0 && $row2[0]==0)
 {$t=0;
-echo"<script>  $('#ting').css('color','white'); </script>";
+echo"<script>  $('.ting').css('color','white'); </script>";
 //no
 update_log();
 }
-else if($counter>1 && $row2[0]>0)
-{if($row2[0]==$t)
-	{echo"<script>  $('#ting').css('color','white'); </script>";
+else if($counter>0 && $row2[0]>0)
+{if($row2[0]==$counter)
+	{echo"<script>  $('.ting').css('color','white'); </script>";
 		//no
-        update_log();
+       
 }
 else{$t=$row2[0];
-echo"<script>  $('#ting').css('color','red'); </script>";
+echo"<script>  $('.ting').css('color','red'); </script>";
 	  notifysound($row2[0]);
 	//yes
 	}

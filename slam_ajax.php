@@ -2,12 +2,18 @@
  require_once('auth.php');
 include("connection.php");
  include("vcommon.php");
+ require_once('priv_auth.php');
 
   $usern=$_SESSION['SESS_USERNAME'];
  $tid=cleankar($_POST['tid']);
  $chat_id=cleankar($_POST['chatid']);
  
  if($tid=="" || $chat_id==""){exit();}
+ $trigo=check_priv_auth($tid);
+ 
+if($trigo==3 || $trigo==null){
+    exit();
+}
  
  
  $jql="SELECT s_id FROM slam WHERE username='$usern' AND topic_id='$tid' AND chat_id='$chat_id'";

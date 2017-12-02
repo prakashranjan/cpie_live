@@ -4,6 +4,8 @@ require_once('auth.php');
   include("commonfun.php");
   require 'Zebra_Image.php';
   include("vcommon.php");
+   require_once('priv_auth.php');
+  
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -20,6 +22,17 @@ $tn=cleankar($_POST['tn']);
      echo "invalid";
       unset($_FILES);
      exit();}
+     
+     $mat=mysql_query("select topic_id from topic where category='$tn'");
+     $resmat=mysql_fetch_row($mat);
+     $tid=$resmat[0];
+     $trigo=check_priv_auth($tid);
+ 
+if($trigo==3 || $trigo==null){
+    unset($_FILES);
+    exit();
+}
+     
  $usern=$_SESSION['SESS_USERNAME'];
  $check_name=  strlen(get_basename($_FILES['file']['tmp_name']));
  if($check_name==0 || $check_name>=150){
@@ -47,7 +60,7 @@ $caption=trim($caption);
 
     $tempFile = $_FILES['file']['tmp_name']; //3
     $filename =$_FILES['file']['name'];
-    $filename=preg_replace("/[^a-z0-9\.]/", "", strtolower($filename));
+    $filename=preg_replace("/[^a-z0-9_ \.]/", "", strtolower($filename));
   $ext = pathinfo($filename, PATHINFO_EXTENSION);
   
   

@@ -12,6 +12,9 @@
      $firstname = addslashes($_POST['first_name']); 
     // echo'<h4><strong>Hey!</strong>'.$firstname.'</h4><br>';
   $firstname = strtoupper($firstname);
+   $midname = addslashes($_POST['middle_name']);
+  $midname = strtoupper($midname);
+  $firstname=$firstname." ".$midname;
  $lastname=addslashes($_POST['last_name']);
  //echo'<h4><strong>Hey!</strong>'.$lastname.'</h4><br>';
  $lastname = strtoupper($lastname);
@@ -24,6 +27,8 @@
  $userName=  strtolower($userName);
  $userName= preg_replace('/[^A-Za-z0-9\-\']/', '', $userName);
  $phone = addslashes($_POST['phone']);
+ $taska="adm_no";
+ $taska2="ad_no";
  //phone check code
  //-------------code over
  
@@ -49,9 +54,23 @@
      $year=addslashes($_POST['year']);
       $section=addslashes($_POST['section']);
       
-      
+  if(isset($_SESSION['GIFTY'])){    
        $ad_no_bar=$_SESSION['GIFTY'];
+       
        $ad_no=$ad_no_bar;
+       $ad_no_temp=str_replace('/','',$ad_no);
+       $taska="adm_no";
+       $taska2="ad_no";
+       
+  }
+  else if(isset($_SESSION['GIFTY_roll'])){
+      $ad_no_temp=$_SESSION['GIFTY_roll'];
+        $taska="roll_no";
+        $taska2="roll_no";
+        $ad_no=$ad_no_temp;
+  }
+ else{exit();} 
+  
   //for branch code to branch_short
        $mql99=mysql_query("select branch_short from branch where branch_id='$branch' and course_id=1");
      //  echo'<h4><strong>Hey!</strong>check branch</h4><br>';
@@ -65,7 +84,10 @@
          //  echo'<h4><strong>Hey!</strong>branch exit hua</h4><br>';
            exit();}
        
-       
+           $query33= mysql_query("select ".$taska.",form_fill from jss_stud_list_17_18 where (".$taska."='$ad_no_temp' and ".$taska."!='' ) and (valid=1 and form_fill=0)");
+    
+           
+       if(mysql_num_rows($query33)==1){
   //for section id  ,year , branch
        $section_name=$branch_sh."_".$section."_YR".$year;
        
@@ -87,7 +109,7 @@
      if($mem_id!=""){
          //for students...
         // at present only btech..........
-         $data2 =mysql_query("INSERT INTO stud_member (mem_id,course_id,branch_id,year,section_id,ad_no) VALUES ('$mem_id','$runmql[1]','$runmql[2]','$runmql[3]','$runmql[0]','$ad_no')"); 
+         $data2 =mysql_query("INSERT INTO stud_member (mem_id,course_id,branch_id,year,section_id,".$taska2.") VALUES ('$mem_id','$runmql[1]','$runmql[2]','$runmql[3]','$runmql[0]','$ad_no')"); 
  
          
      }
@@ -105,7 +127,7 @@
     // echo "nhi chala mkdir";
      
  }
- $sql=  mysql_query("update barcode_sign set form_fill=1 where full_cid='$ad_no'");
+ $sql=  mysql_query("update jss_stud_list_17_18 set form_fill=1 where ".$taska."='$ad_no_temp'");
  $sql09=  mysql_query("update section set stud_count=stud_count+1 where section_id='$runmql[0]'");
  $sql091=  mysql_query("update branch set branch_count=branch_count+1 where branch_id='$runmql[2]'");
  $sql092=  mysql_query("update course set course_count=course_count+1 where course_id='$runmql[1]'");
@@ -125,7 +147,9 @@ else{
     echo'<h4><strong>Hey!</strong> please give correct details</h4><br>';
     
     
-} }
+} 
+ }else{echo'<h4><strong>Hey!</strong> please give correct details</h4><br>';}
+}
  
  
  function SignUp() { 
@@ -137,12 +161,18 @@ else{
          {echo '<h4><strong>Warning!</strong> please give correct details.</h4><br>';
      exit();}
      
-     if(!empty($_POST['user'])|| !empty($_POST['phone'])|| !empty($_SESSION['GIFTY'])|| !empty($_POST['email'])) 
+     if(!empty($_POST['user'])|| !empty($_POST['phone'])|| (!empty($_SESSION['GIFTY']) || !empty($_SESSION['GIFTY_roll'])) || !empty($_POST['email'])) 
      { //echo'<h4><strong>Hey!</strong>1st step cross</h4><br>';
          $userlame = addslashes($_POST['user']);
      $phonew = addslashes($_POST['phone']);
      $emailw = addslashes($_POST['email']);
+     if(isset($_SESSION['GIFTY'])){
      $giftyw = $_SESSION['GIFTY'];
+     $giftyw_temp=  str_replace('/', '', $giftyw);}
+     if(isset($_SESSION['GIFTY_roll'])){
+         $giftyw_temp=$_SESSION['GIFTY_roll'];
+     }
+     
  $userlame=  strtolower($userlame);
  $userlame= preg_replace('/[^A-Za-z0-9\']/','', $userlame);
  //echo'<h4><strong>Hey!</strong>1st step cross 1.5</h4><br>';
@@ -150,11 +180,18 @@ else{
    //  echo'<h4><strong>Hey!</strong>1st step cross2.1</h4><br>';
       $query2= mysql_query("SELECT mobile FROM member WHERE mobile = '$phonew'");
      // echo'<h4><strong>Hey!</strong>1st step cross2.2</h4><br>';
-       $query3 = mysql_query("SELECT ad_no FROM stud_member WHERE ad_no = '$giftyw'"); 
+     if(isset($_SESSION['GIFTY'])){
+       $query3=mysql_query("select adm_no,form_fill from jss_stud_list_17_18 where (adm_no='$giftyw_temp' and adm_no!='' ) and (valid=1 and form_fill=0)");
+     }
+     else if(isset($_SESSION['GIFTY_roll'])){
+    $query3=mysql_query("select roll_no,form_fill from jss_stud_list_17_18 where (roll_no='$giftyw_temp' and roll_no!='' ) and (valid=1 and form_fill=0)");
+         
+     }
+     else{exit();}
      //echo'<h4><strong>Hey!</strong>1st step cross2.3</h4><br>';
        $query4 = mysql_query("SELECT email FROM member WHERE email = '$emailw'");
       //echo'<h4><strong>Hey!</strong>1st step cross2.4</h4><br>';
-     if((mysql_num_rows($query)==0) && (mysql_num_rows($query2)==0) && (mysql_num_rows($query3)==0) && (mysql_num_rows($query4)==0)) {
+     if((mysql_num_rows($query)==0) && (mysql_num_rows($query2)==0) && (mysql_num_rows($query3)==1) && (mysql_num_rows($query4)==0)) {
         // echo'<h4><strong>Hey!</strong>2nd step cross</h4><br>';
          newuser();
        //  echo'<h4><strong>Hey!</strong>newuser to chala</h4><br>';
@@ -174,7 +211,7 @@ else{
 <script type="text/javascript">
 
 function delayer(){
-    window.location = "index";
+   // window.location = "index";
 }
 
 </script>
@@ -232,7 +269,7 @@ function delayer(){
           //echo $runmask2[0]."<br>";
         
         
-        if($_SESSION['GIFTY']){
+        if(isset($_SESSION['GIFTY']) || isset($_SESSION['GIFTY_roll'])){
          //echo'<h4><strong>Hey!</strong>0th step cross</h4><br>';
      SignUp();
      //echo'<h4><strong>Hey!</strong>i think all done</h4><br>';

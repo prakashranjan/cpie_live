@@ -474,7 +474,15 @@ footer .footer-below {
 }
 
 @media(max-width:767px) {
+    .mbada{
+        width:100%;
+    }
 
+    header .intro-text .skills {
+        
+        font-size:6vw;
+    }
+    
     p {
         font-size: 5vm;
         font-size: 5vmin;
@@ -508,7 +516,7 @@ footer .footer-below {
     }
 
     .logo_flex {
-        height: 9vmax;
+        height: 16vw;
     }
 
     hr.star-light, hr.star-primary {
@@ -522,11 +530,12 @@ footer .footer-below {
     }
 
     header .container {
-        padding-top: 90px;
+        padding-top: 17vh;
         padding-bottom: 30px;
         padding-right: 0px;
         padding-left: 0px;
         margin: 0;
+        min-height:100vh;
     }
 
     .jigli {
@@ -553,6 +562,9 @@ footer .footer-below {
     .floating-label-form-group input, .floating-label-form-group textarea {
     font-size:1.0em;
     }
+    .panel-footer{
+        padding: 0;
+    }
 }
 .inputbak {
     
@@ -560,8 +572,26 @@ footer .footer-below {
 
 }
 @media(min-width:767px) {
-
+.panel-body{
+            padding: 35px;
+    }
     #portfolio .portfolio-item {
         margin: 0 0 30px;
     }
 }
+
+
+#exTab2 .nav>li.active>a {
+     background-color: rgba(44, 62, 80, 0.03);
+}
+
+#exTab2 .tab-content {
+  color : white;
+     background-color: rgba(44, 62, 80, 0.03);
+  
+}
+
+
+
+
+

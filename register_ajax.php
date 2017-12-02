@@ -3,7 +3,7 @@
  //Start session
 	session_start();
 	//Check whether the session variable SESS_MEMBER_ID is present or not
-	if(!isset($_SESSION['GIFTY']) && !isset($_SESSION['GIFTY_SEC_KEY'])) {
+	if((!isset($_SESSION['GIFTY']) && !isset($_SESSION['GIFTY_roll'])) && !isset($_SESSION['GIFTY_SEC_KEY'])) {
 		header("location: index");
 		exit();
 	}

@@ -2,12 +2,19 @@
  require_once('auth.php');
 include("connection.php");
 include("vcommon.php");
-
+ require_once('priv_auth.php');
  $usern=$_SESSION['SESS_USERNAME'];
 	$member_id=$_SESSION['SESS_MEMBER_ID'];
 $tid=cleankar($_GET['tid']);
 $time=time();
 if($tid==""){exit();}
+
+$trigo=check_priv_auth($tid);
+ 
+if($trigo==3 || $trigo==null){
+    exit();
+}
+
 //Start session
     
 $session=session_id();

@@ -255,6 +255,9 @@ margin-left:35%;}
 .inputmob{
     border-color: #2C3E50 !important;
 }
+.mob_but{
+    width:100%;
+}
 }
 
 @media screen and (max-height: 450px){
