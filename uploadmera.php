@@ -22,11 +22,8 @@ $tn=cleankar($_POST['tn']);
      echo "invalid";
       unset($_FILES);
      exit();}
-     
-     $mat=mysql_query("select topic_id from topic where category='$tn'");
-     $resmat=mysql_fetch_row($mat);
-     $tid=$resmat[0];
-     $trigo=check_priv_auth($tid);
+    
+     $trigo=check_priv_auth($tn);
  
 if($trigo==3 || $trigo==null){
     unset($_FILES);
