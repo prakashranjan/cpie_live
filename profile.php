@@ -189,11 +189,11 @@ $sql78=mysql_query("select val_str,loc_id from member_loc where loc_id in ('$fro
 while($re234= mysql_fetch_row($sql78))
 {if($re234[1]==$from_placew){
     $from_placew=$re234[0];
-}
-else if($re234[1]==$lives_atw){
+                            }
+ if($re234[1]==$lives_atw){
 $lives_atw=$re234[0];
      
-}
+                          }
     
 }
 $long_discw=$n2row[13];
@@ -917,7 +917,7 @@ and skill_tag.mem_id='$uid'");
   
     $('#skill_tagy').tagging(tagsource);
    
-              $( window ).ready(function() {
+              $( window ).load(function() {
     //console.log( "ready!" );
     $("body").css("filter","none");
 });

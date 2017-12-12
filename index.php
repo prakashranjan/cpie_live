@@ -179,7 +179,7 @@ canvas{display:none !important;}
     margin-right: 0px;padding:0px;">
                 <div class="col-lg-12  jigli">
               
-                    <div class="panel panel-success  animated rubberBand " style="background-color:rgba(255,255,255,0.80);border-color:white;">
+                    <div class="panel panel-success  animated rubberBand " style="background-color:rgba(255,255,255,0.95);border-color:white;">
                         <br>
                           <div class="intro-text">
 					<span class="skills"><span style="color:#2C3E50;">LOGIN &nbsp; <i class="fa  fa-graduation-cap fa-2x" aria-hidden="true"></i>&nbsp;JSSATEN</span> </span>

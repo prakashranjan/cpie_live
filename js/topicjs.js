@@ -277,7 +277,7 @@ function media(){
 
 var naseebnoti=naseeb_batao(20000,4);
 setTimeout(notify, naseebnoti) 
-console.log(naseebnoti);
+//console.log(naseebnoti);
 var tick=0;
 function notify(){
 	$.ajax({
@@ -288,18 +288,18 @@ function notify(){
    success: function( data ) {
    $( ".ting" ).html(data);
    var numbu=parseInt(data);
-   console.log("numbu-->"+numbu);
+   //console.log("numbu-->"+numbu);
    if(numbu!=0){
-       console.log("tick-->"+tick);
+       //console.log("tick-->"+tick);
        var waga=data.search("red");
-       console.log("waga-->"+waga);
+       //console.log("waga-->"+waga);
        if(waga!=-1 && tick!=numbu){
-           console.log("tick-->"+tick);
-        displayNotification("@"+tn_url+"",numbu+" new shouts",2);
+           //console.log("tick-->"+tick);
+        displayNotification("@"+tn_url+"",numbu+" New Shouts",2);
     }
    }
    tick=numbu;
-   console.log("tick-->"+tick);
+   //console.log("tick-->"+tick);
    },
    async:true,
    cache: false
@@ -311,7 +311,7 @@ function notify(){
    else
    naseebnoti=naseeb_batao(20000,4);
    
-   console.log(naseebnoti);
+   //console.log(naseebnoti);
 setTimeout(notify, naseebnoti);
 	
 };

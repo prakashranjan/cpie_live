@@ -375,7 +375,7 @@ function branch_match(branch_id){
            }
                
               
-              displayNotification(cattype+" Wall",alpha+" new Loud Shouts",3);}
+              displayNotification(cattype+" Wall",alpha+" New Loud Shouts",3);}
 
 
 
@@ -453,7 +453,7 @@ function global_led(kya){
               
                else{}
               
-              displayNotification(martha,"check out new shouts",1);
+              displayNotification(martha,"Check Out New Shouts",1);
            
            }
        

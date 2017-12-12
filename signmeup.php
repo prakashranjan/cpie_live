@@ -211,7 +211,7 @@ else{
 <script type="text/javascript">
 
 function delayer(){
-   // window.location = "index";
+    window.location = "index";
 }
 
 </script>
