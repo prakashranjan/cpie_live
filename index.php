@@ -5,15 +5,15 @@
 
 <meta property="og:title"              content="Carbon Pie" />
 <meta property="og:description"        content="Exclusively for the students of JSSATE NOIDA.Organize your College conversations in open channels classified under categories. Make a channel for your class, a topic, a team, or anything—everyone has a transparent view of all that’s going on. Private channels are also available ." />
-<meta property="og:image:secure_url"       itemprop="image"       content="https://cpie.me/images/ic_launcher/0442f137-f592-c0d3-b33f-ba99c2247b1b.webPlatform.png" />
-<meta property="og:image"       itemprop="image"       content="http://cpie.me/images/ic_launcher/0442f137-f592-c0d3-b33f-ba99c2247b1b.webPlatform.png" />
+<meta property="og:image:secure_url"       itemprop="image"       content="https://cpie.me/images/ic_launcher/ae6cf8f0-976d-f911-5471-a06309ac8af7.webPlatform.png" />
+<meta property="og:image"       itemprop="image"       content="http://cpie.me/images/ic_launcher/ae6cf8f0-976d-f911-5471-a06309ac8af7.webPlatform.png" />
 
 <meta property="og:type" content="website" />
 
     <head>  
-        <link itemprop = "thumbnailUrl" href = "http://cpie.me/images/ic_launcher/0442f137-f592-c0d3-b33f-ba99c2247b1b.webPlatform.png"> 
+        <link itemprop = "thumbnailUrl" href = "http://cpie.me/images/ic_launcher/ae6cf8f0-976d-f911-5471-a06309ac8af7.webPlatform.png"> 
 <span itemprop = "thumbnail" itemscope itemtype = "http://schema.org/ImageObject"> 
-<link itemprop = "url" href = "http://cpie.me/images/ic_launcher/0442f137-f592-c0d3-b33f-ba99c2247b1b.webPlatform.png"> 
+<link itemprop = "url" href = "http://cpie.me/images/ic_launcher/ae6cf8f0-976d-f911-5471-a06309ac8af7.webPlatform.png"> 
 </span>
 <?php
 include_once"connection.php";
@@ -416,7 +416,7 @@ for the 21st century Colleges.</h2>
                         <h3>Around the Web</h3>
                         <ul class="list-inline">
                             <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+                                <a href="https://www.facebook.com/carbonpie/" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
                             </li>
                             <li>
                                 <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
@@ -444,7 +444,7 @@ for the 21st century Colleges.</h2>
             <div class="container">
                 <div class="row">
                   <div class="col-lg-12">
-                        Copyright &copy; Carbon Pie | CARBON PIE 2016 
+                        Copyright &copy; Carbon Pie | CARBON PIE 2017 
                     </div>
                 </div>
             </div>
@@ -486,7 +486,7 @@ for the 21st century Colleges.</h2>
                 <h3>Prakash Ranjan Singh
                     <small>Founder & Developer</small>
                 </h3>
-                <p> I am Prakash Ranjan Singh student of Btech IT IVth year of JSS Academy of Technical Education , Noida. I am a web developer and have eagerness to learn new programming languages . This Webapp is made on the basic idea of helping students in a techy way and webapp is the best way to network them.<ul class="  list-inline">
+                <p> I am Prakash Ranjan Singh student of Btech IT IVth year of JSS Academy of Technical Education , Noida. I like web development and have eagerness to learn new technologies . This WebApp is made on the basic idea of helping students in a techy way and webapp is the best way to network them.<ul class="  list-inline">
                             <li>
                                 <a href="https://www.facebook.com/prs786?fref=ts" target="_blank" class=" btn-social "><i class="  fa fa-fw fa-facebook"></i></a>
                             </li>
