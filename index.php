@@ -5,16 +5,16 @@
 
 <meta property="og:title"              content="Carbon Pie" />
 <meta property="og:description"        content="Exclusively for the students of JSSATE NOIDA.Organize your College conversations in open channels classified under categories. Make a channel for your class, a topic, a team, or anything—everyone has a transparent view of all that’s going on. Private channels are also available ." />
-<meta property="og:image:secure_url"       itemprop="image"       content="https://cpie.me/images/ic_launcher/web_hi_res_512.png" />
-<meta property="og:image"       itemprop="image"       content="http://cpie.me/images/ic_launcher/web_hi_res_512.png" />
+<meta property="og:image:secure_url"       itemprop="image"       content="https://cpie.me/images/ic_launcher/0442f137-f592-c0d3-b33f-ba99c2247b1b.webPlatform.png" />
+<meta property="og:image"       itemprop="image"       content="http://cpie.me/images/ic_launcher/0442f137-f592-c0d3-b33f-ba99c2247b1b.webPlatform.png" />
 
 <meta property="og:type" content="website" />
 
     <head> 
         <link rel="shortcut icon" href = "http://cpie.me/favicon.ico" type="image/x-icon" />
-        <link itemprop = "thumbnailUrl" href = "http://cpie.me/images/ic_launcher/web_hi_res_512.png"> 
+        <link itemprop = "thumbnailUrl" href = "http://cpie.me/images/ic_launcher/0442f137-f592-c0d3-b33f-ba99c2247b1b.webPlatform.png"> 
 <span itemprop = "thumbnail" itemscope itemtype = "http://schema.org/ImageObject"> 
-<link itemprop = "url" href = "http://cpie.me/images/ic_launcher/web_hi_res_512.png"> 
+<link itemprop = "url" href = "http://cpie.me/images/ic_launcher/0442f137-f592-c0d3-b33f-ba99c2247b1b.webPlatform.png"> 
 </span>
 <?php
 include_once"connection.php";
