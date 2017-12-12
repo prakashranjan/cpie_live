@@ -10,7 +10,8 @@
 
 <meta property="og:type" content="website" />
 
-    <head>  
+    <head> 
+        <link rel="shortcut icon" href = "http://cpie.me/favicon.ico" type="image/x-icon" />
         <link itemprop = "thumbnailUrl" href = "http://cpie.me/images/ic_launcher/web_hi_res_512.png"> 
 <span itemprop = "thumbnail" itemscope itemtype = "http://schema.org/ImageObject"> 
 <link itemprop = "url" href = "http://cpie.me/images/ic_launcher/web_hi_res_512.png"> 
