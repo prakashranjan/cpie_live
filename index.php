@@ -7,6 +7,7 @@
 <meta property="og:description"        content="Exclusively for the students of JSSATE NOIDA.Organize your College conversations in open channels classified under categories. Make a channel for your class, a topic, a team, or anything—everyone has a transparent view of all that’s going on. Private channels are also available ." />
 <meta property="og:image:secure_url"       itemprop="image"       content="https://cpie.me/images/ic_launcher/0442f137-f592-c0d3-b33f-ba99c2247b1b.webPlatform.png" />
 <meta property="og:type" content="website" />
+<link itemprop = "thumbnailUrl" href = "https://cpie.me/images/ic_launcher/0442f137-f592-c0d3-b33f-ba99c2247b1b.webPlatform.png"> <span itemprop = "thumbnail" itemscope itemtype = "http://schema.org/ImageObject"> <link itemprop = "url" href = "https://cpie.me/images/ic_launcher/0442f137-f592-c0d3-b33f-ba99c2247b1b.webPlatform.png"> </span>
     <head>  
 <?php
 include_once"connection.php";
