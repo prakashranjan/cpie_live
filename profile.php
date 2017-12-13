@@ -691,6 +691,29 @@ and skill_tag.mem_id='$uid'");
     </div>
 </div>
             
+            
+<!-- image Modal -->
+<div id="zoomModal" class="modal fade" role="dialog">
+	
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content " style="overflow:hidden;background:transparent;    text-align: -webkit-center;">
+     
+      
+          <div  id="zoom_image">
+            
+         
+      </div>
+     
+   
+
+  </div>
+  </div></div>
+
+ <!-- image modal_over  -->
+ 
+            
             <!-- comment Modal -->
 <div id="commentModal" class="modal fade" open="$(this).scrollTop(0);" role="dialog">
 	

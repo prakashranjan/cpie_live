@@ -284,7 +284,13 @@ $qry199="SELECT branch_short FROM branch WHERE branch_id='$zrow[1]'";
 
 }?>
                                         
-					<?php if(hideprivate()==0){echo'<li>
+					<?php if(hideprivate()==0){
+                                            
+                                            echo'<li class="mybr">&nbsp;</li><li style="text-align:center;font-family:ubuntu;" >
+		<button type="button" class="btn btn-primary " style="text-align:left;width:100%;" data-toggle="modal" data-target="#memberswallModal"><i class="fa fa-group" aria-hidden="true"></i> Members <span class="badge pull-right" style=" background-color:#2C3E50; color:red;" id="members_count_show"></span></button>
+                              </li><li class="mybr">&nbsp;</li>';
+                                            
+                                            echo'<li>
 <button title="channel media"type="button" class="btn btn-primary btn-block " data-toggle="modal"style="text-align:left;font-size:1.0em;" onclick="media();"data-target="#fileModal">Documents <i class="fa fa-file-text pull-right" aria-hidden="true"></i></button>   </li><li class="mybr"> &nbsp;</li>'; } ?>	
                 
 					<li class="dropdown"><!-- Trigger favtopis and user topics -->
@@ -610,7 +616,26 @@ echo'<i style="color:#e74c3c;" class="fa fa-heart-o fa-lg fa-2x"></i> <span clas
 </div>
 
  <!-- comment modal_over  -->
+<!-- image Modal -->
+<div id="zoomModal" class="modal fade" role="dialog">
+	
+  <div class="modal-dialog modal-lg">
 
+    <!-- Modal content-->
+    <div class="modal-content " style="overflow:hidden;background:transparent;    text-align: -webkit-center;">
+     
+      
+          <div  id="zoom_image">
+            
+         
+      </div>
+     
+   
+
+  </div>
+  </div></div>
+
+ <!-- image modal_over  -->
 
         <!-- channel wall Modal -->
 <div id="settingsModal" class="modal fade" role="dialog">
@@ -674,6 +699,63 @@ echo'<i style="color:#e74c3c;" class="fa fa-heart-o fa-lg fa-2x"></i> <span clas
 
  <!-- channel wall modal_over  -->
 
+
+<!-- members wall Modal -->
+<div id="memberswallModal" class="modal fade" role="dialog">
+	
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+       <?php echo'<h5 class="modal-title  ubuntu"> #'.$xrow[0].' <i class="fa fa-angle-double-right text-muted" aria-hidden="true"></i> <span class="ubuntu" style="color:#18BC9C;font-size:1.0em;"> @'.$category[0].'</span> <i class="fa fa-angle-double-right text-muted" aria-hidden="true"></i> members </h5>';?>
+      </div>
+      <div class="modal-body ">
+      
+         
+              <div class="row" >
+                  <h4 class=" bg-primary text-success text-center ubuntu " style="padding:3px;">Members</h4>
+              <div id="members_all" style="height:100%;max-height:85vh; ">
+                  <?php 
+                  $y=-1;
+
+                 $kqry="SELECT mem.mem_id,mem.username,mem.thumbnail,mem.fname,mem.lname FROM member as mem JOIN stud_member as stu where (mem.mem_id=stu.mem_id) && (stu.section_id='$tid')  ORDER BY views DESC ";
+
+                $kresult=mysql_query($kqry);
+		$id_filler=array();		
+                while($krow = mysql_fetch_row($kresult))
+                {$full=$krow[3]." ".$krow[4];
+				 
+					echo'<div class=" col-lg-3 col-sm-6 panel  "  id="'.$krow[0].'usercard" style="padding-bottom:3px;"><div class="panel-heading" style="padding:3px;background-color:#663ce7;border-color:#663ce7;"><a href="profile?un='.$krow[1].'" >
+									      <img class="img-circle pull-left" style="height:45px;" src="'.$krow[2].'">
+									</a> <a style="color:white;"href="profile?un='.$krow[1].'"><h6 class="ubuntu"> &nbsp;$'.$krow[1].'</h6> </a> </div> <h6 class="ubuntu"style="color:red;"> '.$full.' </h6></div>';
+				 
+				 
+				array_push($id_filler,'"'.$krow[0].'"');	
+		 
+				$y++;
+				}
+                                echo'<script> var u_ids_pri=['.  implode(",", $id_filler).'];</script>';
+                  
+                  ?>
+              </div>
+            
+             
+              
+          </div>
+          
+          
+         
+         </div>
+      
+    </div>
+
+  </div>
+</div>
+
+ <!-- members wall modal_over  -->
+ 
 
 
 <!-- pending request Modal -->
@@ -826,6 +908,8 @@ echo'<i style="color:#e74c3c;" class="fa fa-heart-o fa-lg fa-2x"></i> <span clas
                 
                 ?>
                 <script>
+                    $("#members_count_show").html($("#members_all div").length/2);
+                    
           $( window ).load(function() {
    // console.log( "ready!" );
     $("body").css("filter","none");

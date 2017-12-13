@@ -741,6 +741,27 @@ and topic_tag.topic_id='$tid'");
 
  <!-- channel wall modal_over  -->
 
+<!-- image Modal -->
+<div id="zoomModal" class="modal fade" role="dialog">
+	
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content " style="overflow:hidden;background:transparent;    text-align: -webkit-center;">
+     
+      
+          <div  id="zoom_image">
+            
+         
+      </div>
+     
+   
+
+  </div>
+  </div></div>
+
+ <!-- image modal_over  -->
+ 
  
 <!-- members wall Modal -->
 <div id="memberswallModal" class="modal fade" role="dialog">

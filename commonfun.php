@@ -44,12 +44,12 @@ $ns = date_format($dnow, 's');
 
  if($y<$ny){
 
-$date=date_format($dtime, 'jS F Y');
+$date=date_format($dtime, 'jS M Y');
   }
 else
 {
       if($m<$nm){
-      	$date= date_format($dtime, 'jS F');
+      	$date= date_format($dtime, 'jS M');
       }
       	else
       	{
@@ -58,7 +58,7 @@ else
                 	          	  {$date=date_format($dtime, 'g:ia');
                 	                 $date="yesterday at ".$date;         }
                 		                else
-                                       $date= date_format($dtime, 'F d \a\t g:ia');
+                                       $date= date_format($dtime, 'd M g:ia');
                 }
                 else{
 

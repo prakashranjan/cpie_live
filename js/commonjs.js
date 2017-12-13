@@ -25,6 +25,16 @@ function displayNotification(title,content,pkey) {
   }
 }
 
+function zoom_img(src,old) {
+    var x = document.createElement("IMG");
+    x.setAttribute("src", src);
+     x.className="img-responsive";
+    x.setAttribute("alt", "Loading...")
+    var y=document.getElementById('zoom_image');
+    
+    $(y).html(x);
+}
+
 function sidehide(){
 if(side==1){$('#sidebar').hide();
 $("#main").removeClass("column col-sm-10 ");

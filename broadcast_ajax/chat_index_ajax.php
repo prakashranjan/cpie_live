@@ -190,17 +190,17 @@ echo'<div class="chat">';
                                     $imagedetails = getimagesize("../".$rowori[10]);
                                   $width = $imagedetails[0]; 
                                   $height = $imagedetails[1];
-                                  if($width<$height || $width<450 || $height<450){echo'<div class="text-center"><img class="img-thumbnail"  height="100%"src="'.$rowori[3].'"></div>';}
+                                  if($width<$height || $width<450 || $height<450){echo'<div class="text-center"><img class="img-thumbnail" data-toggle="modal" data-target="#zoomModal" onclick=\'zoom_img("'.$rowori[10].'","'.$rowori[3].'")\'  height="100%"src="'.$rowori[3].'"></div>';}
                                   else{
                                   
-                                  echo'<div class="text-center"><img class="img-thumbnail" style="width:100%" height="100%"src="'.$rowori[3].'"></div>';}}
+                                  echo'<div class="text-center"><img class="img-thumbnail" data-toggle="modal" data-target="#zoomModal" onclick=\'zoom_img("'.$rowori[10].'","'.$rowori[3].'")\' style="width:100%" height="100%"src="'.$rowori[3].'"></div>';}}
 				if($rowori[11]!=NULL){$imagedetails = getimagesize("../".$rowori[10]);
                                   $width = $imagedetails[0]; 
                                   $height = $imagedetails[1];
-                                  if($width<$height || $width<450 || $height<450){echo'<div class="text-center"><img class="img-thumbnail"  height="100%"src="'.$rowori[11].'"></div>';}
+                                  if($width<$height || $width<450 || $height<450){echo'<div class="text-center"><img class="img-thumbnail" data-toggle="modal" data-target="#zoomModal" onclick=\'zoom_img("'.$rowori[10].'","'.$rowori[11].'")\' height="100%"src="'.$rowori[11].'"></div>';}
                                   else{
                                   
-                                echo'<div class="text-center"><img class="img-thumbnail" style="width:100%" height="100%"src="'.$rowori[11].'"></div>';}}					     
+                                echo'<div class="text-center"><img class="img-thumbnail" data-toggle="modal" data-target="#zoomModal" onclick=\'zoom_img("'.$rowori[10].'","'.$rowori[11].'")\' style="width:100%" height="100%"src="'.$rowori[11].'"></div>';}}					     
 									echo'
 									
                                     <div class="input-group">
@@ -346,18 +346,18 @@ echo'<div class="chat">';
                                                                             $imagedetails = getimagesize("../".$rowori[10]);
                                   $width = $imagedetails[0]; 
                                   $height = $imagedetails[1];
-                                  if($width<$height || $width<450 || $height<450){echo'<div class="text-center"><img class="img-thumbnail"  height="100%"src="'.$rowori[3].'"></div>';}
+                                  if($width<$height || $width<450 || $height<450){echo'<div class="text-center"><img class="img-thumbnail" data-toggle="modal" data-target="#zoomModal" onclick=\'zoom_img("'.$rowori[10].'","'.$rowori[3].'")\' height="100%"src="'.$rowori[3].'"></div>';}
                                   else{
                                   
-                                  echo'<div class="text-center"><img class="img-thumbnail" style="width:100%" height="100%"src="'.$rowori[3].'"></div>';}
+                                  echo'<div class="text-center"><img class="img-thumbnail" data-toggle="modal" data-target="#zoomModal" onclick=\'zoom_img("'.$rowori[10].'","'.$rowori[3].'")\' style="width:100%" height="100%"src="'.$rowori[3].'"></div>';}
                                                                             }
 									if($rowori[11]!=NULL){$imagedetails = getimagesize("../".$rowori[10]);
                                   $width = $imagedetails[0]; 
                                   $height = $imagedetails[1];
-                                  if($width<$height || $width<450 || $height<450){echo'<div class="text-center"><img class="img-thumbnail"  height="100%"src="'.$rowori[11].'"></div>';}
+                                  if($width<$height || $width<450 || $height<450){echo'<div class="text-center"><img class="img-thumbnail" data-toggle="modal" data-target="#zoomModal" onclick=\'zoom_img("'.$rowori[10].'","'.$rowori[11].'")\' height="100%"src="'.$rowori[11].'"></div>';}
                                   else{
                                   
-                                                                        echo'<div class="text-center"><img class="img-thumbnail" style="width:100%" height="100%"src="'.$rowori[11].'"></div>';}}
+                                                                        echo'<div class="text-center"><img class="img-thumbnail" data-toggle="modal" data-target="#zoomModal" onclick=\'zoom_img("'.$rowori[10].'","'.$rowori[11].'")\' style="width:100%" height="100%"src="'.$rowori[11].'"></div>';}}
 	                                echo'
 									
                                     <div class="input-group">
