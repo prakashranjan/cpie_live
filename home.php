@@ -256,27 +256,17 @@ if($wall_no[0]==0){
                
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
                  <meta name="display" content="standalone">
-                <meta name="theme-color" content="#2c3e50">
+                <meta name="theme-color" content="#fafafa">
                
 	<link rel="manifest" href="manifest.json">
         
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		
 			<link href="css/styles.css" rel="stylesheet">
-		<link href="css/font-awesome.min.css" rel="stylesheet">
+		<!--<link href="css/font-awesome.min.css" rel="stylesheet">-->
 		
+	<link rel="stylesheet" href="https://use.fontawesome.com/d05823ecab.css">
 		
-		<style type="text/css">
-				    
-		/*@media (min-width: 768px) {
-    /* some CSS for large resolution */
-
-			#main{  
-  background: url("images/hw35-min.jpg") no-repeat center center fixed; 
-}
-                  /*      }*/
- 
-		</style>
                 
 		<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
                 <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet">
@@ -365,17 +355,19 @@ setTimeout(function(){
                
                 <ul class="nav " id="lg-menu">
 				     
-				    <li ><a class="btn btn-sm" href="#profile_picModal" style="padding-bottom:0px;background:url(<?php echo $n2row[0] ?>) center no-repeat;background-size:contain;background-color:#000;height:30vh;" role="button" data-toggle="modal" >
+				    <li ><a class="btn btn-sm dpwala" href="#profile_picModal" style="padding-bottom:0px;background:url(<?php echo $n2row[0] ?>) center no-repeat;background-size:contain;" role="button" data-toggle="modal" >
 					
 					</a></li>
-                    <li  class="ubuntu"><a style="background:#18bc9c;"href="profile?un=<?php echo $usern; ?>"><i class="fa fa-<?php echo $gender;?> fa-2x"></i><span style="font-size: 1.3em;"> $<?php echo $usern ?></span> <span class="badge pull-right" style="background-color:#2c3e50;"  ><div class=" wall_led led-yellow<?php echo $wall_led; ?>"></div></span></a></li>
+                    <li  class="ubuntu"><a style="background:#18bc9c;"href="profile?un=<?php echo $usern; ?>"><i class="fa fa-<?php echo $gender;?> fa-2x"></i><span style="font-size: 1.3em;"> $<?php echo $usern ?></span> </a></li>
+                                        
                    
                     
 					<li><a onclick="mytopic();" href="#" title="my channels"> My channels <i class="fa fa-hand-peace-o fa-lg pull-right" aria-hidden="true"></i> </a></li>
 					<li><a href=""> Refresh <i class="glyphicon glyphicon-refresh pull-right"></i> </a></li>
             
                         
-               
+               <li  class="ubuntu"><a style="background:#18bc9c;"href="shoutbox?un=<?php echo $usern; ?>"><i class="fa fa-2x fa-cube"></i><span style="font-size: 1.3em;"> My ShoutBox </span> <span class="badge pull-right" style="background-color:#2c3e50;"  ><div class=" wall_led led-yellow<?php echo $wall_led; ?>"></div></span></a></li>                   
+            
                     
                    <?php
                 if($_SESSION['SESS_MODE']==1){
@@ -417,9 +409,7 @@ setTimeout(function(){
                <li class="mybr">&nbsp;</li>
                                          
                  
-                      <li class="visible-xs">
-                        <a href="#postModal"  role="button" data-toggle="modal" class="mydark text-center"> <span class="badge"><i class="  glyphicon glyphicon-plus"></i>Add Channel</span></a>
-                      </li>
+                      
                        
 					 
 					  
@@ -458,8 +448,8 @@ setTimeout(function(){
        <button type="button" class="btn btn-success" style="padding:0px;padding-left:10px; padding-right:10px;width:100%;"  onclick="removeinputbox();" role="button" ><i class="fa fa-angle-up " aria-hidden="true"></i></button>
                              <br>
       <form class="navbar-form" style="padding:0px;padding-left:0px;padding-right:0px;margin:0px 0px 0px 0px;">
-                        <div class="input-group input-group-sm" style="width:100%;">
-                          <input type="text" class="form-control ubuntu inputmob " onkeyup="search(this.id);"  placeholder="like $abc(user) | abc(channel)"  id="termmob" >
+                        <div class="input-group input-group-md" style="width:100%;">
+                          <input type="text" class="form-control ubuntu inputmob srchin" onkeyup="search(this.id);"  placeholder=" $abc(user) | abc(channel)"  id="termmob" >
                           <div class="input-group-btn">
                             <button class="btn btn-primary" onclick="search('termmob');" type="button"><i class="glyphicon glyphicon-search"></i></button>
                           </div>
@@ -487,14 +477,14 @@ setTimeout(function(){
     <button type="button" class="btn " href="#" onclick="favtopic();" style="background-color:#2c3e50;" ><i class="fa fa-star getora " aria-hidden="true"></i><div  class="fav_led led-yellow<?php echo $fav_led; ?>"></div></button>
   </div>
                             
-  <div class="btn-group" role="group">
+  <!--<div class="btn-group" role="group">
       <a href="#" class="btn btn-success dropdown-toggle getora" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-sign-out" aria-hidden="true"></i><span class="caret"></span> </a>
       <ul class="dropdown-menu dropdown-menu-right" > 
            
           <li role="separator" class="divider"></li>
           <li><a onclick="logout();" id="logout" href="#">logout</a></li>
       </ul>
-  </div>
+  </div>-->
   
 </div>
                         
@@ -507,8 +497,8 @@ setTimeout(function(){
                   	</div>
                   	<nav class="collapse navbar-collapse" role="navigation">
                     <form class="navbar-form navbar-left">
-                        <div class="input-group input-group-sm" style="max-width:200px;">
-                          <input type="text" class="form-control ubuntu inputpc" width="50"placeholder="like $abc(user) | abc(channel)"  id="term1" onkeyup="search(this.id);">
+                        <div class="input-group input-group-md" style="max-width:350px;">
+                          <input type="text" class="form-control ubuntu inputpc srchin" placeholder=" $abc(user) | abc(channel)"  id="term1" onkeyup="search(this.id);">
                           <div class="input-group-btn">
                             <button class="btn btn-primary" onclick="search('term1');"type="button"><i class="glyphicon glyphicon-search"></i></button>
                           </div>
@@ -521,15 +511,14 @@ setTimeout(function(){
 
                       
 
-                      <li>
-                        <a href="#postModal"  role="button" data-toggle="modal" class="mydark"> <span class="badge"><i class="  glyphicon glyphicon-plus"></i> Channel</span></a>
-                      </li>
+                     
 					  
-                      <li>
-                        <a  href="#" onclick="trend();"><span class="badge">Popular</span></a>
-                      </li>
+                     
 					  <li style="background-color:#2c3e50;">
                                               <a onclick="favtopic();" href="#" title="favourites"><i class="fa fa-star " aria-hidden="true" style="font-size: 1.5em;" ></i><span class="badge" style="background-color:#2c3e50;"  ><div   class=" fav_led led-yellow<?php echo $fav_led; ?>"></div></span></a>
+                      </li>
+                       <li>
+                        <a  href="#" onclick="trend();"><span class="badge">Popular</span></a>
                       </li>
 					  
 						
@@ -563,7 +552,7 @@ setTimeout(function(){
         
        <div id="return">
 		<?php echo'
-<div class=" khatoono  "style="background-color:#18bc9c;"> <i class="fa fa-pie-chart" aria-hidden="true"></i> JSSATEN PIE </div>
+<div class=" khatoono  "style="background-color:#18bc9c;"> <i class="fa fa-map-o" aria-hidden="true"></i> JSSATEN WORLD </div>
        
   
     <br>
@@ -577,8 +566,8 @@ setTimeout(function(){
 				
                 while($krow = mysql_fetch_row($kresult))
                 {$n = rand(18,32 )/10;
-                
-			echo'<a id="'.$krow[0].'" href="#"  onclick="type_match(this.id)" class=" homeo btn btn-link text-primary" style=" font-size:'.$n.'vmax;  ">'.$krow[1].'</a>&nbsp;&nbsp;';     }
+               
+			echo'<a id="'.$krow[0].'" href="#"  onclick="type_match(this.id)" class=" homeo btn btn-link text-primary" style=" font-size:'.$n.'vmax;  ">'.$krow[1].'</a>&nbsp;&nbsp;&nbsp;';     }
 
 echo'</p>
 </br>';?>
@@ -612,36 +601,19 @@ echo'</p>
                           
                       
                       
-                        <div class="row">
-                          <div class="col-sm-6 pull-center">
-                        <!--    <a href="#" id="loadmore" onmouseover="zam();"class="btn btn-warning pull-right"><i class="fa fa-arrow-down" aria-hidden="true"></i> Load More <i class="fa fa-arrow-down" aria-hidden="true"></i></a>
-                          --></div>
-                        </div>
-                      
-                        <div class="row" id="footer">    
-                          <div class="col-sm-6">
-                             
-                          </div>
-                          <div class="col-sm-6">
-                            <p>
-                           
-                            </p>
-                          </div>
-                        </div>
+                        
                       
                       
                       
-                      <h4 class="text-center">
-                     
-                     <br />
-                     
-                      </h4>
+                      
+                      
                         
                       
                         
                       
                     </div><!-- /col-9 -->
                 <!-- /padding -->
+                
             </div>
             <!-- /main -->
           
@@ -650,7 +622,12 @@ echo'</p>
 </div>
 
 	
-		
+ <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll ">
+        <a class="btn btn-primary" href="#postModal" role="button"  data-toggle="modal" title="Add Channel">
+            <i class="fa fa-plus"></i>
+        </a>
+    </div>		
 		
 
 <!--post modal-->

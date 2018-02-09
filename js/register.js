@@ -418,3 +418,5 @@ function checkPasswordMatch() {
     {$("#error").html("**matched").css('color', 'green');
           chal['password']=0;}
 }
+
+

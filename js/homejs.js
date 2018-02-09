@@ -397,7 +397,7 @@ function global_led(kya){
    success: function( data ) {
        if(kya==="wall"){
         
-       console.log(data);
+      // console.log(data);
        
        
       
@@ -436,7 +436,7 @@ function global_led(kya){
    }
    else{
       var output=data;
-   console.log(output);
+  // console.log(output);
    if(output==1){
         //console.log("----"+output);
        if($( prfix+kya+"_led" ).hasClass("led-yellow")){ 

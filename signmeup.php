@@ -35,7 +35,7 @@
  $password = addslashes($_POST['password']);
  $gender=addslashes($_POST['sex']);
  //echo'<h4><strong>Hey!</strong>'.$gender.'</h4><br>';
- if($gender=="male"){$dpic="images/ppicdefm.jpg";
+ if($gender=="male"){$dpic="images/ppicdefm.png";
  //echo'<h4><strong>Hey!</strong>gender1</h4><br>';
  }
  else if($gender=="female"){$dpic="images/ppicdeff.jpg";

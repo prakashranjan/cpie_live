@@ -1,8 +1,40 @@
 #main{
  background-size: cover;
+ background-color: #fafafa;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+code{background-color: transparent;
+     color:#dadada;
+}
+.progress{
+    margin-bottom: 0 !important;
+}
+.patte{
+    box-shadow: -0px -5px 10px rgba(0, 0, 0, 0.2);
+}
+.txtblr{
+    
+    
+    color:#2c3e50!important;
+}
+.overbub{
+    position: relative;
+    bottom:0%;right:0%;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: rgba(0,0,0,0.35);
+    
+}
+
+.overbub:hover{
+    font-size: 1.2em;
+    background-color: rgba(0,0,0,0.75);
+    
+}
+
+
+
+
 	.panel{
-		background-color: rgba(9, 247, 161, 0.6);
+		background-color: #dadada;
         
 		border:none;
 	}
@@ -17,14 +49,14 @@
             padding-left:0px;
             padding-right:0px;
             padding-top:0px;
-		background-color:rgba(10,170,246,0.67);;
+		background-color:#18bc9c;
 		border:none;
 		color:white;
                 font-family:ubuntu;
 	}
 	
 .list-group-item{
-	    background-color: rgba(172, 234, 206, 0.75);
+	    background-color:#dadada;
 	border:none;
 	color:#086552 ;
 }
@@ -41,11 +73,11 @@
 }
 
 .form-control{
-	background-color: rgba(245,245,245,0.51);
+	background-color: rgba(255,255,255,0.51);
 }
 
 div.progress{
-	background-color: rgba(245,245,245,0.51);
+	background-color: rgba(255,255,255,0.61);
 }
 
 #postModal .modal-header,#postModal .modal-footer{
@@ -187,6 +219,7 @@ margin-left:2px;}
     padding-left:0.3em;
 padding-right: 0.3em;
 margin: 0 0 0.05em;
+
 }
 #main .panel-body .input-group p{ 
     height: inherit;
@@ -234,6 +267,10 @@ div#wall_desk.full.col-sm-9{
 } 
 
 @media (max-width: 480px){
+    
+    .nav>li>a{
+        padding:8px 8px;
+    }
  #desk .col-sm-5{
   padding-right: 0px;
   padding-left: 0px;

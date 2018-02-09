@@ -4,10 +4,13 @@ html, body {
    font-family:verdana,arial,sans-serif;
    color:#555555;
 }
+.panel,.well{
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
 .nav {
    font-family:Arial,sans-serif;
-   font-size:13px;
+   font-size:14px;
 }
 
 a {
@@ -107,14 +110,14 @@ hr {
 
 #sidebar {
     padding:0px;
-	padding-top:15px;
+	padding-top:0px;
 }
 
 #sidebar, #sidebar a, #sidebar-footer a {
     color:#ffffff;
     background-color:rgb(44,62,80);
 	text-shadow:0 0 2px #000000;
-    padding-left:5px;
+    padding-left:3px;
 }
 #sidebar .nav li>a:hover {
     background-color:#18BC9C;
@@ -237,6 +240,28 @@ small.text-muted {
   font-family:courier,courier-new,monospace;
 }
 
+.scroll-top {
+    z-index: 999;
+    position: fixed;
+    right: 5%;
+    bottom: 5%;
+    width: 50px;
+    height: 50px;
+}
+
+.scroll-top .btn {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    font-size: 40px; 
+    line-height: normal;
+    
+}
+
+.scroll-top .btn:focus {
+    outline: 0;
+}
 /* adjust the contents on smaller devices */
 
 
@@ -247,6 +272,9 @@ small.text-muted {
 
 
 @media (max-width: 768px) {
+    .modal .close{
+        opacity: 1;
+    }
    .column .padding {
       padding: 7px;
    }/*.full{
@@ -257,6 +285,14 @@ small.text-muted {
       top: 0;
       width: 100%;
    }
+   .scroll-top .btn {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        width: 16vw;
+        height: 16vw;
+        border-radius: 100%;
+        font-size: 9vw;
+        line-height: normal;
+    }
 }
 
 

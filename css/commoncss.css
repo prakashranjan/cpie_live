@@ -7,9 +7,13 @@
 .heavyt{
     font-weight:bold;
 }
+.close{opacity:0.8;}
+.mydepth{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 .navbar-blue{
 
-	background-color:rgba(24,188,156,0.92);
+	background-color:#18bc9c;
 }
 .marq{font-family: sans-serif;
 		      font-size:120%;}
@@ -24,12 +28,14 @@
     border-color: white;}
 
 .khatoono{font-family:ubuntu;
-                  font-size:2.0vmax;
+                  font-size:1.5em;
                     color: #ffffff;
     background-color:rgba(135,132,255,0.88);
    border-radius:10px;
 width:30%;
-margin-left:35%;}
+margin-left:35%;
+    box-shadow: 3px 3px 15px #888888 !important;
+}
 
 	
 		
@@ -198,11 +204,16 @@ margin-left:35%;}
     overflow-y: scroll;
 }
 .textareabak{
-        background-color: antiquewhite !important;
+        background-color: #fdffe0 !important;
+        border: 1px solid #cfdc13 !important;
+}
+
+.srchin{
+   
 }
 .inputbak {
-    
-        background-color: antiquewhite !important;
+    border: 1px solid #cfdc13 !important;
+        background-color: #fdffe0 !important;
 
 }
 .inputpc{
@@ -216,15 +227,9 @@ margin-left:35%;}
 ::-webkit-scrollbar{width:0px;}
 .navbar-blue{background-color:rgba(24,188,156,1.0);}
 .navbar{min-height:40px;}
-.sidenav{height:100%;width:0;position:fixed;z-index:1001;top:0;left:0;box-shadow:0px 0px 10px #000;background:#617182;
+.sidenav{height:100%;width:0;position:fixed;z-index:1001;top:0;left:0;box-shadow:0px 0px 10px #000;background:#ffffff;
 
-/* For browsers that do not support gradients */background:-webkit-linear-gradient(left top, rgb(24, 188, 156),rgba(44, 62, 80, 0.74));
 
-/* For Safari 5.1 to 6.0 */
-
-/* For Opera 11.1 to 12.0 */
-
-/* For Firefox 3.6 to 15 */background:-webkit-gradient(linear, left top, right bottom, from(rgb(24, 188, 156)),to(rgba(44, 62, 80, 0.74)) );background:-webkit-linear-gradient(top left, rgb(24, 188, 156),rgba(44, 62, 80, 0.74) );background:linear-gradient(to bottom right,rgb(24, 188, 156),rgba(44, 62, 80, 0.74) );
 
 /* Standard syntax (must be last) */overflow-x:hidden;-webkit-transition:0.5s;transition:0.5s;padding-top:20px;color:white;}
 .sidenav .closebtn{position:absolute;top:0;right:25px;font-size:36px;margin-left:50px;}
@@ -246,7 +251,8 @@ margin-left:35%;}
     border-radius: 0;
     width: 100%;
     margin-left: 0;
-    box-shadow: 2px 2px 15px #ffffff !important;
+   
+    box-shadow: 3px 3px 15px #888888 !important;
 }
 
 #lg-menu{

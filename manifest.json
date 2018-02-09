@@ -1,5 +1,5 @@
 {
-  "short_name": "Cpie",
+  "short_name": "C-Pie",
   "name": "Carbon Pie",
   "icons": [
     {
@@ -88,6 +88,6 @@
   "start_url": "/",
   "background_color": "#ffffff",
   "display": "standalone",
-  "theme_color": "#2c3e50",
+  "theme_color": "#fafafa",
   "orientation": "portrait"
 }

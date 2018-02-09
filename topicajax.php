@@ -77,11 +77,11 @@ $j=0;
 				//	$p++;}
 					//else if($p==2||$p==3||$p==4)
 					echo'<div class="col-lg-3 col-md-3 col-sm-6 sizehand"><a class="topichov '.$priv.' rounded"style="display:block;"href="topic?tn='.$krow[1].'">
-<div class="thumbnail img-rounded responsive" style="background-color:'.$block.'; border:none;  max-height: 180px;
-     height:180px;" > <!--  thumbnail 1  -->
-         <div class="pannel-img img-responsive bwimg"  style="background:url('.$source.') center no-repeat; background-size: cover;height:60px; max-height:60px;" width="100%" alt="Card image"></div><!-- image 1 -->
+<div class="thumbnail img-rounded responsive" style="background-color:'.$block.'; border:none;  max-height: 120px;
+     height:120px;" > <!--  thumbnail 1  -->
+    
           <div class="caption " style="padding-bottom:0px;background:url('.$source.') center no-repeat;"> <!-- caption -->
-            <blockquote class="img-rounded "style="background-color:'.$blockn.'; padding-left:2px;padding-right:2px; border:none; margin:0 0 0; height:100px; max-height:100px;overflow:hidden;"><p style="margin: 0 0 0;font-size:0.69em;background-color:rgba(255,255,255,1.0);color:'.$colpr.'; font-weight:bolder;   box-shadow: 2px 2px 15px #fff !important;"class="ubuntu">@'.$krow[1].''.$lock.'</p>
+            <blockquote class="img-rounded "style="background-color:'.$blockn.'; padding-left:2px;padding-right:2px; border:none; margin:0 0 0; height:100px; max-height:100px;overflow:hidden;"><p style="margin: 0 0 0;font-size:0.9em;background-color:rgba(255,255,255,1.0);color:'.$colpr.'; font-weight:bolder;   box-shadow: 2px 2px 15px #fff !important;"class="ubuntu">@'.$krow[1].''.$lock.'</p>
             <footer class="'.$privfoot.'"style="font-style:italic;font-size:0.64em;" >'.$info.'</footer></blockquote>
             </div>
         </div>

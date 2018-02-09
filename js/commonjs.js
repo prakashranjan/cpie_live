@@ -39,8 +39,8 @@ function sidehide(){
 if(side==1){$('#sidebar').hide();
 $("#main").removeClass("column col-sm-10 ");
    $("#main").addClass("column col-sm-12 ");
-   $(".sizehand").removeClass(" col-lg-3 ");
-   $(".sizehand").addClass(" col-lg-2 ");
+//   $(".sizehand").removeClass(" col-lg-3 ");
+  // $(".sizehand").addClass(" col-lg-2 ");
    $("#sideh").html("<i class='fa fa-chevron-circle-right fa-2x text-primary' style='padding-top:12px;padding-left:5px;' aria-hidden='true'></i>");
    side=2;
 
@@ -61,11 +61,16 @@ function openNav() {
 }
 else{
     $("#sideclone").html($("#sidebar").html());}
-    document.getElementById("mySidenav").style.width = "100%";
+    document.getElementById("mySidenav").style.width = "90%";
+    $("#main").css("filter","blur(30px)");
+    $('div.scroll-top.page-scroll ').hide();
+    
 }
 
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
+    $("#main").css("filter","none");
+     $('div.scroll-top.page-scroll ').show();
 }
 
 var older=0;

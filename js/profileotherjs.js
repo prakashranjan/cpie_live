@@ -1,4 +1,5 @@
 
+
                                               function update_diska(){
                                                    $.ajax({
          type:"get",
@@ -14,6 +15,7 @@
                                                   
                                                   
                                               }
+                                              
 					function sendrequest(hut){
                                             var marka=confirm("Are you sure?");
                                             if(marka){
@@ -41,13 +43,3 @@
                                             }
 };
 				
-	
-
-			
-					
-								
-			
-		
-
-
-		

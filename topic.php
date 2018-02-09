@@ -62,34 +62,18 @@ $sql89="UPDATE user_online SET topic_id='$tid' WHERE mem_id='$member_id' and ses
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
                 <meta name="display" content="standalone">
-                <meta name="theme-color" content="#2c3e50">
+                <meta name="theme-color" content="#fafafa">
                 <link rel="manifest" href="manifest.json">
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		
 		<link href="css/styles.css" rel="stylesheet">
-		<link href="css/font-awesome.min.css" rel="stylesheet">
+		<!--<link href="css/font-awesome.min.css" rel="stylesheet">-->
 
 		
+		<link rel="stylesheet" href="https://use.fontawesome.com/d05823ecab.css">
 		
 		
 		
-		<style type="text/css">
-			
-			
-			/*@media (min-width: 768px) {
-    /* some CSS for large resolution */
-
-			#main{  
-  background: url("images/c7dark.jpg") no-repeat center center fixed; 
-}
-                        /*}*/			
-		
-		 
-
-			
-
-			
-		</style>
 		<script>
 		var tid=<?php echo $tid; ?>;
                 var tn_url="<?php echo $tn; ?>";
@@ -261,11 +245,11 @@ $hrt=false;
     border-color: black;" href="#settingsModal" role="button"  data-toggle="modal"><?php echo "<marquee  direction='left' class='ubuntu fa-2x'>@".$category[0]." &nbsp;&nbsp;<i style='font-size:0.9em;' class='text-info glyphicon glyphicon-eye-open'>".$category[1]."</i></marquee>";?></button>
   </div>
                            
-  <div class="btn-group" role="group">
+ <!-- <div class="btn-group" role="group">
     <button type="button" class="btn btn-success" href="#postModal" role="button" data-toggle="modal" onclick="saaf();"><i class="glyphicon glyphicon-bullhorn getora"></i></button>
-  </div>
-                            <div class="btn-group" role="group">
-    <button type="button" class="btn btn-success " href="#" style="padding:3px;" onclick="prechat();" ><i class="fa fa-comments getora" style="color:#3ce793;"></i> <span class="badge ting" style=" background-color:#2C3E50;"></span></button>
+  </div>-->
+                            <div class="btn-group" role="group"  onclick="prechat();">
+    <button type="button" class="btn btn-success " href="#"  ><i class="fa fa-refresh getora" style="color:#3ce793;"></i> <span class="badge ting" style=" background-color:#2C3E50;"></span></button>
   </div>
                             <div class="btn-group" role="group">
     <button type="button" class="btn btn-success " id="fav2" onclick="favmark();">
@@ -292,14 +276,15 @@ echo'<i style="color:#e74c3c;" class="fa fa-heart-o getora" aria-hidden="true"> 
     
     </button>
   </div>
-  <div class="btn-group" role="group">
+                            
+  <!--<div class="btn-group" role="group">
       <a href="#" class="btn btn-success dropdown-toggle getora" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-sign-out" aria-hidden="true"></i><span class="caret"></span> </a>
       <ul class="dropdown-menu dropdown-menu-right" > 
            
           <li role="separator" class="divider"></li>
           <li><a onclick="logout();" id="logout" href="#">logout</a></li>
       </ul>
-  </div>
+  </div>-->
 </div>
                         
                         
@@ -325,9 +310,9 @@ echo'<i style="color:#e74c3c;" class="fa fa-heart-o getora" aria-hidden="true"> 
                         
                       </li>
                     
-                      <li>
+                      <!--<li>
                           <a href="#postModal" role="button" data-toggle="modal" onclick="saaf();" ><span class="badge"><i class="glyphicon glyphicon-plus"></i> Shout</span></a>
-                      </li>
+                      </li>-->
                        <li>
                         <a href="#"  id="fav" onclick="favmark();"style=" color:red;text-align:center;">
                         
@@ -354,7 +339,7 @@ echo'<i style="color:#e74c3c;" class="fa fa-heart-o fa-lg fa-2x"></i> <span clas
                         </a>    
                       </li> 
 					
-                    <li class="active" ><a href="#" onclick="prechat();"><i class="fa fa-comments fa-lg fa-2x" style="color:#3ce793;" ></i> <span class="badge ting" style=" background-color:#2C3E50;"></span></a></li>
+                    <li class="active" ><a href="#" onclick="prechat();"><i class="fa fa-refresh fa-lg fa-2x" style="color:#3ce793;" ></i> <span class="badge ting" style=" background-color:#2C3E50;"></span></a></li>
                       
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
@@ -393,6 +378,13 @@ echo'<i style="color:#e74c3c;" class="fa fa-heart-o fa-lg fa-2x"></i> <span clas
     </div>
 </div>
 
+        
+        <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll ">
+        <a class="btn btn-primary" href="#postModal" role="button" data-toggle="modal" onclick="saaf();" title="Shout Something">
+            <i class="fa fa-bullhorn"></i>
+        </a>
+    </div>	
      
 <!-- sharemodal -->
 <div class="modal fade" id="shareModal" role="dialog">
@@ -647,7 +639,7 @@ and topic_tag.topic_id='$tid'");
   <div class="modal-content">
       <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-			Shout something
+			Shout Something
       </div>
 	  <div class="modal-body postmf">
         <div class="tabbable"> <!-- Only required for left/right tabs -->
@@ -660,7 +652,7 @@ and topic_tag.topic_id='$tid'");
         <div class="tab-pane active" id="tab1">
             <form class="form center-block"  enctype="multipart/form-data" >
             <div class="form-group">
-              <textarea rows="8" cols="100%" class="form-control input-lg inputbak" maxlength="45000" name="cap" id="cap" placeholder="What do you want to shout?"></textarea>
+              <textarea rows="8" cols="100%" class="form-control input-lg inputbak" maxlength="45000" name="cap" id="cap" placeholder="What do you want to Shout?"></textarea>
               <br>
               <div class="checkbox text-center fa-lg">
     <label>
@@ -671,7 +663,7 @@ and topic_tag.topic_id='$tid'");
             </div>
 				 <div class="modal-footer">
           <div>
-          <button id="grabcap" onclick="multi();" type="button" class="btn btn-primary btn-sm" >Shout <i class="fa fa-bullhorn fa-3x"></i></button>
+          <button id="grabcap" onclick="multi();" type="button" class="btn btn-primary mob_but" >Shout <i class="fa fa-bullhorn fa-3x"></i></button>
             
 		 </div>
                                  </div>
@@ -716,7 +708,7 @@ and topic_tag.topic_id='$tid'");
          </div>
 				 <div class="modal-footer">
          
-         <button id="post_poll"name="post_poll" onclick="savepoll();" type="button" class="btn btn-primary btn-md " > Shout <i class="fa fa-bullhorn fa-3x"></i></button>
+         <button id="post_poll"name="post_poll" onclick="savepoll();" type="button" class="btn btn-primary btn-md mob_but" > Shout <i class="fa fa-bullhorn fa-3x"></i></button>
          <br><br><div id="respo3"></div>
                                  </div>
                   

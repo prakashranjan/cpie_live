@@ -1,3 +1,4 @@
+
 <?php
 	require_once('auth.php');
  include("connection.php");
@@ -63,34 +64,17 @@ $qry05="Update member set views=views+1 WHERE mem_id='$uid'";
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
                 <meta name="display" content="standalone">
-                <meta name="theme-color" content="#2c3e50">
+                  <meta name="theme-color" content="#fafafa">
                 <link rel="manifest" href="manifest.json">
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		
 		<link href="css/styles.css" rel="stylesheet">
-		<link href="css/font-awesome.min.css" rel="stylesheet">
+		<!--<link href="css/font-awesome.min.css" rel="stylesheet">-->
 	
+		<link rel="stylesheet" href="https://use.fontawesome.com/d05823ecab.css">
 		
 		
 		
-		<style type="text/css">
-			
-			 
-			/*@media (min-width: 768px) {
-    /* some CSS for large resolution */
-
-			#main{  
-  background: url("images/c7.jpg") no-repeat center center fixed; 
-}
-                        /*}*/
-		
-		
-
- 
-
-			
-			
-		</style>
                 <?php if(edit()){echo"
                 <script>
 		var tid=$uid; 
@@ -115,10 +99,10 @@ $qry05="Update member set views=views+1 WHERE mem_id='$uid'";
 		<!-- <script src="js/ion.sound.js"></script> -->	
 		   <script src="js/commonjs.js"></script>
         <?php	if(edit()){
-            echo'<link href="css/dropzone.css" type="text/css" rel="stylesheet" />
+            echo'
  
 <!-- 2 -->
-<script src="js/dropzone.js"></script>
+
 <script src="js/profilemejs.js"></script>
 ';}
                 else {echo'<script src="js/profileotherjs.js"></script>';}
@@ -220,8 +204,7 @@ $n2qry="select emp_no from teach_member WHERE mem_id='$uid'";
                 
 
 }
-               echo' <li ><a class="btn btn-sm" id="profilepicture"  style="padding-bottom:0px;background:url('.$n2row[0].') center no-repeat;background-size:contain;background-color:#000;height:30vh;">';
-				
+               		
 	$metr=mysql_query("select count(image_id) from testblob where username='$usernw'");
        if(mysql_num_rows($metr)) {$metro=mysql_fetch_row($metr);
  
@@ -230,7 +213,7 @@ $shouts=$metro[0];
 }
 
 					 ?>
-					</a></li>
+					
                     <li  class="ubuntu"><a style="background:#18bc9c"href="#"><i class="fa fa-<?php echo $genderw;?> fa-2x"></i><span style="font-size:1.3em;"> $<?php  echo $usernw ?></span></a></li>
                     <li class=" marq "><a  style="color:white; background:#18bc9c;font-size:0.9em;font-weight: bolder;"href="#"><i class="glyphicon glyphicon-home"></i> <?php echo $fullnw ?></a></li>
                     <li class="active"><a href="home"> Home <i class="fa fa-home pull-right"></i></a></li>
@@ -292,19 +275,10 @@ $shouts=$metro[0];
              <div class="btn-group" role="group">
                  <button type="button" class="btn btn-success" ><a style="color:white;" href="home"><i class="glyphicon glyphicon-home getora"></i></a></button>
   </div>                
-                     <?php  if(edit()){echo'     
-                           <div class="btn-group bg-warning" role="group"id="pfile2r">
-    <button type="button" id="pfile2" class="btn btn-warning " href="#" onclick="chan(this.id);" ><i class="fa fa-user getora" ></i></button>
-  </div>
-                           
-  
-<div class="btn-group" style="background-color:#2c3e50;" role="group" id="wll2r">
-    <button type="button" id="wll2" class="btn btn-success " href="#" onclick="chan(this.id);" style="background-color:#2c3e50;" ><i class="fa fa-table getora" ></i><div  class="wall_led led-yellow-off"></div></button>
-  </div>
-   <div class="btn-group"style="display:none;" role="group" id="loud_shout2">
-    <button type="button"  class="btn btn-success" href="#postModal" role="button" data-toggle="modal" ><i class="fa fa-wifi getora" aria-hidden="true"></i></button>
-  </div>
-                          ';}
+                     <?php  if(edit()){ 
+                         
+                         //do nothing
+                     }
                          else {echo'<div class="btn-group simple" role="group">
                         <button type="button" class="btn simple" ><a href="profile?un='.$usern.'" style="color:white;"><i class="glyphicon glyphicon-user"></i></a></button>
                       </div>
@@ -319,14 +293,14 @@ $shouts=$metro[0];
                           
                           ?>
                            
-  <div class="btn-group" role="group">
+  <!--<div class="btn-group" role="group">
       <a href="#" class="btn btn-success dropdown-toggle getora" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-sign-out" aria-hidden="true"></i><span class="caret"></span> </a>
       <ul class="dropdown-menu dropdown-menu-right" > 
            
           <li role="separator" class="divider"></li>
           <li><a onclick="logout();" id="logout" href="#">logout</a></li>
       </ul>
-  </div>
+  </div>-->
 </div>
                         
                         
@@ -348,17 +322,6 @@ $shouts=$metro[0];
                         <a href="profile?un='.$usern.'"><span class="badge"><i class="glyphicon glyphicon-user"></i> My profile</span></a>
                       </li>';}?>
 
- <?php  if(edit()){ 
-                     echo' <li class="nav-item">
-    <a id="pfile" onclick="chan(this.id);" class="nav-link bg-warning active ubuntu fa-lg" href="#"> <i class="fa fa-user fa-lg " aria-hidden="true"></i> Profile</a>
-  </li>
-  <li class="nav-item" style="background-color:#2c3e50;">
-    <a id="wll" onclick="chan(this.id);" class="nav-link ubuntu fa-lg" href="#"><i class="fa fa-table fa-lg" aria-hidden="true"></i> Wall &nbsp;<span class="badge pull-right" style="background-color:#2c3e50;"  ><div  class="wall_led led-yellow-off"></div></span></a>
-  </li>
-                      <li style="display:none;" id="loud_shout">
-                        <a href="#postModal" role="button" class="fa-lg ubuntu bg-primary"data-toggle="modal"><i class="fa fa-wifi fa-lg" aria-hidden="true"></i> Loud Shout <i class="fa fa-wifi fa-lg fa-flip-horizontal" aria-hidden="true"></i></a>
-                      </li>';
-					  }?>
                     </ul>
 
                      <ul class="nav navbar-nav navbar-right">
@@ -397,36 +360,87 @@ $uid=$query[0];
                 		
 							
 
-                               echo' <div class="panel-thumbnail" style="padding-bottom:0px;background:url('.$row91[0].') center no-repeat; background-size:contain;background-color:#000; height:35vh;">
-								</div>';?>
+                               echo' <div class="panel-thumbnail" style="padding-bottom:0px;background:url('.$row91[0].') center no-repeat; background-size:contain;background-color:#dadada; height:35vh;">
+								';
+                               if(edit()){echo'<a  href="#statusModal" role="button" data-toggle="modal" class="overbub"  > <code>'.$statusw.'</code></a>';}
+ else {echo'<a  href="#" role="button" class="overbub"  > <code>'.$statusw.'</code></a>';}
+echo'</div>';?>
                                 <div class="panel-body">
-                                  <p class="lead text-primary"><?php echo $fullnw; ?></p>
-                                  <p style="background-color:black;padding:4px;"> <span style="font-size:1.2em;"><?php echo "$".$usernw; ?></span> </p>
+                                  <p class="lead text-primary text-center"><?php echo $fullnw; ?></p>
+                                  <p class="bg-primary text-center" style="padding:4px;"> <span style="font-size:1.2em;"><?php echo "$".$usernw; ?></span> </p>
+                                  
+                                 <?php
+                                  
+                                  $show_tags=array();
+          $mes=mysql_query("SELECT tag_list.tag_name
+FROM tag_list
+INNER JOIN skill_tag  where tag_list.tagl_id=skill_tag.tagl_id
+and skill_tag.mem_id='$uid'");
+                   if($mes){ while($reso=mysql_fetch_row($mes)){
+                        array_push($show_tags,$reso[0]); 
+                   }
+                  // echo implode(',',$show_tags);
+                   }
+                   
+                   if(empty($show_tags)){
+                       echo' <div role="button" href="#skillModal" role="button"  data-toggle="modal" >
+                                      <ul class="tagging_ul responsive text-center" style="background-color: #dadada;border-color:silver; ">
+                                          <li class="tagging_tag txtblr">___________</li>
+                                          <li class="tagging_tag txtblr">_______</li>
+                                          <li class="tagging_tag txtblr">____</li>
+                                          <li class="tagging_tag txtblr">_____</li>
+                                          <li class="tagging_tag txtblr">___</li>
+                                          <li class="tagging_tag txtblr">_____</li>
+                                          <li class="tagging_tag txtblr">_________</li>
+                                      </ul>
+                                  </div>';
+                       
+                   }else{
+                       echo'<div role="button" href="#skillModal" role="button"  data-toggle="modal" >
+                                      <ul class="tagging_ul responsive text-center" style="background-color: #dadada;border-color:silver; ">';
+                       foreach($show_tags as $tempout){
+                           echo'<li class="tagging_tag ">'.$tempout.'</li>';
+                       }
+                       echo'</ul>
+                                  </div>';
+                       
+                   }
                                   
                                   
-                                </div>
-                              </div>
-
-							 <?php  echo'<div class="panel panel-default">
+                                  
+                                  
+                                  ?>
+                                  
+                                  
+                                  
+                                  
                                  
-                                  <div class="panel-body">
-                                    <ul class="list-group">';
-                                                          if($mem_mode==1){echo'<a class="list-group-item  ubuntu" title="Branch-'.$mem_section_part[0].' &#013; Section-'.$mem_section_part[1].' &#013; Year-'.$mem_section_part[2].'" href="channel?tn='.$mem_section.'" style="background-color:rgba(0,0,0,0.95);color:#9aea21;font-size:0.80em;"><span> <i class="fa fa-graduation-cap fa-2x" aria-hidden="true"><span class="ubuntu"> '.$mem_section.' </span></i></span> <span class="pull-right" style="font-size:1.1em;"><i class="fa fa-book" aria-hidden="true"></i> '.$mem_course.' </span></a>';}
-	if(($mem_mode==1 && $_SESSION['SESS_MODE']==2) || ($mem_id==$n2row[2]))	{echo'<a class="list-group-item   ubuntu" target="_blank"href="https://api.whatsapp.com/send?text=hey%20'.$fullnw.'($'.$ui.')&phone=+91'.$mem_mobile.'" style="background-color:#25d366;color:white;"><span > <i class="fa fa-whatsapp fa-2x " aria-hidden="true"></i>  </span> Whatsapp chat<span class="pull-right ubuntu" style="font-size:1.1em;"> <i class="fa fa-mobile" aria-hidden="true"></i> '.$mem_mobile.'</span></a>
-                                                                                ';}
-                                                         if(($mem_mode==1 && $_SESSION['SESS_MODE']==2) || ($mem_id==$n2row[2]&& $mem_mode!=2)){
-                                                            if($mem_ad_no!=null) echo'<li class="list-group-item  ubuntu" style="font-size:1.2em;"><span class="text-primary"> <i class="fa fa-qrcode fa-2x" aria-hidden="true"></i>  </span> <span class="pull-right" style="font-size:0.9em;">'.$mem_ad_no.'</span></li>';
-                                                         
-                                                         else if($mem_roll_no!=null)
-                                                             echo'<li class="list-group-item  ubuntu" style="font-size:1.2em;"><span class="text-primary"> <i class="fa fa-qrcode fa-2x" aria-hidden="true"></i>  </span> <span class="pull-right" style="font-size:0.9em;">'.$mem_roll_no.'</span></li>';
-                                                         
-                                                         }
-                                                         
-										echo'<a class="list-group-item  ubuntu " role="link" href="mailto:'.$emailw.'?subject=cpie%20chat&amp;body=Hey%20'.$fullnw.'($'.$ui.')" style="background-color:rgba(0,0,0,0.75);color:#9aea21;"><span > <i class="fa fa-envelope fa-2x" style="color:#9aea21;"aria-hidden="true"></i> <sup><i class="fa fa-share fa-2x" aria-hidden="true"></i></sup>  </span> <span id="mail_to" class="pull-right" style="font-size:1.0em;">'.$emailw.' </span></a>
-                                                                                <a onclick="copyToClipboard(\'#mail_to\')" target="_blank" href="https://hangouts.google.com/chat"class=" btn  btn-primary btn-block ubuntu " style="background-color:rgba(0,0,0,0.95);color:#9aea21;font-size:1.2em;"><img  src="https://ssl.gstatic.com/images/icons/material/product/1x/hangouts_32dp.png"/> Google hangout chat</a>
-                                    </ul>
-                                  </div>
-                               </div>';?>
+                                  
+                                 <?php 
+                                 if(edit()){
+                                      echo'<ul class="list-group" style="margin-bottom:0;" >
+										
+										<li class="list-group-item"><i class="fa fa-home  " style="font-size:2em;color:#2C3E50" aria-hidden="true"></i> <span class="text-primary heavyt" > From :</span> (approximate)<input    value="'.$from_placew.'" id="from_place" name="from_place" class="form-control input-sm inputbak " placeholder="Kanpur,UP...."></input></li>
+										<li class="list-group-item"><i class="fa fa-map-marker " style="font-size:2em;color:#2C3E50" aria-hidden="true"></i> <span class="text-primary heavyt"> Currently living at :</span> (approximate)<input  value="'.$lives_atw.'"  id="lives_at" name="lives_at" class="form-control input-sm inputbak" placeholder="Karol Bagh,New delhi...."></input></li>
+                                                                                  
+                                   
+                                    </ul>';
+                                 }
+                                 else
+                                 {echo' <ul class="list-group "style="margin-bottom:0;" >
+
+										<li class="list-group-item  ubuntu  "><i class="fa fa-home "style="font-size:2em;color:#2C3E50" aria-hidden="true"></i> <span class="text-primary heavyt ">  From : </span> '.$from_placew.' </li>
+										<li class="list-group-item  ubuntu "><i class="fa fa-map-marker "style="font-size:2em;color:#2C3E50" aria-hidden="true"></i> <span class="text-primary heavyt ">  Currently living at : </span> '.$lives_atw.' </li>
+                                   
+                                 </ul>';}
+                                 ?>
+                                </div>
+                            
+                                  
+                              </div>
+                             
+
+							 
 							  
                            
 							 
@@ -442,17 +456,7 @@ $uid=$query[0];
                           <!-- main col right -->
                           <div class="col-sm-7">
                                
-                                <?php if(edit()){
-                             echo'<div class="well"> 
-                                   <form class="form-horizontal" role="form">
-                                    <span class="btn-block ubuntu"style="font-size:1.2em;padding:3px;background-color:black;" > &nbsp; <i class="fa fa-meh-o"style="font-weight:bold;" aria-hidden="true"></i> My Status </span>
-                                     <div class="form-group" style="padding:0;margin:0;">
-                                      <textarea  id="status"  maxlength="140" name="status" onblur="validate(this.name,this.value);" class="form-control" placeholder="Update your status...."> '.$statusw.' </textarea>
-                                    </div>
-                                    
-                                  </form>
-                                 
-                                </div>';} 
+                                <?php 
                                 
                                 
                                 
@@ -513,157 +517,36 @@ $uid=$query[0];
 								  </div>
 						</div>
                       
-                               <div class="panel panel-default">
-                                   <div class="panel-heading"><a href="#" class="pull-right"></a> <h4 class="heavyt"> Status </h4></div>
+                               
+                          
+							
+                            <?php  echo'<div class="panel panel-default">
+                                 
                                   <div class="panel-body">
-                                    <p> <code><?php echo $statusw ;?></code></p>
-                                    <div class="clearfix"></div>
-								   </div>
-                               </div>
-                             <?php if(edit())
-                               echo'<div class="panel panel-default">
-                                 <div class="panel-heading"><a href="#" class="pull-right"></a> <h4 class="heavyt">About '.$firstnw.'</h4></div>
-                                  <div class="panel-body">
-                                    
-                                    <div class="clearfix"></div>
-                                    
-                                    
-                                    <textarea rows="6" maxlength="255" style="height:160px;" id="long_disc" name="long_disc"  onblur="validate(this.name,this.value);"class="form-control " style="color:#2c3e50;"placeholder="tell me something about yourself...."> '.$long_discw.' </textarea>                                    
-                                    
-                                    <form>
-                                  
-                                    
-                                  </div>
-                               </div>';
-							  
-							  else{
-							  echo'<div class="panel panel-default">
-                                 <div class="panel-heading"><a href="#" class="pull-right"></a> <h4 >About '.$firstnw.'</h4></div>
-                                  <div class="panel-body">
-                                    
-                                    <div class="clearfix"></div>
-                                    
-                                    
-                                    <p class=" ubuntu " style="color:#2c3e50;    text-shadow: 0px 0px 10px #ffffff;"> '.$long_discw.' </p>
-                                    
-                                    
-                                    <form>
-                                  
-                                    
-                                  </div>
-                               </div>';}
-							  ?>
-							  
-							<?php if(edit())
-                                                        {echo'<div class="panel panel-default">
-                                
-                                  <div class="panel-body">
-                                  <label for="skill_tagy" class="text-info postmf">&nbsp;&nbsp;<i class="fa fa-pencil-square-o text-primary fa-2x" aria-hidden="true"></i> <span class="text-primary heavyt"> Interested in :</span></label><button type="button"  id="tagy_show_but" onclick="skilltags();" class="btn-info pull-right ubuntu    btn-sm" style="padding:3px;">Update Tags</button> 
-        <input id="skill_tagy" class="tags-input"  value="'; 
-          $show_tags=array();
-          $mes=mysql_query("SELECT tag_list.tag_name
-FROM tag_list
-INNER JOIN skill_tag  where tag_list.tagl_id=skill_tag.tagl_id
-and skill_tag.mem_id='$mem_id'");
-                   if($mes){ while($reso=mysql_fetch_row($mes)){
-                        array_push($show_tags,$reso[0]); 
-                   }
-                   echo implode(',',$show_tags);
-                   }
-          
-          
-                   echo'"  data-max-tags="8">
-                       <div id="tagy_show_res"></div>
-        
-        
-                                    <ul class="list-group">
-										
-										<li class="list-group-item"><i class="fa fa-home text-primary fa-2x" aria-hidden="true"></i> <span class="text-primary heavyt" > From :</span> (approximate)<input    value="'.$from_placew.'" id="from_place" name="from_place" class="form-control " placeholder="Kanpur,UP...."></input></li>
-										<li class="list-group-item"><i class="fa fa-map-marker fa-2x text-primary" aria-hidden="true"></i> <span class="text-primary heavyt"> Currently living at :</span> (approximate)<input  value="'.$lives_atw.'"  id="lives_at" name="lives_at" class="form-control " placeholder="Karol Bagh,New delhi...."></input></li>
-                                                                                  
-                                   
+                                    <ul class="list-group">';
+                                                          if($mem_mode==1){echo'<a class="list-group-item patte ubuntu" title="Branch-'.$mem_section_part[0].' &#013; Section-'.$mem_section_part[1].' &#013; Year-'.$mem_section_part[2].'" href="channel?tn='.$mem_section.'" style="background-color:#8784ff;color:#efefef;font-size:0.80em;"><span> <i class="fa fa-graduation-cap fa-2x" aria-hidden="true"><span class="ubuntu"> '.$mem_section.' </span></i></span> <span class="pull-right" style="font-size:1.1em;"><i class="fa fa-book" aria-hidden="true"></i> '.$mem_course.' </span></a>';}
+	if(($mem_mode==1 && $_SESSION['SESS_MODE']==2) || ($mem_id==$n2row[2]))	{echo'<a class="list-group-item  patte ubuntu" target="_blank"href="https://api.whatsapp.com/send?text=hey%20'.$fullnw.'($'.$ui.')&phone=+91'.$mem_mobile.'" style="background-color:#25d366;color:white;"><span > <i class="fa fa-whatsapp fa-2x " aria-hidden="true"></i>  </span> Whatsapp chat<span class="pull-right ubuntu" style="font-size:1.1em;"> <i class="fa fa-mobile" aria-hidden="true"></i> '.$mem_mobile.'</span></a>
+                                                                                ';}
+                                                         if(($mem_mode==1 && $_SESSION['SESS_MODE']==2) || ($mem_id==$n2row[2]&& $mem_mode!=2)){
+                                                            if($mem_ad_no!=null) echo'<li class="list-group-item patte ubuntu" style="font-size:1.2em;"><span class="text-primary"> <i class="fa fa-qrcode fa-2x" aria-hidden="true"></i>  </span> <span class="pull-right" style="font-size:0.9em;">'.$mem_ad_no.'</span></li>';
+                                                         
+                                                         else if($mem_roll_no!=null)
+                                                             echo'<li class="list-group-item  patte ubuntu" style="font-size:1.2em;"><span class="text-primary"> <i class="fa fa-qrcode fa-2x" aria-hidden="true"></i>  </span> <span class="pull-right" style="font-size:0.9em;">'.$mem_roll_no.'</span></li>';
+                                                         
+                                                         }
+                                                         
+										echo'<a class="list-group-item  ubuntu patte" role="link" href="mailto:'.$emailw.'?subject=cpie%20chat&amp;body=Hey%20'.$fullnw.'($'.$ui.')" style="background-color:#f76a5c;color:#efefef;"><span > <i class="fa fa-envelope fa-2x" style="color:#efefef;"aria-hidden="true"></i></span> <span id="mail_to" class="pull-right" style="font-size:1.0em;">'.$emailw.' </span></a>
+                                                                                <a onclick="copyToClipboard(\'#mail_to\')" target="_blank" href="https://hangouts.google.com/chat"class=" list-group-item patte ubuntu " style="background-color: rgb(44, 62, 80);color: #109c59;font-size:1.2em;text-align:center;"><img  src="https://ssl.gstatic.com/images/icons/material/product/1x/hangouts_32dp.png"/> Google hangout chat</a>
                                     </ul>
                                   </div>
-                               </div>
-                             ';
-                                                        
-                                                        }
-
-else{
-echo'<div class="panel panel-default">
-                                  <div class="panel-body">
-       <div id="focut" ><div class="chipa_do" style="pointer-events: none;">                          
- <label for="skill_tagy" class="text-info postmf">&nbsp;&nbsp;<i class="fa fa-pencil-square-o text-primary fa-2x" aria-hidden="true"></i> <span class="text-primary heavyt"> Interested in :</span></label> 
-       <input id="skill_tagy" class="tags-input"  value="'; 
-          $show_tags=array();
-          $mes=mysql_query("SELECT tag_list.tag_name
-FROM tag_list
-INNER JOIN skill_tag  where tag_list.tagl_id=skill_tag.tagl_id
-and skill_tag.mem_id='$uid'");
-                   if($mes){ while($reso=mysql_fetch_row($mes)){
-                        array_push($show_tags,$reso[0]); 
-                   }
-                  if(!empty($show_tags)) {echo implode(',',$show_tags);}
-                   }
-          
-          
-                  echo'" data-max-tags="8" readonly="true">
-                      </div>
-                                                                
-
-                                    <ul class="list-group">
-
-										<li class="list-group-item  ubuntu "><i class="fa fa-home fa-2x text-primary" aria-hidden="true"></i> <span class="text-primary heavyt">  From :<br> </span> '.$from_placew.' </li>
-										<li class="list-group-item  ubuntu "><i class="fa fa-map-marker fa-2x text-primary" aria-hidden="true"></i> <span class="text-primary heavyt">  Currently living at : <br></span> '.$lives_atw.' </li>
-                                   
-                                    </ul>
-                                  </div>
-                               </div>';
-}
-
-
-
-?>
-                              
+                               </div>';?>      
                             
                              
                              
 							  
                           </div>
                        </div><!--/row-->
-                       <?php
-                       if(edit()){
-                            $gmat=mysql_query("select category_name,category_id,category_desc from priority order by category_id ");
-                 
-                             $tanto=1;  
-                             $wid=array();
-                           
-                           echo'<div class="panel" id="wall_tab" style="display:none;margin-bottom:0px;border-color:#8784ff;opacity:0.9;">
-                      
-<b>
-<ul class="nav nav-pills text-center "style="background-color:#8784ff;width:100%;" >
-                 <li><a style="color:#a19ff7;background-color:#2c3e50;"><i class="fa fa-table" aria-hidden="true"></i> WALL </a></li>';
-                while($gmatr=mysql_fetch_row($gmat)){    
-  if($tanto==1){echo'<li class="active"><a data-toggle="pill" href="#" title="'.$gmatr[2].'" onclick="refer('.$gmatr[1].')">'.$gmatr[0].'</a></li>';}
-  else{echo'<li><a data-toggle="pill" href="#" title="'.$gmatr[2].'" onclick="refer('.$gmatr[1].')">'.$gmatr[0].'</a></li>';}
-   
-  $tanto++;
-            array_push($wid,$gmatr[1]);    }
- echo'     
-</ul>
-
-</b>
-
-
-    </div>
-    <br>';
- 
- foreach ($wid as $value) {
-      echo'<div id="wallcat'.$value.'" style="display:none;"></div>';
- }
-                echo'<div id="wall_desk" name="wallcat1" class="row"></div>';
-                       }
-                       ?>
+                       
                          
 						 
                        
@@ -671,16 +554,7 @@ and skill_tag.mem_id='$uid'");
                           
                        
                       
-                         <div class="row" style="text-align:right;" >
-                          
-							              <div class="col-xs-8 col-sm-7">
-                            <a href="#" id="loadmore"onmouseover="refer_next();" style="display:none;"class="btn btn-default  "><i class="fa fa-arrow-down" aria-hidden="true"></i> Older <i class="fa fa-arrow-down" aria-hidden="true"></i></a>
-                       
-                           
-						               </div> 
-                        </div>
-                      
-                        
+                         
                       
                     </div><!-- /col-9 -->
                 <!-- /padding -->
@@ -691,217 +565,85 @@ and skill_tag.mem_id='$uid'");
     </div>
 </div>
             
-            
-<!-- image Modal -->
-<div id="zoomModal" class="modal fade" role="dialog">
+    
+
+ 
+           
+  <?php  if(edit()){
+ echo '<!-- status Modal -->
+<div id="statusModal" class="modal fade" role="dialog">
 	
-  <div class="modal-dialog modal-lg">
+  <div class="modal-dialog ">
 
     <!-- Modal content-->
     <div class="modal-content " style="overflow:hidden;background:transparent;    text-align: -webkit-center;">
      
-      
-          <div  id="zoom_image">
-            
-         
-      </div>
+     
+                             <div class="well"> 
+                                   <form class="form-horizontal" role="form">
+                                    <span class="btn-block bg-primary ubuntu"style="font-size:1.2em;padding:3px;" > &nbsp; <i class="fa fa-meh-o"style="font-weight:bold;color:white;" aria-hidden="true"></i> My Status </span>
+                                     <div class="form-group" style="padding:0;margin:0;">
+                                      <textarea  id="status"  maxlength="140" name="status" onblur="validate(this.name,this.value);" class="form-control textareabak" placeholder="Update your status...."> '.$statusw.' </textarea>
+                                    </div>
+                                    
+                                  </form>
+                                 
+                                </div> 
      
    
 
   </div>
   </div></div>
 
- <!-- image modal_over  -->
+ <!-- status modal_over  -->
+ ';}
+ ?>
  
-            
-            <!-- comment Modal -->
-<div id="commentModal" class="modal fade" open="$(this).scrollTop(0);" role="dialog">
+    
+ <?php 
+ 
+ if(edit()){
+ echo '<!-- skilltag Modal -->
+<div id="skillModal" class="modal fade" role="dialog">
 	
-  <div class="modal-dialog modal-lg">
+  <div class="modal-dialog ">
 
     <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title"><i class="fa fa-comments-o " aria-hidden="true"></i> Comments </h4>
-      </div>
-      <div class="modal-body "  style="overflow:hidden;">
-       
+    <div class="modal-content " style="overflow:hidden;background:transparent;    ">
+     
+     <div class="panel panel-default">
+                                
+                                  <div class="panel-body">
+                                  <label for="skill_tagy" class="text-info postmf">&nbsp;&nbsp;<i class="fa fa-pencil-square-o text-primary fa-2x" aria-hidden="true"></i> <span class="text-primary heavyt"> Interested in :</span></label> 
+        <input id="skill_tagy" class="tags-input"  value="'; 
           
-        <!-- content -->
-        <div class="panel-body row ubuntu "  style="max-height:500px;overflow-y:auto;">
-            <ul class="chat list  list-group " style="list-style:none;" id="comments_display"></ul> 
-            <div ><h2 class="text-center text-muted"><i id="latest_comment" class="fa fa-comments-o " aria-hidden="true"></i></h2></div>
-                </div>  
+              
+ echo implode(',',$show_tags);
+ 
+ 
+ 
+          
+                   echo'"  data-max-tags="8">
+                       
+<button type="button"  id="tagy_show_but" onclick="skilltags();" class="btn-primary ubuntu btn-block" style="padding:3px;">Update Tags</button>
+
+                       <br><div id="tagy_show_res"></div>
         
-      </div>
-      <div class="modal-footer ubuntu">
-       
-                    <div class="input-group">
-                        <textarea id="comment_info"  row="2" col="100%" class="form-control input-sm text-info " style="font-size:100%;"  placeholder="Type your comment here..."></textarea>
-                        <input type="hidden" id="comment_post_id" value=""/>
-                        <span class="input-group-btn">
-                            <button class="btn btn-success btn-md " onclick="save_comment();" type="button" id="comment_button">
-                                <i class="fa fa-chevron-circle-right" aria-hidden="true"></i> </button>
-                        </span>
-                    </div>
-                
-        <!--<button type="button" class="btn btn-default">Older</button>-->
-      </div>
-    </div>
+        
+                                    
+                                  </div>
+                               </div>
+                             
+   
 
   </div>
-</div>
+  </div></div>
 
- <!-- comment modal_over  -->
-
-
-
-
-
-
-<!--post modal-->
-<?php if(edit()){echo'
-<div id="postModal" class="modal fade" tabindex="-1" >
-  <div class="modal-dialog modal-lg">
-  <div class="modal-content">
-      <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-			
-      </div>
-	  <div class="modal-body">
-        <div class="tabbable"> <!-- Only required for left/right tabs -->
-        <ul class="nav nav-tabs fa-lg postmf">
-        <li class="active "><a href="#tab1" onclick="moveform(1);" data-toggle="tab"><i class="fa fa-lg fa-comment" aria-hidden="true"></i> Chat</a></li>
-        <li><a href="#tab2" onclick="moveform(2);"data-toggle="tab"><i class="fa fa-paperclip fa-lg" aria-hidden="true"></i> Media</a></li>
-    <li ><a href="#tab3" onclick="moveform(3);" data-toggle="tab"><i class="fa fa-bar-chart fa-lg" aria-hidden="true"></i> Poll</a></li>
-        </ul>
-        <div class="tab-content">
-        <div class="tab-pane active" id="tab1">
-            <form class="form center-block"  enctype="multipart/form-data" >
-            <div class="form-group">
-              <textarea rows="8" cols="100%" style="background-color:antiquewhite;" class="form-control input-lg" maxlength="45000" name="cap" id="cap" placeholder="What do you want to shout Loud?"></textarea>
-              <div id="moveform"><hr>
-             <label for="tagy" class="text-info postmf">&nbsp;&nbsp; <i class="fa fa-tags fa-2x" aria-hidden="true"></i> Target tags </label> 
-        <input id="tagy" class="tags-input"  value="" data-max-tags="8">
-        
-  <form class="navbar-form" >
-                        <div class="input-group input-group-sm " >
-                          <input type="text" class="form-control ubuntu inputpc" onkeyup="searchuser(this.id);" size="100" placeholder="Tag $username or name"  id="termmob" >
-                          <div class="input-group-btn">
-                            <button class="btn btn-primary" onclick="searchuser(\'termmob\');" type="button"><i class="glyphicon glyphicon-search"></i></button>
-                          </div>
-                        </div>
-      </form>
-          <div class="row">
-              <div id="search_members"></div></div>
-               <h4 class=" text-info text-center ubuntu postmf" style="background-color: aliceblue;" ><i class="fa fa-bullseye " aria-hidden="true"></i> Selected targets</h4>
-              <div class="row">
-             
-              <div id="members_all" style="background-color:#faebd7;min-height:5vh;">
-                 
-              </div>
-            
-             
-              <hr>
-          </div>
- <input type="hidden"  id="hide_u_ids">
-        <div class="form-group">
-      <label for="catin"> &nbsp;<i class="glyphicon glyphicon-th-list"></i> Category</label>
-      <select class="form-control" id="catin">';
-      
-       $gmat=mysql_query("select category_name,category_id from priority order by category_id ");
-       while($gmatu=mysql_fetch_row($gmat)){
-           
-           echo' <option value="catin'.$gmatu[1].'">'.$gmatu[0].'</option>';
-       }          
-       echo'
-      </select>
-        </div>
-             
-              </div>
-              <div id="tab1com"></div>
-              <div class="checkbox text-center fa-lg postmf">
-    <label>
-       <input class="fa-2x pull right " name="anon" id="anon" type="checkbox" value="1" > <i class="fa fa-user-secret fa-lg" aria-hidden="true"></i> hide identity
-    </label>
-              </div>
-			 <div id="respo"></div>
-            </div>
-				 <div class="modal-footer">
-          <div>
-              <button id="grabcap" onclick="multi();" type="button" class="btn   btn-block postmf" style="    background-color: powderblue;"><i class="fa fa-wifi text-primary fa-3x"></i> <span class="lead">Loud Shout</span> <i class="fa fa-wifi text-primary fa-3x fa-flip-horizontal"></i></button>
-            
-		 </div>
-		  
-		  </form>
-          
-      </div>
-			
-        </div>
-        <div class="tab-pane" id="tab2">
-        	 <form method="POST"   id="broadcastdocupload" action="broadcast_ajax/broadcast_uploadmera.php"  class="dropzone" enctype="multipart/form-data" >
-           <div class="form-group">
-              <textarea rows="8" cols="100%"class="form-control input-lg" style="background-color:antiquewhite;" name="cap2" maxlength="45000"  id="cap2" placeholder="Enter caption..."></textarea>
-              <div id="tab2com"></div>
-              <div class=" text-center fa-lg postmf">
-    <label>
-       <input class="fa-2x pull right " name="anon2" id="anon2" type="checkbox" value="1" > <i class="fa fa-user-secret fa-lg" aria-hidden="true"></i> hide identity
-    </label>
-              </div>
-              <div id="respo"></div>
-            </div>
-                     
-		  </form>
-          
-      
-			
-        </div>
-	 <div class="tab-pane" id="tab3">
-            <form class="form center-block" enctype="multipart/form-data" >
-            <div class="form-group">
-                <textarea rows="3" cols="100%"class="form-control input-lg text-danger" style="background-color:antiquewhite;" name="cap3" maxlength="1000" id="cap3" placeholder="Ask something..."required="give poll question.."></textarea>
-			
-                         
-                         <!-- poll options -->
-                        <ul style="list-style:none;    -webkit-padding-start: 0px;"id="append_li" >
-                            <li style="padding-bottom:3px;" ><input type="text" class="form-control input-sm text-success text-center" name="opt1" maxlength="60" id="opt1" placeholder="+ option 1"required/></li>
-                            <li style="padding-bottom:3px;"><input type="text" class="form-control input-sm text-success text-center" name="opt2" maxlength="60" id="opt2" placeholder="+ option 2"required/></li>
-                            <li style="padding-bottom:3px;"><input type="text" class="form-control input-sm text-success text-center" name="opt3" maxlength="60" id="opt3" placeholder="+ option 3"/></li>
-                              <li style="padding-bottom:3px;"><input type="text" class="form-control input-sm text-success text-center" name="opt4" maxlength="60" id="opt4" placeholder="+ option 4"/></li>
-                      
-                                          
-                        </ul>
-                         <li class="text-center" style="list-style:none;"><button type="button" id="add_opt_button" onclick="add_opt();" class=" btn-muted btn-xs "> + </button></li>  
-                         
-        
-            </div>
-                <div id="tab3com"></div>
-                <div class=" text-center fa-lg postmf">
-    <label>
-       <input class="fa-2x pull right " name="anon3" id="anon3" type="checkbox" value="1" > <i class="fa fa-user-secret fa-lg" aria-hidden="true"></i> hide identity
-    </label>
-              </div>
-                 <div id="respo3"></div>
-				 <div class="modal-footer">
-         
-                                     <button id="post_poll"name="post_poll" onclick="savepoll();" type="button" class="btn btn-block postmf" style="    background-color: powderblue;" ><i class="fa fa-wifi text-primary fa-3x"></i> <span class="lead">Loud Shout</span> <i class="fa fa-wifi text-primary fa-3x fa-flip-horizontal"></i></button>
-         
-        
-                                 </div>
-                  
-		  
-		  </form>
-          
-      
-			
-        </div>
-        </div>
-        </div></div></div></div></div>
-
-
-';}?>
-
+ <!-- skilltag modal_over  -->
+ ';}
+ ?>
+ 
+ 
 
 
 
@@ -936,7 +678,7 @@ and skill_tag.mem_id='$uid'");
        var skill_tagsource="";
        
        
-       $('#tagy').tagging(tagsource);
+       
   
     $('#skill_tagy').tagging(tagsource);
    
@@ -995,3 +737,33 @@ google.maps.event.addDomListener(window, \'load\', initialize);
 
 
 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

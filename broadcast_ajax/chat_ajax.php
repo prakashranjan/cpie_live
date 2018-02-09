@@ -115,7 +115,7 @@ $mainac=mysql_query("SELECT image_id,access_id,post_mode,owner_id,tagless,person
 if(mysql_num_rows($mainac)==0) 
 {
  $sql1998=mysql_query("Update priority_log set pri_".$wallid."= '$wakt[0]' where mem_id='$mem_id'");
- echo'<div style="text-align:center;"><img height="15%" width="15%" src="images/sorry.png"></img><br /><h5> No New Loud Shouts </h5></div>'; 
+ echo'<div style="text-align:center;"><img height="15%" width="15%" src="images/sorry.png"></img><br /><h5 class="heavyt"> No New Target Shouts </h5></div>'; 
  echo'<script>  $(\'#loadmore\').show();    if ( $("#wall_desk").css(\'display\') === \'none\' ){
     // element is hidden
     $("#loadmore").hide();

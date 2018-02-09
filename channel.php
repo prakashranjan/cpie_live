@@ -102,14 +102,14 @@ $sql89="UPDATE channel_user_online SET topic_id='$tid' WHERE mem_id='$member_id'
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
                  <meta name="display" content="standalone">
-                <meta name="theme-color" content="#2c3e50">
+                <meta name="theme-color" content="#fafafa">
                 <link rel="manifest" href="manifest.json">
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		
 		<link href="css/styles.css" rel="stylesheet">
-		<link href="css/font-awesome.min.css" rel="stylesheet">
+	<!--	<link href="css/font-awesome.min.css" rel="stylesheet">-->
 
-		
+		<link rel="stylesheet" href="https://use.fontawesome.com/d05823ecab.css">
 		
 		
 		
@@ -118,13 +118,7 @@ $sql89="UPDATE channel_user_online SET topic_id='$tid' WHERE mem_id='$member_id'
 			
 			
 		
-		/*@media (min-width: 768px) {
-    /* some CSS for large resolution */
-
-			#main{  
-  background: url("images/cw8.jpg") no-repeat center center fixed; 
-}
-                  /*    }*/	
+			
 		
 		
 		 
@@ -196,11 +190,8 @@ if(hideprivate()==0 && $_SESSION['SESS_MODE']==1 ){echo'
                         @media (max-width: 480px) {
                     .sidenav {
     
-    background: #617182; /* For browsers that do not support gradients */    
-    background: -webkit-linear-gradient(left top, rgba(135, 132, 255, 0.92),rgba(44, 62, 80, 0.77)); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(bottom right,rgba(135, 132, 255, 0.92),rgba(44, 62, 80, 0.77) ); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(bottom right,rgba(135, 132, 255, 0.92),rgba(44, 62, 80, 0.77)  ); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to bottom right, rgba(135, 132, 255, 0.92),rgba(44, 62, 80, 0.77) ); /* Standard syntax (must be last) */
+    background: #ffffff;   
+   
 
 }
 
@@ -381,11 +372,11 @@ $hrt=false;
     border-color: black;" href="#settingsModal" role="button"  data-toggle="modal"><?php echo "<marquee  direction='left' class='ubuntu fa-2x'>@".$category[0]." &nbsp;&nbsp;<i style='font-size:0.9em;' class='text-info glyphicon glyphicon-eye-open'>".$category[1]."</i></marquee>";?></button>
   </div>
                            
-  <div class="btn-group" role="group">
+  <!--<div class="btn-group" role="group">
     <button type="button" class="btn " style="background-color:#8784ff;" href="#postModal" role="button" data-toggle="modal" onclick="saaf();"><i class="glyphicon glyphicon-bullhorn getora"></i></button>
-  </div>
-                            <div class="btn-group" role="group">
-    <button type="button" class="btn  " href="#" onclick="prechat();"style="padding:0;background-color:#8784ff;" ><i class="fa fa-comments getora" style="color:#3ce793;"></i><span class="badge ting" style=" background-color:#2C3E50;" ></span></button>
+  </div>-->
+                            <div class="btn-group" role="group" onclick="prechat();">
+    <button type="button" class="btn  " href="#" style="background-color:#8784ff;" ><i class="fa fa-refresh getora" style="color:#3ce793;"></i><span class="badge ting" style=" background-color:#2C3E50;" ></span></button>
   </div>
                          <?php if($_SESSION['SESS_MODE']==2){echo'   <div class="btn-group" role="group">
     <button type="button" class="btn  " style="background-color:#8784ff;" id="fav2" onclick="favmark();">';
@@ -408,14 +399,14 @@ echo'<i style="color:#e74c3c;" class="fa fa-heart-o getora" aria-hidden="true"><
     
    echo'</button></div>';}?>
                             
-  <div class="btn-group" role="group">
+  <!--<div class="btn-group" role="group">
       <a href="#" class="btn  dropdown-toggle getora"style="background-color:#8784ff;" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-sign-out" aria-hidden="true"></i><span class="caret"></span> </a>
       <ul class="dropdown-menu dropdown-menu-right" > 
            
           <li role="separator" class="divider"></li>
           <li><a onclick="logout();" id="logout" href="#">logout</a></li>
       </ul>
-  </div>
+  </div>-->
 </div>
                         
                         
@@ -442,9 +433,9 @@ echo'<i style="color:#e74c3c;" class="fa fa-heart-o getora" aria-hidden="true"><
                         
                       </li>
                     
-                      <li>
+                      <!--<li>
                           <a href="#postModal" role="button" data-toggle="modal" onclick="saaf();" ><span class="badge"><i class="glyphicon glyphicon-plus"></i> Shout</span></a>
-                      </li>
+                      </li>-->
                      <?php  if($_SESSION['SESS_MODE']==2){echo'<li>
                         <a href="#"  id="fav" onclick="favmark();"style=" color:red;text-align:center;">';
                      
@@ -465,7 +456,7 @@ echo'<i style="color:#e74c3c;" class="fa fa-heart-o fa-lg fa-2x"></i> <span clas
                         echo'</a>    
                      </li>';} ?>
 					  
-                    <li class="active" ><a href="#" onclick="prechat();"><i class="fa fa-comments fa-lg fa-2x" style="color:#3ce793;" ></i> <span class="badge ting" style=" background-color:#2C3E50;" ></span></a></li>
+                    <li class="active" ><a href="#" onclick="prechat();"><i class="fa fa-refresh fa-lg fa-2x" style="color:#3ce793;" ></i> <span class="badge ting" style=" background-color:#2C3E50;" ></span></a></li>
                       
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
@@ -505,7 +496,12 @@ echo'<i style="color:#e74c3c;" class="fa fa-heart-o fa-lg fa-2x"></i> <span clas
     </div>
 </div>
 
-
+ <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll ">
+        <a class="btn btn-primary" href="#postModal" role="button" data-toggle="modal" onclick="saaf();" title="Shout Something">
+            <i class="fa fa-bullhorn"></i>
+        </a>
+    </div>	
 <!-- sharemodal -->
 <div class="modal fade" id="shareModal" role="dialog">
     <div class="modal-dialog">
@@ -820,7 +816,7 @@ echo'<i style="color:#e74c3c;" class="fa fa-heart-o fa-lg fa-2x"></i> <span clas
             </div>
 				 <div class="modal-footer">
           <div>
-          <button id="grabcap" onclick="multi();" type="button" class="btn btn-primary btn-sm ubuntu " >Shout <i class="fa fa-bullhorn fa-3x"></i></button>
+          <button id="grabcap" onclick="multi();" type="button" class="mob_but btn btn-primary btn-sm ubuntu " >Shout <i class="fa fa-bullhorn fa-3x"></i></button>
             
 		 </div>
                                  </div>
@@ -875,7 +871,7 @@ echo'<i style="color:#e74c3c;" class="fa fa-heart-o fa-lg fa-2x"></i> <span clas
              <label class="text-primary postmf"><input id="poll_checkbox" name="poll_checkbox" type="checkbox" ><i class="fa fa-user-secret " aria-hidden="true"style="color:#555555;"></i> hide identity</label>
          
              <?php if($_SESSION['SESS_MODE']==1){echo'&nbsp;<label class="text-primary  postmf"><input id="poll_hide_t" name="poll_hide_t" type="checkbox" ><i class=" fa fa-user " aria-hidden="true"style="color:#555555;"></i> only students</label>  ';}?>  
-         </div><button id="post_poll"name="post_poll" onclick="savepoll();" type="button" class="btn btn-primary btn-sm ubuntu " > Shout <i class="fa fa-bullhorn fa-3x"></i></button>
+         </div><button id="post_poll"name="post_poll" onclick="savepoll();" type="button" class="mob_but btn btn-primary btn-sm ubuntu " > Shout <i class="fa fa-bullhorn fa-3x"></i></button>
          <br><div id="respo3"></div>
                                  </div>
                   

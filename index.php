@@ -53,8 +53,8 @@ if (navigator.serviceWorker.controller) {
 <script type="text/javascript" src="js/jquery.min.js"></script>
 
 
-<link href="css/font-awesome.min.css" rel="stylesheet">
-
+<!--<link href="css/font-awesome.min.css" rel="stylesheet">-->
+<link rel="stylesheet" href="https://use.fontawesome.com/d05823ecab.css">
 
 
 
@@ -109,7 +109,7 @@ canvas{display:none !important;}
 		<meta name="generator" content="Bootstrap" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
                <meta name="display" content="standalone">
-                <meta name="theme-color" content="#2c3e50">
+                <meta name="theme-color" content="#fafafa">
     <link rel="manifest" href="manifest.json">
     <title>Carbon Pie</title>
 
@@ -138,6 +138,25 @@ canvas{display:none !important;}
             }
         
         </style>
+        
+        
+        <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
+        document.getElementById("sctop").style.display = "block";
+    } else {
+        document.getElementById("sctop").style.display = "none";
+    }
+}
+
+        
+</script>        
+        
+        
+        
 
 	</head>
 	
@@ -147,7 +166,7 @@ canvas{display:none !important;}
 	
 
     <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top"     style="background-color: rgba(44, 62, 80, 0.95);">
+    <nav class="navbar navbar-default navbar-fixed-top"     style="    box-shadow: 0px 0px 10px #000000; background-color: rgba(44, 62, 80, 0.95);">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
@@ -168,7 +187,7 @@ canvas{display:none !important;}
                     </li>
                     
                     <li class="page-scroll">
-                        <a href="#about">About</a>
+                        <a  href="#readmoreModal"  data-toggle="modal">About</a>
                     </li>
 					
                     <li class="page-scroll">
@@ -182,27 +201,38 @@ canvas{display:none !important;}
     </nav>
 
     <!-- Header -->
-    <header style="background:url('images/iw1.jpg') no-repeat center;background-size: cover; min-height: 100vh;">
+    <header class="colgate">
         <div class="container">
             <div class="row" style="margin-left: 0px;
     margin-right: 0px;padding:0px;">
-                <div class="col-lg-12  jigli">
+                <div class="col-lg-8 colo-md-8 col-sm-8 text-primary jigli pctitle hidden-xs">
+                    <h1 style="font-size:12em;"><!--<i class="fa fa-crosshairs" aria-hidden="true"></i>--><i class="fa fa-bullhorn" aria-hidden="true"></i>&nbsp;Just Shout</h1>
+    <p style="text-shadow: 0 1px 0 rgba(0,0,0,0.15);"class="text-success"  ><i class="fa fa-2x fa-lightbulb-o" aria-hidden="true"></i> We will keep you Connected with your College World.</p>
+    
+    
+                     
+                    
+                </div>
+                
+                <div class="col-lg-4 col-md-4 col-sm-4 jigli ">
               
-                    <div class="panel panel-success  animated rubberBand " style="background-color:rgba(255,255,255,0.95);border-color:white;">
-                        <br>
+                    <div class="panel   animated rubberBand letsgo" >
+                        <br class="hidden-xs">
                           <div class="intro-text">
-					<span class="skills"><span style="color:#2C3E50;">LOGIN &nbsp; <i class="fa  fa-graduation-cap fa-2x" aria-hidden="true"></i>&nbsp;JSSATEN</span> </span>
+                              <span class="skills" style="font-weight: bold;"><span style="color:#2C3E50;">LOGIN &nbsp; <i class="fa  fa-graduation-cap fa-3x" aria-hidden="true"></i>&nbsp;JSSATEN</span> </span>
                     
-                    
+                    <hr class="star-primary visible-xs">
 </div>
+                        
 
              
-                <div class="panel-body ">
-                    <form class="form-horizontal" role="form" enctype="multipart/form-data" action="login_exec.php" method="post">
+                <div class="panel-body " style="padding-top:0;">
+                    <p style="text-shadow: 0 1px 0 rgba(0,0,0,0.15);"class="text-success visible-xs"  ><i class="fa  fa-lightbulb-o" aria-hidden="true"></i> We will keep you Connected with your College World.</p>
+                    <form class="form-horizontal" role="form" enctype="multipart/form-data" action="login_exec.php" method="post" autocomplete="on">
                         <div class="form-group">
                             
                             
-                                <input type="username"  class="form-control  " name="username"id="inputEmail3" placeholder="Username" required="">
+                                <input type="username"  class="form-control  " name="username"id="inputEmail3" placeholder="Email or Phone or Username" required="">
                                 
                             
                         </div>
@@ -240,9 +270,10 @@ echo ' <div class="alert alert-danger">
             //signup material
            
         ?>
+                	<small class="text-muted">forgot your password? <a  href="#passresetModal"  data-toggle="modal">click here</a></small>
                 </div>
                 
-                        <div class="panel-footer page-scroll row" style="background-color:rgba(236,240,241,0.45);" ><a href="#contact" class=" page-scroll btn btn-info btn-block "><i class="fa fa-barcode fa-2x" aria-hidden="true"></i><i class="fa fa-user-plus fa-2x"></i> New User</a> <br><span class="text-muted pull-right" style="font-size:1em;">Best view on <i class="fa fa-2x fa-chrome" aria-hidden="true"></i> Chrome &nbsp; </span>
+                        <div class="panel-footer page-scroll row letsgofoot" ><a href="#contact" class=" page-scroll btn btn-info btn-block "><i class="fa fa-barcode fa-2x" aria-hidden="true"></i><i class="fa fa-user-plus fa-2x"></i> New User</a> <br><span class="text-muted pull-right" style="font-size:small;">Best view on <i class="fa fa-chrome" aria-hidden="true"></i> Chrome &nbsp; </span>
                 </div>
                 
             </div>
@@ -260,28 +291,10 @@ echo ' <div class="alert alert-danger">
 
     <!-- About Section -->
     <section class="success" id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>Communication network
-for the 21st century Colleges.</h2>
-                    <hr class="star-light">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-lg-offset-2">
-                    <p>Organize your College conversations in open channels classified under categories. Make a channel for your class, a topic, a team, or anything—everyone has a transparent view of all that’s going on. Private channels are also available . </p>
-                </div>
-                <div class="col-lg-4">
-                    <p>Not just your messages, but all your files, images, PDFs, documents, and spreadsheets can be dropped right into Carbon Pie and shared with anyone you want. Add new channels, favourite it for later reference, and it’s all completely searchable.</p>
-                </div>
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <a  class="btn btn-lg btn-outline mbada" href="#readmoreModal"  data-toggle="modal">
-                        <i class="fa fa-book"></i> Read More
-                    </a>
-                </div>
-            </div>
-        </div>
+       
+            
+         
+        
     </section>
 
     <!-- SIGNUP Section -->
@@ -453,7 +466,7 @@ for the 21st century Colleges.</h2>
     </footer>
 
     <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
-    <div class="scroll-top page-scroll visible-xs visible-sm">
+    <div id="sctop" style="display:none;" class="scroll-top page-scroll ">
         <a class="btn btn-primary" href="#page-top">
             <i class="fa fa-chevron-up"></i>
         </a>
@@ -476,7 +489,7 @@ for the 21st century Colleges.</h2>
                         <div class="modal-body">
                             <h2>About Carbon Pie</h2>
                             <hr class="star-primary">
-                            <img src="images/rectlogo.png" class="img-responsive img-centered img-circle" alt="">
+                            <!--<img src="images/rectlogo.png" class="img-responsive img-centered img-circle" alt="">-->
                             <p>In large number of colleges there is no concrete system for internal communication ,and students use to make their own group network on whatsapp, facebook etc. According to us when a student joins an institute he/she becomes a member of a new society and for the communication within the society there must be a technological tool.By interacting with teachers and fellow students of the colleges.We came up with a solution Carbon Pie.
 </p>
                             <br>
@@ -513,6 +526,59 @@ for the 21st century Colleges.</h2>
             </div>
         </div>
     </div>
+    
+      <!-- Password Reset Modals -->
+   
+
+    <div class="portfolio-modal modal fade" id="passresetModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <!--<div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-lg-offset-3 ">
+                        <div class="modal-body" id="passwall" >
+                            <script src="https://www.google.com/recaptcha/api.js"></script>
+                            <h2>Find Your Account</h2>
+                            <hr class="star-primary">
+                            <br>
+                            <div id="fndaccnt">
+                           <form >
+  <div class="form-group">
+    <p for="epuinput" class="">	
+        Please enter your email address or username to search for your account.</p>
+    <input type="text" class="form-control text-center" id="epuinput" placeholder="Email or Username">
+  </div>
+  
+  <button id="prcaptcha"
+class="g-recaptcha btn btn-success mbada"
+data-sitekey="6LfW_EMUAAAAAGQelY15bw7d3P_BnTbgT35XXN52"
+data-callback="psendmail">
+Search
+</button>
+ <!--<button type="button" onclick="psendmail();" class="btn btn-success mbada">Search</button>-->
+</form>
+                            </div>
+                            
+                
+                
+               
+                    
+            
+                             
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
 
    
     

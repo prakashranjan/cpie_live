@@ -35,3 +35,75 @@ $('body').scrollspy({
 $('.navbar-collapse ul li a').click(function() {
     $('.navbar-toggle:visible').click();
 });
+
+
+function psendmail(){
+    if($("#epuinput").val()!==""){
+  var prtoken=grecaptcha.getResponse();
+  
+  //console.log(prtoken);
+  if(prtoken){
+ 
+ $.ajax({
+         type:"get",
+   url: "fndaccnt.php",
+   beforeSend: function() {
+    $('#fndaccnt').html("<div style='text-align:center;'><img src='images/copy.gif'/></div>");
+  },
+
+   data: {epuinput:$("#epuinput").val(),prcaptcha:prtoken},
+   success: function( data ) {
+   $( "#fndaccnt" ).html(data);
+   
+   }
+  
+})
+}
+    }
+
+
+}
+
+
+
+function verotp(){
+    if($("#otpinput").val()!=="" && $("#otpinput").val().length===6 && tark===0){
+  
+ $.ajax({
+         type:"post",
+   url: "verotp.php",
+   beforeSend: function() {
+    $('#otpfinal').html("<div style='text-align:center;'><img src='images/copy.gif'/></div>");
+  },
+
+   data: {otpinput:$("#otpinput").val(),otpcpword:$("#otpcpword").val()},
+   success: function( data ) {
+   $( "#otpfinal" ).html(data);
+   
+   }
+  
+})
+    }
+
+
+}
+
+var tark= 1;
+
+function otpcheckPasswordMatch() {
+   
+    var otppassword = $("#otppword").val();
+    var otpconfirmPassword = $("#otpcpword").val();
+   // console.log(password.length);
+ if(otppassword.length <= 3){
+   //  console.log("ye kaise chala");
+     $("#otperror").html("**too short..").css('color', 'red');
+     tark=1;
+     return;}
+    if (otppassword != otpconfirmPassword)
+    { $("#otperror").html("**not matching..").css('color', 'red');
+          tark=1;}
+    else
+    {$("#otperror").html("**matched").css('color', 'green');
+          tark=0;}
+}

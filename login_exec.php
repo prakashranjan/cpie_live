@@ -41,9 +41,24 @@
 		header("location: index");
 		exit();
 	}
+        if(preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/", $username)){
+            //echo "email";
+           $firstid="email";
+          
+            
+        }else if(strlen($username)==10 && preg_match('/^[1-9][0-9]*$/', $username)){
+            //echo"phone";
+            $firstid="mobile";
+            
+        }
+        else{
+            //echo"username";
+            $firstid="username";
+            
+        }
  
 	//Create query
-	$qry="SELECT mem_id,fname,lname,gender,picture,username,mode_id FROM member WHERE username='$username' AND password='$password'";
+	$qry="SELECT mem_id,fname,lname,gender,picture,username,mode_id FROM member WHERE $firstid='$username' AND password='$password'";
 	$result=mysql_query($qry);
  
 	//Check whether the query was successful or not
@@ -94,7 +109,7 @@ $result1=mysql_query($sql1);
 			exit();
 		}else {
 			//Login failed
-			$errmsg_arr[] = 'user name and password not found';
+			$errmsg_arr[] = 'Access Denied';
 			$errflag = true;
 			if($errflag) {
 				$_SESSION['ERRMSG_ARR'] = $errmsg_arr;
