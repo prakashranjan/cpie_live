@@ -115,7 +115,7 @@
            
            //mail bhejna hai with otp..
          
-if (smtpmailer($run[1], 'cpiejss@gmail.com', 'C-Pie JSSATEN', 'Password Reset', $sixotp.' is your OTP. This OTP expires in 15 minutes')) {
+//if (smtpmailer($run[1], 'cpiejss@gmail.com', 'C-Pie JSSATEN', 'Password Reset', $sixotp.' is your OTP. This OTP expires in 15 minutes')) {
 	//echo "email sent successfully";
 
 
@@ -145,9 +145,9 @@ if (smtpmailer($run[1], 'cpiejss@gmail.com', 'C-Pie JSSATEN', 'Password Reset', 
          }
          
        
-        // echo $sixotp."<br>";
+         echo $sixotp."<br>";
         $_SESSION['OTPUSER']=$run[0]."@".$passre_id;
-      // echo $_SESSION['OTPUSER']."<br>";
+       echo $_SESSION['OTPUSER']."<br>";
         echo'<form >
   <div class="form-group">
  
@@ -184,11 +184,11 @@ Something went wrong</p>";
          
      }
      
-     }else{
+    /* }else{
          echo"<p class='text-danger'>	
 Something went wrong</p>";
          
-     }  
+     }*/  
          
       
      }
