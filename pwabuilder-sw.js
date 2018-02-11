@@ -1,4 +1,4 @@
-var CACHE_NAME = 'static-cache_V1.03';
+var CACHE_NAME = 'static-cache_V1.04';
 var urlsToCache = [
  
   'css/bootstrap.min.css',
@@ -7,14 +7,18 @@ var urlsToCache = [
   'css/freelancer.css',
   'css/homecss.css',
   'css/profilecss.css',
+  'css/shoutbox.css',
   'css/styles.css',
   'css/topiccss.css',
   'css/typeahead.tagging.css',
-  'css/font-awesome.min.css',
+  'css/typeahead.css',
+  'css/bootstrap-tagsinput.css',
+  'https://use.fontawesome.com/d05823ecab.css',
   'https://fonts.googleapis.com/css?family=Montserrat:400,700',
   'https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic',
   'https://fonts.googleapis.com/css?family=Ubuntu',
   'js/bootstrap.min.js',
+  'js/bootstrap-tagsinput.js',
   'js/channel_1.js',
   'js/channel_2.js',
   'js/channel_common.js',
@@ -34,14 +38,15 @@ var urlsToCache = [
   'js/signupscript.js',
   'js/topicjs.js',
   'js/typeahead.tagging.js',
+  'js/typeahead.js',
+  'js/shoutbox.js',
   'https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.4/typeahead.bundle.min.js',
   'js/classie.js',
   'js/cbpAnimatedHeader.js',
   'js/profileotherjs.js',
-  'images/c7.jpg',
   'images/copy.gif',
-  'images/c7dark.jpg',
-  'images/ppicdefm.jpg',
+  'images/sorry.png',
+  'images/ppicdefm.png',
   'images/ppicdeff.jpg',
   'images/tt1.png',
   'images/tt2.png',
@@ -53,7 +58,7 @@ var urlsToCache = [
   'images/tt8.png',
   'images/tt9.png',
   'images/pic09.jpg',
-  'images/rectlogo.png',
+  'images/comodo_secure_seal_100x85_transp.png',
   'images/logo49.png',
   'offline.html'
 
