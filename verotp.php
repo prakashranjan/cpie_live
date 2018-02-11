@@ -13,10 +13,10 @@
    {   header("location: home");
 		exit();   }
 
-                if(!isset($_SESSION['OTPUSER'])){
+                if(isset($_SESSION['OTPUSER'])){
                     
                 }else{
-                    echo"exit hoga otpuser nhi";
+                   // echo"exit hoga otpuser nhi";
                     exit();
                 }
  
@@ -39,13 +39,13 @@
 	$otpinput = clean($_POST['otpinput']);
         $otpcpword = clean($_POST['otpcpword']);
        
-	echo $otpcpword."<br>";
-        echo $otpinput."<br>";
-        echo $_SESSION['OTPUSER']."<br>";
+	//echo $otpcpword."<br>";
+       // echo $otpinput."<br>";
+        //echo $_SESSION['OTPUSER']."<br>";
         $otpuser=$_SESSION['OTPUSER'];
         $otpcontent=  explode('@', $otpuser);
-        echo $otpcontent[0]."<br>";
-        echo $otpcontent[1]."<br>";
+       // echo $otpcontent[0]."<br>";
+       // echo $otpcontent[1]."<br>";
 	//Input Validations
 	if($otpinput == '') {
 		$errmsg_arr[] = 'otp missing';
