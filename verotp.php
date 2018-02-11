@@ -42,7 +42,7 @@
   //      echo $otpinput."<br>";
    //     echo $_SESSION['OTPUSER']."<br>";
         $otpuser=$_SESSION['OTPUSER'];
-        $otpcontent=  split('@', $otpuser);
+        $otpcontent=  explode('@', $otpuser);
      //   echo $otpcontent[0]."<br>";
       //  echo $otpcontent[1]."<br>";
 	//Input Validations

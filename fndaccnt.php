@@ -135,7 +135,7 @@ if (smtpmailer($run[1], 'cpiejss@gmail.com', 'C-Pie JSSATEN', 'Password Reset', 
          
          
          //next form
-         $hidemail=  split('@', $run[1]);
+         $hidemail=  explode('@', $run[1]);
          
          $vatol=  strlen($hidemail[0]);
          for($vato=0;$vato<$vatol;$vato++){
