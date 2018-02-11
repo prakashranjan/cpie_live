@@ -13,7 +13,6 @@ var urlsToCache = [
   'css/typeahead.tagging.css',
   'css/typeahead.css',
   'css/bootstrap-tagsinput.css',
-  'https://use.fontawesome.com/d05823ecab.css',
   'https://fonts.googleapis.com/css?family=Montserrat:400,700',
   'https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic',
   'https://fonts.googleapis.com/css?family=Ubuntu',
