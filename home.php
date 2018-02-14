@@ -325,6 +325,18 @@ setTimeout(function(){
 
 
 ?>
+
+
+<link rel="manifest" href="/manifest.json" />
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+  var OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "eeabe40a-1825-46cc-a5a9-25b64d3ee104",
+    });
+  });
+</script>
 		
 	</head>
 	<body style="filter: blur(30px);-webkit-filter: blur(30px);">
@@ -776,6 +788,53 @@ echo'</p>
 });
         
         </script>
+        
+
+   
+   <!--
+   <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+<script>
+    var paylomara;
+        var config = {
+            messagingSenderId: '315053051346'
+        };
+        firebase.initializeApp(config);
+        
+        
+         const messaging = firebase.messaging();
+ messaging
+   .requestPermission()
+   .then(function () {
+    // MsgElem.innerHTML = "Notification permission granted." 
+     console.log("Notification permission granted.");
+
+     // get the token in the form of promise
+     return messaging.getToken()
+   })
+   .then(function(token) {
+     // print the token on the HTML page
+    // TokenElem.innerHTML = "token is : " + token
+    console.log("token is      " + token);
+   })
+   .catch(function (err) {
+  // ErrElem.innerHTML = ErrElem.innerHTML + "; " + err
+   console.log("Unable to get permission to notify.", err);
+ });
+ 
+ 
+    messaging.onMessage(function(payload) {
+            console.log("Message received. ", payload);
+            //NotisElem.innerHTML = NotisElem.innerHTML + JSON.stringify(payload) 
+            console.log(JSON.stringify(payload));
+            console.log(payload.data.notification.body);
+            paylomara= payload.data.notification;
+            console.log(paylomara.icon);
+            console.log(paylomara.title);
+            console.log(paylomara.body);
+        });
+ 
+</script>-->
+   
         <script>
         Notification.requestPermission(function(status) {
     console.log('Notification permission status:', status);
