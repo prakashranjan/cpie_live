@@ -1,6 +1,6 @@
-var CACHE_NAME = 'static-cache_V1.04';
+var CACHE_NAME = 'static-cache_V1.05';
 var urlsToCache = [
- 
+  
   'css/bootstrap.min.css',
   'css/commoncss.css',
   'css/dropzone.css',
