@@ -803,15 +803,22 @@ echo'</p>
 //notification script
 OneSignal.push(function() {
   /* These examples are all valid */
-
-               
-  OneSignal.getUserId().then(function(userId) {
+OneSignal.on('subscriptionChange', function (isSubscribed) {
+    console.log("The user's subscription state is now:", isSubscribed);
+    if(isSubscribed){
+    OneSignal.getUserId().then(function(userId) {
     console.log("OneSignal User ID:", userId);
      OneSignal.syncHashedEmail("<?php echo $n2row[1]; ?>").then(function(){
-        console.log("email registered success") 
+        console.log("email registered success");
      });
       
   });
+  }else{
+  console.log("user unsubscribed");
+  }
+  });
+               
+  
 });
  
         </script>
