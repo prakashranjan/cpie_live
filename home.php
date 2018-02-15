@@ -791,49 +791,7 @@ echo'</p>
         
 
    
-   <!--
-   <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
-<script>
-    var paylomara;
-        var config = {
-            messagingSenderId: '315053051346'
-        };
-        firebase.initializeApp(config);
-        
-        
-         const messaging = firebase.messaging();
- messaging
-   .requestPermission()
-   .then(function () {
-    // MsgElem.innerHTML = "Notification permission granted." 
-     console.log("Notification permission granted.");
 
-     // get the token in the form of promise
-     return messaging.getToken()
-   })
-   .then(function(token) {
-     // print the token on the HTML page
-    // TokenElem.innerHTML = "token is : " + token
-    console.log("token is      " + token);
-   })
-   .catch(function (err) {
-  // ErrElem.innerHTML = ErrElem.innerHTML + "; " + err
-   console.log("Unable to get permission to notify.", err);
- });
- 
- 
-    messaging.onMessage(function(payload) {
-            console.log("Message received. ", payload);
-            //NotisElem.innerHTML = NotisElem.innerHTML + JSON.stringify(payload) 
-            console.log(JSON.stringify(payload));
-            console.log(payload.data.notification.body);
-            paylomara= payload.data.notification;
-            console.log(paylomara.icon);
-            console.log(paylomara.title);
-            console.log(paylomara.body);
-        });
- 
-</script>-->
    
         <script>
         Notification.requestPermission(function(status) {
@@ -841,6 +799,15 @@ echo'</p>
 });
 
 
+
+//notification script
+OneSignal.push(function() {
+  // Occurs when the user's subscription changes to a new value.
+  OneSignal.on('subscriptionChange', function (isSubscribed) {
+    console.log("The user's subscription state is now:", isSubscribed);
+  });
+});
+ 
         </script>
 		
 	</body>
