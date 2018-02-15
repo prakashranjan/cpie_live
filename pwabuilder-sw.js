@@ -1,4 +1,4 @@
-var CACHE_NAME = 'static-cache_V1.05';
+var CACHE_NAME = 'static-cache_V1.04';
 var urlsToCache = [
   
   'css/bootstrap.min.css',
