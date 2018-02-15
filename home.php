@@ -360,7 +360,7 @@ setTimeout(function(){
               	<?php
                 $usern=$_SESSION['SESS_USERNAME'];
                 $mem_id=$_SESSION['SESS_MEMBER_ID'];
-                $n2qry="select picture from member WHERE username='$usern' ";
+                $n2qry="select picture,email from member WHERE username='$usern' ";
                 $n2result=mysql_query($n2qry);
                 $n2row = mysql_fetch_row($n2result);
                 ?>
@@ -802,9 +802,15 @@ echo'</p>
 
 //notification script
 OneSignal.push(function() {
-  // Occurs when the user's subscription changes to a new value.
-  OneSignal.on('subscriptionChange', function (isSubscribed) {
-    console.log("The user's subscription state is now:", isSubscribed);
+  /* These examples are all valid */
+
+               
+  OneSignal.getUserId().then(function(userId) {
+    console.log("OneSignal User ID:", userId);
+     OneSignal.syncHashedEmail("<?php echo $n2row[1]; ?>").then(function(){
+        console.log("email registered success") 
+     });
+      
   });
 });
  
