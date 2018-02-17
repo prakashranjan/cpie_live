@@ -808,13 +808,15 @@ OneSignal.on('subscriptionChange', function (isSubscribed) {
     if(isSubscribed){
     OneSignal.getUserId().then(function(userId) {
     console.log("OneSignal User ID:", userId);
+    savenotidata(userId);
      OneSignal.syncHashedEmail("<?php echo $n2row[1]; ?>").then(function(){
         console.log("email registered success");
+        
      });
       
   });
   }else{
-  console.log("user unsubscribed");
+  console.log("user not subscribed");
   }
   });
                

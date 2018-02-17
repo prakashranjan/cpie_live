@@ -487,7 +487,21 @@ setTimeout(function(){
 	
 	
 
-   
+   function savenotidata(usernom){
+	
+ $.ajax({
+         type:"post",
+   url: "one_notify_regis_ajax.php",
+  
+   data: {usernom:usernom},
+   success: function( data ) {
+  console.log("regis success:" + data);
+   },
+   async:true,
+   cache: false
+})
+
+};
 		
 		
     
